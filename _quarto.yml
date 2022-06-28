@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+  
+
+website:
+  title: "2022-07-04-R-workshop"
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - section: "Home"
+        contents:
+        - index.qmd
+      - section: "Introduction"
+        contents:
+        - about.qmd
+        - before-we-start.Rmd
+      - section: "Starting with R"
+        contents:
+        - 01-intro-to-r.Rmd
+        - 02-starting-with-data.Rmd
+        - 03-dplyr.Rmd
+      - section: "Visualisation"
+        contents:
+        - 04-visualization-ggplot2.Rmd
+      # - 05-r-and-databases.Rmd
+execute: 
+  cache: true
+  eval: true
+
+format:
+  html:
+    theme: lumen
+    css: styles.css
+    toc: true
+    number-sections: true
+    code-link: true
+
+
+
