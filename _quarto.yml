@@ -4,10 +4,15 @@ project:
   
 
 website:
-  title: "2022-07-04-R-workshop"
+  title: "CAB R Workshop"
   sidebar:
     style: floating
     search: true
+    tools:
+      - icon: twitter
+        href: https://twitter.com/bradyajohnston
+      - icon: github
+        href: https://github.com/BradyAJohnston/2022-07-04-R-workshop/
     contents:
       - section: "Home"
         contents:
@@ -34,7 +39,6 @@ format:
     theme: lumen
     css: styles.css
     toc: true
-    number-sections: true
     code-link: true
 
 
