@@ -1,5 +1,6 @@
 project:
   type: website
+  lib-dir: libs
   output-dir: docs
   
 
@@ -7,16 +8,17 @@ website:
   title: "CAB R Workshop"
   sidebar:
     style: floating
-    search: true
     tools:
       - icon: twitter
         href: https://twitter.com/bradyajohnston
       - icon: github
         href: https://github.com/BradyAJohnston/2022-07-04-R-workshop/
+    search: true
     contents:
       - section: "Home"
         contents:
-        - index.qmd
+        - index.Rmd
+        - CONDUCT.Rmd
       - section: "Introduction"
         contents:
         - about.qmd
@@ -31,12 +33,11 @@ website:
         - 04-visualization-ggplot2.Rmd
       # - 05-r-and-databases.Rmd
 execute: 
-  cache: true
-  eval: true
+  freeze: false
 
 format:
   html:
-    theme: lumen
+    theme: cosmo
     css: styles.css
     toc: true
     code-link: true

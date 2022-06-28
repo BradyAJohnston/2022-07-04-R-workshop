@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.598">
+<meta name="generator" content="quarto-0.9.626">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Data Carpentry contributors">
 <title>CAB R Workshop - Before we start</title>
@@ -78,22 +78,22 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
+<script src="libs/quarto-nav/quarto-nav.js"></script>
+<script src="libs/quarto-nav/headroom.min.js"></script>
+<script src="libs/clipboard/clipboard.min.js"></script>
+<script src="libs/quarto-search/autocomplete.umd.js"></script>
+<script src="libs/quarto-search/fuse.min.js"></script>
+<script src="libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<script src="libs/quarto-html/quarto.js"></script>
+<script src="libs/quarto-html/popper.min.js"></script>
+<script src="libs/quarto-html/tippy.umd.min.js"></script>
+<script src="libs/quarto-html/anchor.min.js"></script>
+<link href="libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<link href="libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -150,7 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">2022-07-04-R-workshop</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Data Analysis and Visualization in R for Ecologists</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CONDUCT.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
   </div>
 </li>
     </ul>
@@ -278,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><div class="cell" data-hash="before-we-start_cache/html/unnamed-chunk-1_6590bd040ea8dc491bbdb4f6ff9edb5d">
+</header><div class="cell">
 
 </div>
 <hr>
@@ -370,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We are going to keep the script in the root of our working directory because we are only going to use one file. Later, when you start create more complex projects, it might make sense to organize scripts in sub-directories.</p>
 <p>Your working directory should now look like this:</p>
-<div class="cell" data-layout-align="center" data-hash="before-we-start_cache/html/unnamed-chunk-2_96917c84110ef08f962406c1e3bf162c">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/r-starting-how-it-should-look-like.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -432,56 +437,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Reduce what does not work to a simple <em>reproducible example</em>. For instance, instead of using your real data set, create a small generic one. For more information on how to write a reproducible example see <a href="https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html">this article from the reprex package</a>. Learning how to use the <a href="https://cran.r-project.org/package=reprex">reprex</a> package is also very helpful for this.</p></li>
 <li><p>Include the output of <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code> in your question. It provides information about your platform, the versions of R and the packages that you are using. As an example, here you can see the versions of R and all the packages that we are using to run the code in this lesson:</p></li>
 </ul>
-<div class="cell" data-hash="before-we-start_cache/html/unnamed-chunk-3_52c844987c771ed9ed7feec1dda0748c">
+<div class="cell">
 
 </div>
-<div class="cell" data-hash="before-we-start_cache/html/unnamed-chunk-4_ef13b417ccf2346ede91430a7c7e745f">
+<div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.0 (2022-04-22)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur/Monterey 10.16
-
-Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] RSQLite_2.2.14  forcats_0.5.1   stringr_1.4.0   dplyr_1.0.9    
- [5] purrr_0.3.4     readr_2.1.2     tidyr_1.2.0     tibble_3.1.7   
- [9] ggplot2_3.3.6   tidyverse_1.3.1 knitr_1.39     
-
-loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8.3     lubridate_1.8.0  assertthat_0.2.1 digest_0.6.29   
- [5] utf8_1.2.2       R6_2.5.1         cellranger_1.1.0 backports_1.4.1 
- [9] reprex_2.0.1     evaluate_0.15    httr_1.4.3       pillar_1.7.0    
-[13] rlang_1.0.2      readxl_1.4.0     rstudioapi_0.13  blob_1.2.3      
-[17] rmarkdown_2.14   bit_4.0.4        munsell_0.5.0    broom_0.8.0     
-[21] compiler_4.2.0   modelr_0.1.8     xfun_0.31        pkgconfig_2.0.3 
-[25] htmltools_0.5.2  tidyselect_1.1.2 codetools_0.2-18 fansi_1.0.3     
-[29] crayon_1.5.1     tzdb_0.3.0       dbplyr_2.2.1     withr_2.5.0     
-[33] grid_4.2.0       jsonlite_1.8.0   gtable_0.3.0     lifecycle_1.0.1 
-[37] DBI_1.1.3        magrittr_2.0.3   scales_1.2.0     cli_3.3.0       
-[41] stringi_1.7.6    cachem_1.0.6     fs_1.5.2         xml2_1.3.3      
-[45] ellipsis_0.3.2   generics_0.1.2   vctrs_0.4.1      tools_4.2.0     
-[49] bit64_4.0.5      glue_1.6.2       hms_1.1.1        fastmap_1.1.0   
-[53] yaml_2.3.5       colorspace_2.0-3 rvest_1.0.2      memoise_2.0.1   
-[57] haven_2.5.0     </code></pre>
+<pre><code>#&gt; R version 4.2.0 (2022-04-22)
+#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)
+#&gt; Running under: macOS Big Sur/Monterey 10.16
+#&gt; 
+#&gt; Matrix products: default
+#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
+#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
+#&gt; 
+#&gt; locale:
+#&gt; [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
+#&gt; 
+#&gt; other attached packages:
+#&gt;  [1] RSQLite_2.2.14  forcats_0.5.1   stringr_1.4.0   dplyr_1.0.9    
+#&gt;  [5] purrr_0.3.4     readr_2.1.2     tidyr_1.2.0     tibble_3.1.7   
+#&gt;  [9] ggplot2_3.3.6   tidyverse_1.3.1 knitr_1.39     
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;  [1] tidyselect_1.1.2 xfun_0.31        haven_2.5.0      colorspace_2.0-3
+#&gt;  [5] vctrs_0.4.1      generics_0.1.2   htmltools_0.5.2  yaml_2.3.5      
+#&gt;  [9] blob_1.2.3       utf8_1.2.2       rlang_1.0.2      pillar_1.7.0    
+#&gt; [13] glue_1.6.2       withr_2.5.0      DBI_1.1.3        bit64_4.0.5     
+#&gt; [17] dbplyr_2.2.1     modelr_0.1.8     readxl_1.4.0     lifecycle_1.0.1 
+#&gt; [21] munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0 rvest_1.0.2     
+#&gt; [25] memoise_2.0.1    evaluate_0.15    tzdb_0.3.0       fastmap_1.1.0   
+#&gt; [29] fansi_1.0.3      Rcpp_1.0.8.3     broom_0.8.0      backports_1.4.1 
+#&gt; [33] scales_1.2.0     cachem_1.0.6     jsonlite_1.8.0   bit_4.0.4       
+#&gt; [37] fs_1.5.2         hms_1.1.1        digest_0.6.29    stringi_1.7.6   
+#&gt; [41] grid_4.2.0       cli_3.3.0        tools_4.2.0      magrittr_2.0.3  
+#&gt; [45] crayon_1.5.1     pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.3      
+#&gt; [49] reprex_2.0.1     lubridate_1.8.0  rstudioapi_0.13  assertthat_0.2.1
+#&gt; [53] rmarkdown_2.14   httr_1.4.3       R6_2.5.1         compiler_4.2.0</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="before-we-start_cache/html/unnamed-chunk-5_33458bddd4bbfc3625eb8f28f241064d">
+<div class="cell">
 
 </div>
 </section></section><section id="how-to-learn-more-after-the-workshop" class="level2"><h2 class="anchored" data-anchor-id="how-to-learn-more-after-the-workshop">How to learn more after the workshop?</h2>
 <p>The material we cover during this workshop will give you a taste of how you can use R to analyze data for your own research. However, to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics you will need to learn more.</p>
 <p>The best way to become proficient and efficient at R, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might get first hands-on experience using R for your own work and help you become comfortable eventually creating your own scripts.</p>
-<div class="cell" data-layout-align="center" data-hash="before-we-start_cache/html/kitten-img_9e78df5d287b0d210d574b438d645fc6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/kitten-try-things.jpg" class="img-fluid figure-img" width="400"></p>
@@ -502,7 +506,7 @@ loaded via a namespace (and not attached):
 <a href="https://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html">blog.Revolutionanalytics.com</a> and <a href="https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/">this blog post by Jon Skeet</a> have comprehensive advice on how to ask programming questions.</li>
 </ul>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-28 ‒ 🕢 12:35:33
+Page built on: 📆 2022-06-28 ‒ 🕢 15:49:46
 </p>
 
 

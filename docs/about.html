@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CAB R Workshop – reference</title>
+<title>CAB R Workshop - About</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <h1 class="quarto-secondary-nav-title">About</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -121,7 +121,7 @@ ul.task-list{list-style: none;}
     <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="./about.html" class="sidebar-item-text sidebar-link active">About</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,133 +176,30 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#lesson-1-introduction-to-r" id="toc-lesson-1-introduction-to-r" class="nav-link active" data-scroll-target="#lesson-1-introduction-to-r">Lesson 1 – Introduction to R</a></li>
-  <li><a href="#lesson-2-starting-with-data" id="toc-lesson-2-starting-with-data" class="nav-link" data-scroll-target="#lesson-2-starting-with-data">Lesson 2 – Starting with data</a></li>
-  <li><a href="#lesson-3-manipulating-analyzing-and-exporting-data-with-tidyverse" id="toc-lesson-3-manipulating-analyzing-and-exporting-data-with-tidyverse" class="nav-link" data-scroll-target="#lesson-3-manipulating-analyzing-and-exporting-data-with-tidyverse">Lesson 3 – Manipulating, analyzing and exporting data with tidyverse</a></li>
-  <li><a href="#lesson-4-data-visualization-with-ggplot2" id="toc-lesson-4-data-visualization-with-ggplot2" class="nav-link" data-scroll-target="#lesson-4-data-visualization-with-ggplot2">Lesson 4 – Data visualization with ggplot2</a></li>
-  <li><a href="#lesson-5-sql-databases-and-r" id="toc-lesson-5-sql-databases-and-r" class="nav-link" data-scroll-target="#lesson-5-sql-databases-and-r">Lesson 5 – SQL databases and R</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">About</h1>
+</div>
 
 
-<p>Cheat sheet of functions used in the lessons</p>
-<section id="lesson-1-introduction-to-r" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-1-introduction-to-r">Lesson 1 – Introduction to R</h2>
-<ul>
-<li><code>sqrt()</code> # calculate the square root</li>
-<li><code>round()</code> # round a number</li>
-<li><code>args()</code> # find what arguments a function takes</li>
-<li><code>length()</code> # how many elements are in a particular vector</li>
-<li><code>class()</code> # the class (the type of element) of an object</li>
-<li><code>str()</code> # an overview of the object and the elements it contains</li>
-<li><code>c()</code> # create vector; add elements to vector</li>
-<li><code>[  ]</code> # extract and subset vector</li>
-<li><code>%in%</code> # to test if a value is found in a vector</li>
-<li><code>is.na()</code> # test if there are missing values</li>
-<li><code>na.omit()</code> # Returns the object with incomplete cases removed</li>
-<li><code>complete.cases()</code># elements which are complete cases</li>
-</ul>
-</section>
-<section id="lesson-2-starting-with-data" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-2-starting-with-data">Lesson 2 – Starting with data</h2>
-<ul>
-<li><code>download.file()</code> # download files from the internet to your computer</li>
-<li><code>read_csv()</code> # load CSV file into R memory</li>
-<li><code>head()</code> # shows the first 6 rows</li>
-<li><code>view()</code> # invoke a spreadsheet-style data viewer</li>
-<li><code>read_delim()</code> # load a file in table format into R memory</li>
-<li><code>str()</code> # check structure of the object and information about the class, length and content of each column</li>
-<li><code>dim()</code> # check dimension of data frame</li>
-<li><code>nrow()</code> # returns the number of rows</li>
-<li><code>ncol()</code> # returns the number of columns</li>
-<li><code>tail()</code> # shows the last 6 rows</li>
-<li><code>names()</code> # returns the column names (synonym of colnames() for data frame objects)</li>
-<li><code>rownames()</code> # returns the row names</li>
-<li><code>summary()</code> # summary statistics for each column</li>
-<li><code>factor()</code> # create factors</li>
-<li><code>levels()</code> # check levels of a factor</li>
-<li><code>nlevels()</code> # check number of levels of a factor</li>
-<li><code>as.character()</code> # convert an object to a character vector</li>
-<li><code>as.numeric()</code> # convert an object to a numeric vector</li>
-<li><code>as.numeric(as.character(x))</code> # convert factors where the levels appear as characters to a numeric vector</li>
-<li><code>as.numeric(levels(x))[x]</code> # convert factors where the levels appear as numbers to a numeric vector</li>
-<li><code>plot()</code> # plot an object</li>
-<li><code>addNA()</code> # convert NA into a factor level</li>
-<li><code>data.frame()</code> # create a data.frame object</li>
-<li><code>ymd()</code> # convert a vector representing year, month, and day to a Date vector</li>
-<li><code>paste()</code> # concatenate vectors after converting to character</li>
-</ul>
-</section>
-<section id="lesson-3-manipulating-analyzing-and-exporting-data-with-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-3-manipulating-analyzing-and-exporting-data-with-tidyverse">Lesson 3 – Manipulating, analyzing and exporting data with tidyverse</h2>
-<ul>
-<li><code>str()</code> # check structure of the object and information about the class, length and content of each column</li>
-<li><code>view()</code> # invoke a spreadsheet-style data viewer</li>
-<li><code>select()</code> # select columns of a data frame</li>
-<li><code>filter()</code> # allows you to select a subset of rows in a data frame</li>
-<li><code>%&gt;%</code> # pipes to select and filter at the same time</li>
-<li><code>mutate()</code> # create new columns based on the values in existing columns</li>
-<li><code>head()</code> # shows the first 6 rows</li>
-<li><code>group_by()</code> # split the data into groups, apply some analysis to each group, and then combine the results.</li>
-<li><code>summarize()</code> # collapses each group into a single-row summary of that group</li>
-<li><code>mean()</code> # calculate the mean value of a vector<br>
-</li>
-<li><code>!is.na()</code> # test if there are no missing values</li>
-<li><code>print()</code> # print values to the console</li>
-<li><code>min()</code> # return the minimum value of a vector</li>
-<li><code>arrange()</code> # arrange rows by variables</li>
-<li><code>desc()</code> # transform a vector into a format that will be sorted in descending order</li>
-<li><code>count()</code> # counts the total number of records for each category</li>
-<li><code>spread()</code> # reshape a data frame by a key-value pair across multiple columns</li>
-<li><code>gather()</code> # reshape a data frame by collapsing into a key-value pair</li>
-<li><code>n_distinct()</code> # get a count of unique values</li>
-<li><code>write_csv()</code> # save to a csv formatted file</li>
-</ul>
-</section>
-<section id="lesson-4-data-visualization-with-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-4-data-visualization-with-ggplot2">Lesson 4 – Data visualization with ggplot2</h2>
-<ul>
-<li><code>read_csv()</code> # load a csv formatted file into R memory</li>
-<li><code>ggplot2(data= , aes(x= , y= )) + geom_point( ) + facet_wrap () + theme_bw() + theme()</code></li>
-<li><code>aes()</code> # by selecting the variables to be plotted and the variables to define the presentation such as plotting size, shape color, etc.</li>
-<li><code>geom_</code> # graphical representation of the data in the plot (points, lines, bars). To add a geom to the plot use + operator</li>
-<li><code>facet_wrap()</code> # allows to split one plot into multiple plots based on a factor included in the dataset</li>
-<li><code>labs()</code> # set labels to plot</li>
-<li><code>theme_bw()</code> # set the background to white</li>
-<li><code>theme()</code> # used to locally modify one or more theme elements in a specific ggplot object</li>
-<li><code>+</code> # arrange ggplots horizontally</li>
-<li><code>/</code> # arrange ggplots vertically</li>
-<li><code>plot_layout()</code> # set width and height of individual plots in a patchwork of plots</li>
-<li><code>ggsave()</code> # save a ggplot</li>
-</ul>
-</section>
-<section id="lesson-5-sql-databases-and-r" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-5-sql-databases-and-r">Lesson 5 – SQL databases and R</h2>
-<ul>
-<li><code>dir.create()</code> # create a directory</li>
-<li><code>download.file()</code> # download files from the internet to your computer</li>
-<li><code>dbConnect()</code> # create a connection to a database</li>
-<li><code>SQLite()</code> # connect to a SQLite database</li>
-<li><code>src_dbi()</code> # connect dplyr to a DBI-compatible database file</li>
-<li><code>tbl</code> # connect to a table within a database</li>
-<li><code>sql()</code> # combine character vectors into a single SQL expression</li>
-<li><code>show_query()</code> # show which SQL commands are sent to the database</li>
-<li><code>collect()</code> # retrieve all the results from the database</li>
-<li><code>inner_join()</code> # perform an inner join between two tables</li>
-<li><code>src_sqlite()</code> # connect dplyr to a SQLite database file</li>
-<li><code>copy_to()</code> # copy a data frame as a table into a database</li>
-</ul>
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>About this site</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
