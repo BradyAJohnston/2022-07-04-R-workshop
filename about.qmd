@@ -1,5 +1,38 @@
 ---
-title: "About"
+title: "Instructor"
 ---
 
-About this site
+![4 days into a 7 day hike through the Overland Track in Tasmania.](images/CleanShot%202022-06-28%20at%2016.51.41.png){fig-alt="A photo of Brady with a hiking back pack, taking a short rest standing in front of a tree." fig-align="center" width="637"}
+
+### Brady Johnston
+
+-   Currently writing PhD thesis (almost there...) in Structural Biology and Biophysics
+
+-   Part-time data scientist with the Minderoo Foundation
+
+I'm a self-taught coder, first learning R to do data analysis for my PhD and now regularly write Python & Julia code for various projects, and I get paid to write R code for the Minderoo foundation.
+
+I've written multiple R packages, and also released
+
+-   📹 I run a [youtube channel](https://youtube.com/c/bradyjohnston) teaching other biochemists 3D modelling in Blender
+
+    ![YouTube Views Counters](https://img.shields.io/endpoint?color=%2523ff5050&label=Views&style=flat&url=https%253A%252F%252Fyoutube-channel-badge-bradyajohnston.vercel.app%252Fapi%252Fviews) ![Youtube Subscriber Count](https://img.shields.io/endpoint?color=%2523ff5050&label=Subscribers&flat&url=https%253A%252F%252Fyoutube-channel-badge-bradyajohnston.vercel.app%252Fapi%252Fsubscriber)
+
+-   🐤 Reach me on [twitter](https://twitter.com/bradyajohnston) or my [website](https://bradyajohnston.github.io).
+
+Checkout the pacakges I've Made:
+
+-   [{r3dmol}](https://github.com/swsoyee/r3dmol) - 🧬 An R package for visualizing molecular data in 3D
+
+[![CRAN status](https://www.r-pkg.org/badges/version/r3dmol)](https://CRAN.R-project.org/package=r3dmol) [![Metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/r3dmol)](https://cran.r-project.org/package=r3dmol)
+
+-   [{figpatch}](https://github.com/bradyajohnston/figpatch) - 🏞 An R package for including images in assembled [{patchwork}](https://github.com/thomasp85/patchwork/) plots.
+
+[![CRAN status](https://www.r-pkg.org/badges/version/figpatch)](https://CRAN.R-project.org/package=figpatch) [![Metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/figpatch)](https://cran.r-project.org/package=figpatch)
+
+-   [Molecular Nodes](https://github.com/BradyAJohnston/MolecularNodes) - A plugin for quickly importing [`.pdb`](https://www.rcsb.org/) and other structure files into Blender for visualisation of structures and molecular dynamics trajectories.<br><br> <img src="https://github.com/BradyAJohnston/MolecularNodes/blob/main/img/atp-animation-demo.gif" height="400"/>
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have now added support for importing full-blown MD topology &amp; trajectory files, from the likes of GROMACS &amp; CHARMM straight into <a href="https://twitter.com/hashtag/blender3d?src=hash&amp;ref_src=twsrc%5Etfw">#blender3d</a>! <br><br>Along with a few other UI &amp; under-the-hood improvements, download v0.5.15 now!<a href="https://t.co/qcu3MWGOUc">https://t.co/qcu3MWGOUc</a><a href="https://twitter.com/hashtag/geometrynodes?src=hash&amp;ref_src=twsrc%5Etfw">#geometrynodes</a> <a href="https://twitter.com/hashtag/3d?src=hash&amp;ref_src=twsrc%5Etfw">#3d</a> <a href="https://t.co/ybXc8suIyC">pic.twitter.com/ybXc8suIyC</a></p>&mdash; Brady Johnston (@bradyajohnston) <a href="https://twitter.com/bradyajohnston/status/1528540839776903168?ref_src=twsrc%5Etfw">May 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have managed to create a <a href="https://twitter.com/hashtag/blender3d?src=hash&amp;ref_src=twsrc%5Etfw">#blender3d</a> plugin for quickly and easily getting structural biology data into <a href="https://twitter.com/hashtag/blender?src=hash&amp;ref_src=twsrc%5Etfw">#blender</a>! It supports models and MD trajectories, and once you have the atoms inside of <a href="https://twitter.com/hashtag/geometrynodes?src=hash&amp;ref_src=twsrc%5Etfw">#geometrynodes</a>, you can creative!<br><br>Check it out: <a href="https://t.co/wRSjIeUhcR">https://t.co/wRSjIeUhcR</a> <a href="https://t.co/NwPjA7OE5o">pic.twitter.com/NwPjA7OE5o</a></p>&mdash; Brady Johnston (@bradyajohnston) <a href="https://twitter.com/bradyajohnston/status/1519116778181328896?ref_src=twsrc%5Etfw">April 27, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 

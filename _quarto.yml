@@ -5,7 +5,7 @@ project:
   
 
 website:
-  title: "CAB R Workshop"
+  title: "Centre for Applied Bioinformatics R Workshop"
   sidebar:
     style: floating
     tools:
@@ -13,16 +13,17 @@ website:
         href: https://twitter.com/bradyajohnston
       - icon: github
         href: https://github.com/BradyAJohnston/2022-07-04-R-workshop/
+      - icon: file-earmark-arrow-down
+        href: code-handout.R
     search: true
     contents:
-      - section: "Home"
+      - section: "Workshop Details"
         contents:
         - index.Rmd
-        - CONDUCT.Rmd
-      - section: "Introduction"
-        contents:
-        - about.qmd
         - before-we-start.Rmd
+        - about.qmd
+        - text: Code of Conduct
+          href: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
       - section: "Starting with R"
         contents:
         - 01-intro-to-r.Rmd
@@ -33,7 +34,7 @@ website:
         - 04-visualization-ggplot2.Rmd
       # - 05-r-and-databases.Rmd
 execute: 
-  freeze: false
+  freeze: auto
 
 format:
   html:
