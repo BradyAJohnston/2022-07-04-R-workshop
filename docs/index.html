@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.626">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="François Michonneau &amp; Auriel Fournier (Lesson Maintainers)">
+<meta name="author" content="Brady Johnston">
 <title>Centre for Applied Bioinformatics R Workshop - Required Software</title>
 <style>
 code{white-space: pre-wrap;}
@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>François Michonneau &amp; Auriel Fournier (Lesson Maintainers) </p>
+             <p>Brady Johnston </p>
           </div>
   </div>
     
@@ -317,13 +317,13 @@ UWA Laptop Users
 <section id="solution" class="level4"><h4 class="anchored" data-anchor-id="solution">Solution:</h4>
 <p>You will need to create a folder for installing packages that will be kept only on your local machine, potentially just the desktop or another <em>non-network</em> folder.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston\Desktop\R\win-library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\bradyjohnston\Desktop\R\win<span class="sc">-</span>library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston\R\win-library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\bradyjohnston\R\win<span class="sc">-</span>library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then create a file called <code>.Renviron</code> in your home directory, for me it would be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston</span><span class="dt">\</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\bradyjohnston\</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Inside of this file, include a single line that specifies the folder you created where you wish to install your packages:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">R_LIBS_USER</span><span class="op">=</span>C:<span class="dt">\U</span>sers<span class="dt">\b</span>radyjohnston<span class="dt">\D</span>esktop<span class="dt">\R\w</span>in-library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>R_LIBS_USER<span class="ot">=</span>C<span class="sc">:</span>\Users\bradyjohnston\Desktop\R\win<span class="sc">-</span>library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This should enable quick install of packages.</p>
 </section>
 </div>
@@ -381,7 +381,7 @@ UWA Laptop Users
 </section></section><section id="contributors" class="level2"><h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
 <p>The list of contributors to this lesson is available <a href="https://datacarpentry.org/R-ecology-lesson/CITATION">here</a>.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-29 ‒ 🕢 15:33:26
+Page built on: 📆 2022-06-29 ‒ 🕢 15:36:43
 </p>
 
 

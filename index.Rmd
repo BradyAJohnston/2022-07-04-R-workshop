@@ -1,6 +1,6 @@
 ---
 title: "Required Software"
-author: François Michonneau & Auriel Fournier (Lesson Maintainers)
+author: Brady Johnston
 editor_options: 
   markdown: 
     wrap: 72
@@ -98,27 +98,27 @@ kept only on your local machine, potentially just the desktop or another
 
 For example:
 
-``` bash
+``` r
 C:\Users\bradyjohnston\Desktop\R\win-library
 ```
 
 or
 
-``` bash
+``` r
 C:\Users\bradyjohnston\R\win-library
 ```
 
 Then create a file called `.Renviron` in your home directory, for me it
 would be:
 
-``` bash
+``` r
 C:\Users\bradyjohnston\
 ```
 
 Inside of this file, include a single line that specifies the folder you
 created where you wish to install your packages:
 
-``` bash
+``` r
 R_LIBS_USER=C:\Users\bradyjohnston\Desktop\R\win-library
 ```
 
