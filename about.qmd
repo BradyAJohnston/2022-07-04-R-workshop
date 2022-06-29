@@ -5,6 +5,13 @@ title: "Instructor"
 ![4 days into a 7 day hike through the Overland Track in Tasmania.](images/CleanShot%202022-06-28%20at%2016.51.41.png){fig-alt="A photo of Brady with a hiking back pack, taking a short rest standing in front of a tree." fig-align="center" width="637"}
 
 ### Brady Johnston
+This is some regular text.
+
+:::{.blockquote}
+Is this some quoted text??
+:::
+
+This is some more text.
 
 -   Currently writing PhD thesis (almost there...) in Structural Biology and Biophysics
 

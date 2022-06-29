@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Workshop Setup</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Required Software</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,22 +217,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#creating-objects-in-r" id="toc-creating-objects-in-r" class="nav-link active" data-scroll-target="#creating-objects-in-r">Creating objects in R</a>
+<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li>
+<a href="#creating-objects-in-r" id="toc-creating-objects-in-r" class="nav-link" data-scroll-target="#creating-objects-in-r">Creating objects in R</a>
   <ul class="collapse">
-<li><a href="#saving-your-code" id="toc-saving-your-code" class="nav-link" data-scroll-target="#saving-your-code">Saving your code</a></li>
+<li><a href="#objects-vs.-variables" id="toc-objects-vs.-variables" class="nav-link" data-scroll-target="#objects-vs.-variables">Objects vs.&nbsp;variables</a></li>
+  <li><a href="#saving-your-code" id="toc-saving-your-code" class="nav-link" data-scroll-target="#saving-your-code">Saving your code</a></li>
   <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
   <li><a href="#functions-and-their-arguments" id="toc-functions-and-their-arguments" class="nav-link" data-scroll-target="#functions-and-their-arguments">Functions and their arguments</a></li>
   </ul>
 </li>
-  <li><a href="#vectors-and-data-types" id="toc-vectors-and-data-types" class="nav-link" data-scroll-target="#vectors-and-data-types">Vectors and data types</a></li>
+  <li>
+<a href="#vectors-and-data-types" id="toc-vectors-and-data-types" class="nav-link" data-scroll-target="#vectors-and-data-types">Vectors and data types</a>
+  <ul class="collapse">
+<li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a></li>
+  </ul>
+</li>
   <li>
 <a href="#subsetting-vectors" id="toc-subsetting-vectors" class="nav-link" data-scroll-target="#subsetting-vectors">Subsetting vectors</a>
   <ul class="collapse">
 <li><a href="#conditional-subsetting" id="toc-conditional-subsetting" class="nav-link" data-scroll-target="#conditional-subsetting">Conditional subsetting</a></li>
+  <li><a href="#challenge-optional" id="toc-challenge-optional" class="nav-link" data-scroll-target="#challenge-optional">Challenge (optional)</a></li>
   </ul>
 </li>
-  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  <li>
+<a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a>
+  <ul class="collapse">
+<li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -259,8 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <hr>
-<blockquote class="blockquote">
-<h3 id="learning-objectives" class="anchored">Learning Objectives</h3>
+<section id="learning-objectives" class="level3 blockquote"><h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
 <ul>
 <li>Define the following terms as they relate to R: object, assign, call, function, arguments, options.</li>
 <li>Create objects and assign values to them in R.</li>
@@ -272,9 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Inspect the content of vectors and manipulate their content.</li>
 <li>Subset and extract values from vectors.</li>
 <li>Analyze vectors with missing data.</li>
-</ul>
-</blockquote>
-<hr>
+</ul></section><hr>
 <section id="creating-objects-in-r" class="level2"><h2 class="anchored" data-anchor-id="creating-objects-in-r">Creating objects in R</h2>
 <div class="cell">
 
@@ -300,11 +311,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>It is recommended to use nouns for object names and verbs for function names.</li>
 <li>Be consistent in the styling of your code, such as where you put spaces, how you name objects, etc. Styles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators. In R, three popular style guides come from <a href="https://google.github.io/styleguide/Rguide.xml">Google</a>, <a href="https://jef.works/R-style-guide/">Jean Fan</a> and the <a href="https://style.tidyverse.org/">tidyverse</a>. The tidyverse style is very comprehensive and may seem overwhelming at first. You can install the <a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to automatically check for issues in the styling of your code.</li>
 </ul>
-<blockquote class="blockquote">
-<h3 id="objects-vs.-variables" class="anchored">Objects vs.&nbsp;variables</h3>
+<section id="objects-vs.-variables" class="level3 blockquote"><h3 class="anchored" data-anchor-id="objects-vs.-variables">Objects vs.&nbsp;variables</h3>
 <p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other programming languages. Depending on the context, <code>object</code> and <code>variable</code> can have drastically different meanings. However, in this lesson, the two words are used synonymously. For more information see: https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects</p>
-</blockquote>
-<p>When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
+</section><p>When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">55</span>    <span class="co"># doesn't print anything</span></span>
 <span><span class="op">(</span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">55</span><span class="op">)</span>  <span class="co"># but putting parenthesis around the call prints the value of `weight_kg`</span></span>
@@ -333,8 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Don’t forget to save your work periodically by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
 </section><section id="comments" class="level3"><h3 class="anchored" data-anchor-id="comments">Comments</h3>
 <p>The comment character in R is <code>#</code>. Anything to the right of a <code>#</code> in a script will be ignored by R. It is useful to leave notes and explanations in your scripts. For convenience, RStudio provides a keyboard shortcut to comment or uncomment a paragraph: after selecting the lines you want to comment, press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment out one line, you can put the cursor at any location of that line (i.e.&nbsp;no need to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
-<blockquote class="blockquote">
-<h3 id="challenge" class="anchored">Challenge</h3>
+</section><section id="challenge" class="level3 blockquote"><h3 class="anchored" data-anchor-id="challenge">Challenge</h3>
 <p>What are the values after each statement in the following?</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mass</span> <span class="op">&lt;-</span> <span class="fl">47.5</span>            <span class="co"># mass?</span></span>
@@ -343,11 +351,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">age</span>  <span class="op">&lt;-</span> <span class="va">age</span> <span class="op">-</span> <span class="fl">20</span>        <span class="co"># age?</span></span>
 <span><span class="va">mass_index</span> <span class="op">&lt;-</span> <span class="va">mass</span><span class="op">/</span><span class="va">age</span>  <span class="co"># mass_index?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</blockquote>
-<div class="cell">
+</section><div class="cell">
 
 </div>
-</section><section id="functions-and-their-arguments" class="level3"><h3 class="anchored" data-anchor-id="functions-and-their-arguments">Functions and their arguments</h3>
+<section id="functions-and-their-arguments" class="level3"><h3 class="anchored" data-anchor-id="functions-and-their-arguments">Functions and their arguments</h3>
 <p>Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually takes one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>. A typical example would be the function <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code>. The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called <em>calling</em> the function. An example of a function call is:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -446,24 +453,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>You can check the type of your vector using the <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function and inputting your vector as the argument.</p>
 <p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
-<blockquote class="blockquote">
-<h3 id="challenge-1" class="anchored">Challenge</h3>
+<section id="challenge-1" class="level3 blockquote"><h3 class="anchored" data-anchor-id="challenge-1">Challenge</h3>
 <ul>
 <li>We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?</li>
 </ul>
-::: {.cell}
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<p>
-R implicitly converts them to all be the same type
-</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>R implicitly converts them to all be the same type</p>
 </div>
 </div>
-
-<p>:::</p>
+</div>
 <ul>
 <li>
 <p>What will happen in each of these examples? (hint: use <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> to check the data type of your objects):</p>
@@ -474,56 +483,62 @@ R implicitly converts them to all be the same type
 </li>
 <li><p>Why do you think it happens?</p></li>
 </ul>
-::: {.cell}
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<p>
-Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a “common denominator” that doesn’t lose any information.
-</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a “common denominator” that doesn’t lose any information.</p>
 </div>
 </div>
-
-<p>:::</p>
+</div>
 <ul>
-<li>
-<p>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in the following example (reusing the 2 <code>..._logical</code>s from above):</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">combined_logical</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">num_logical</span>, <span class="va">char_logical</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</li>
+<li>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in the following example (reusing the 2 <code>..._logical</code>s from above):</li>
 </ul>
-::: {.cell}
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">combined_logical</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">num_logical</span>, <span class="va">char_logical</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<p>
-Only one. There is no memory of past data types, and the coercion happens the first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted into <code>"1"</code> in <code>combined_logical</code>.
-</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Only one. There is no memory of past data types, and the coercion happens the first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted into <code>"1"</code> in <code>combined_logical</code>.</p>
 </div>
 </div>
-
-<p>:::</p>
+</div>
 <ul>
 <li>You’ve probably noticed that objects of different types get converted into a single, shared type within a vector. In R, we call converting objects from one class into another class <em>coercion</em>. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?</li>
 </ul>
-::: {.cell}
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<p>
-logical → numeric → character ← logical
-</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>logical → numeric → character ← logical</p>
 </div>
 </div>
-
-<p>:::</p>
-</blockquote>
-<div class="cell">
+</div>
+</section><div class="cell">
 
 </div>
 </section><section id="subsetting-vectors" class="level2"><h2 class="anchored" data-anchor-id="subsetting-vectors">Subsetting vectors</h2>
@@ -607,25 +622,26 @@ logical → numeric → character ← logical
 <pre><code>#&gt; [1] "rat" "dog" "cat" "cat"</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-optional" class="challenge anchored">Challenge (optional)</h3>
+</section><section id="challenge-optional" class="level3 challenge blockquote"><h3 class="challenge anchored" data-anchor-id="challenge-optional">Challenge (optional)</h3>
 <ul>
 <li>Can you figure out why <code>"four" &gt; "five"</code> returns <code>TRUE</code>?</li>
 </ul>
-::: {.cell}
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<p>
-When using “&gt;” or “&lt;” on strings, R compares their alphabetical order. Here “four” comes after “five”, and therefore is “greater than” it.
-</p>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When using “&gt;” or “&lt;” on strings, R compares their alphabetical order. Here “four” comes after “five”, and therefore is “greater than” it.</p>
 </div>
 </div>
-
-<p>:::</p>
-</blockquote>
+</div>
 <div class="cell">
 
 </div>
@@ -653,8 +669,7 @@ When using “&gt;” or “&lt;” on strings, R compares their alphabetical or
 <span><span class="va">heights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Recall that you can use the <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function to find the type of your atomic vector.</p>
-<blockquote class="blockquote">
-<h3 id="challenge-2" class="anchored">Challenge</h3>
+<section id="challenge-2" class="level3 blockquote"><h3 class="anchored" data-anchor-id="challenge-2">Challenge</h3>
 <ol type="1">
 <li>
 <p>Using this vector of heights in inches, create a new vector, <code>heights_no_na</code>, with the NAs removed.</p>
@@ -663,12 +678,19 @@ When using “&gt;” or “&lt;” on strings, R compares their alphabetical or
 <li><p>Use the function <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> to calculate the median of the <code>heights</code> vector.</p></li>
 <li><p>Use R to figure out how many people in the set are taller than 67 inches.</p></li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">heights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">63</span>, <span class="fl">69</span>, <span class="fl">60</span>, <span class="fl">65</span>, <span class="cn">NA</span>, <span class="fl">68</span>, <span class="fl">61</span>, <span class="fl">70</span>, <span class="fl">61</span>, <span class="fl">59</span>, <span class="fl">64</span>, <span class="fl">69</span>, <span class="fl">63</span>, <span class="fl">63</span>, <span class="cn">NA</span>, <span class="fl">72</span>, <span class="fl">65</span>, <span class="fl">64</span>, <span class="fl">70</span>, <span class="fl">63</span>, <span class="fl">65</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 1.</span></span>
@@ -687,13 +709,13 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
-<div class="cell">
+</div>
+</section><div class="cell">
 
 </div>
 <p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with the Portal dataset we have been using in the other lessons, and learn about data frames.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-28 ‒ 🕢 17:22:46
+Page built on: 📆 2022-06-29 ‒ 🕢 14:53:11
 </p>
 
 

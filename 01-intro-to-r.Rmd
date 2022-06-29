@@ -11,20 +11,22 @@ source("setup.R")
 
 ------------
 
-> ### Learning Objectives
->
-> * Define the following terms as they relate to R: object, assign, call,
->   function, arguments, options.
-> * Create objects and assign values to them  in R.
-> * Learn how to _name_ objects.
-> * Save a script file for later use.
-> * Use comments to inform script.
-> * Solve simple arithmetic operations in R.
-> * Call functions and use arguments to change their default options.
-> * Inspect the content of vectors and manipulate their content.
-> * Subset and extract values from vectors.
-> * Analyze vectors with missing data.
+:::{.blockquote}
+### Learning Objectives
 
+  * Define the following terms as they relate to R: object, assign, call,
+    function, arguments, options.
+  * Create objects and assign values to them  in R.
+  * Learn how to _name_ objects.
+  * Save a script file for later use.
+  * Use comments to inform script.
+  * Solve simple arithmetic operations in R.
+  * Call functions and use arguments to change their default options.
+  * Inspect the content of vectors and manipulate their content.
+  * Subset and extract values from vectors.
+  * Analyze vectors with missing data.
+
+:::
 ------------
 
 ## Creating objects in R
@@ -75,13 +77,16 @@ doubt, check the help to see if the name is already in use.
 Fan](https://jef.works/R-style-guide/) and the
 [tidyverse](https://style.tidyverse.org/). The tidyverse style is very comprehensive and may seem overwhelming at first. You can install the [**`lintr`**](https://github.com/jimhester/lintr) package to automatically check for issues in the styling of your code.
 
-> ### Objects vs. variables
->
-> What are known as `objects` in `R` are known as `variables` in many other
-> programming languages. Depending on the context, `object` and `variable` can
-> have drastically different meanings. However, in this lesson, the two words
-> are used synonymously. For more information see:
-> https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects
+:::{.blockquote}
+
+### Objects vs. variables
+
+What are known as `objects` in `R` are known as `variables` in many other
+programming languages. Depending on the context, `object` and `variable` can
+have drastically different meanings. However, in this lesson, the two words
+are used synonymously. For more information see:
+https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects
+:::
 
 
 When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:
@@ -150,17 +155,21 @@ out one line, you can put the cursor at any location of that line (i.e. no need
 to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <kbd>C</kbd>.
 
-> ### Challenge
->
-> What are the values after each statement in the following?
->
-> ```{r, purl = FALSE}
-> mass <- 47.5            # mass?
-> age  <- 122             # age?
-> mass <- mass * 2.0      # mass?
-> age  <- age - 20        # age?
-> mass_index <- mass/age  # mass_index?
-> ```
+:::{.blockquote}
+
+### Challenge
+
+What are the values after each statement in the following?
+
+```{r, purl = FALSE}
+mass <- 47.5            # mass?
+age  <- 122             # age?
+mass <- mass * 2.0      # mass?
+age  <- age - 20        # age?
+mass_index <- mass/age  # mass_index?
+```
+
+:::
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Challenge
@@ -340,61 +349,73 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`),
 factors (`factor`) and arrays (`array`).
 
+:::{.blockquote}
 
-> ### Challenge
->
->
-> * We’ve seen that atomic vectors can be of type character,
->   numeric (or double), integer, and logical. But what happens if we try to mix these types in
->   a single vector?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> R implicitly converts them to all be the same type
-> ```
->
-> * What will happen in each of these examples? (hint: use `class()`
->   to check the data type of your objects):
->
->     ```r
->     num_char <- c(1, 2, 3, "a")
->     num_logical <- c(1, 2, 3, TRUE)
->     char_logical <- c("a", "b", "c", TRUE)
->     tricky <- c(1, 2, 3, "4")
->     ```
->
-> * Why do you think it happens?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> Vectors can be of only one data type. R tries to
-> convert (coerce) the content of this vector to find a "common
-> denominator" that doesn't lose any information.
-> ```
->
-> * How many values in `combined_logical` are `"TRUE"` (as a character) in the
->   following example (reusing the 2 `..._logical`s from above):
->
->     ```r
->     combined_logical <- c(num_logical, char_logical)
->     ```
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> Only one. There is no memory of past data types, and the coercion happens the
-> first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
-> gets converted into a `1` before it gets converted into `"1"` in
-> `combined_logical`.
-> ```
->
-> * You've probably noticed that objects of different types get
->   converted into a single, shared type within a vector. In R, we
->   call converting objects from one class into another class
->   _coercion_. These conversions happen according to a hierarchy,
->   whereby some types get preferentially coerced into other
->   types. Can you draw a diagram that represents the hierarchy of how
->   these data types are coerced?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> logical &#8594; numeric &#8594; character &#8592; logical
-> ```
+### Challenge
+
+* We’ve seen that atomic vectors can be of type character,
+  numeric (or double), integer, and logical. But what happens if we try to mix these types in
+  a single vector?
+
+:::{.callout-tip collapse=true}
+# Answer
+R implicitly converts them to all be the same type
+:::
+
+* What will happen in each of these examples? (hint: use `class()`
+  to check the data type of your objects):
+
+    ```r
+    num_char <- c(1, 2, 3, "a")
+    num_logical <- c(1, 2, 3, TRUE)
+    char_logical <- c("a", "b", "c", TRUE)
+    tricky <- c(1, 2, 3, "4")
+    ```
+
+* Why do you think it happens?
+
+
+
+:::{.callout-tip collapse=true}
+# Answer
+Vectors can be of only one data type. R tries to
+convert (coerce) the content of this vector to find a "common
+denominator" that doesn't lose any information.
+
+:::
+
+* How many values in `combined_logical` are `"TRUE"` (as a character) in the
+  following example (reusing the 2 `..._logical`s from above):
+
+```r
+combined_logical <- c(num_logical, char_logical)
+```
+
+:::{.callout-tip collapse=true}
+# Answer
+
+Only one. There is no memory of past data types, and the coercion happens the
+first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
+gets converted into a `1` before it gets converted into `"1"` in
+`combined_logical`.
+
+:::
+
+* You've probably noticed that objects of different types get
+  converted into a single, shared type within a vector. In R, we
+  call converting objects from one class into another class
+  _coercion_. These conversions happen according to a hierarchy,
+  whereby some types get preferentially coerced into other
+  types. Can you draw a diagram that represents the hierarchy of how
+  these data types are coerced?
+
+:::{.callout-tip collapse=true}
+# Answer
+
+logical &#8594; numeric &#8594; character &#8592; logical
+:::
+
+:::
 
 ```{r, echo = FALSE, eval = FALSE, purl = TRUE}
 ## We’ve seen that atomic vectors can be of type character, numeric, integer, and
@@ -506,14 +527,17 @@ animals %in% c("rat", "cat", "dog", "duck", "goat", "bird", "fish")
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat", "bird", "fish")]
 ```
 
-> ### Challenge (optional){.challenge}
->
-> * Can you figure out why `"four" > "five"` returns `TRUE`?
->
-> ```{text_answer, echo=FALSE, purl=FALSE}
-> When using ">" or "<" on strings, R compares their alphabetical order.
-> Here "four" comes after "five", and therefore is "greater than" it.
-> ```
+:::{.blockquote}
+
+### Challenge (optional){.challenge}
+
+* Can you figure out why `"four" > "five"` returns `TRUE`?
+
+:::{.callout-tip collapse=true}
+# Answer
+When using ">" or "<" on strings, R compares their alphabetical order.
+Here "four" comes after "five", and therefore is "greater than" it.
+:::
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Challenge (optional)
@@ -521,6 +545,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat", "bird", "fish")]
 ## * Can you figure out why `"four" > "five"` returns `TRUE`?
 ```
 
+:::
 
 ## Missing data
 
@@ -561,35 +586,40 @@ heights[complete.cases(heights)]
 ```
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
 
-> ### Challenge
->
-> 1. Using this vector of heights in inches, create a new vector, `heights_no_na`, with the NAs removed.
->
->     ```r
->     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->     ```
-> 2. Use the function `median()` to calculate the median of the `heights` vector.
->
-> 3. Use R to figure out how many people in the set are taller than 67 inches.
->
-> ```{r, answer=TRUE}
-> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
->
-> # 1.
-> heights_no_na <- heights[!is.na(heights)]
-> # or
-> heights_no_na <- na.omit(heights)
-> # or
-> heights_no_na <- heights[complete.cases(heights)]
->
-> # 2.
-> median(heights, na.rm = TRUE)
->
-> # 3.
-> heights_above_67 <- heights_no_na[heights_no_na > 67]
-> length(heights_above_67)
-> ```
+:::{.blockquote}
+### Challenge
 
+1. Using this vector of heights in inches, create a new vector, `heights_no_na`, with the NAs removed.
+
+    ```r
+    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+    ```
+2. Use the function `median()` to calculate the median of the `heights` vector.
+
+3. Use R to figure out how many people in the set are taller than 67 inches.
+
+:::{.callout-tip collapse=true}
+# Answer
+
+```{r}
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+
+# 1.
+heights_no_na <- heights[!is.na(heights)]
+# or
+heights_no_na <- na.omit(heights)
+# or
+heights_no_na <- heights[complete.cases(heights)]
+
+# 2.
+median(heights, na.rm = TRUE)
+
+# 3.
+heights_above_67 <- heights_no_na[heights_no_na > 67]
+length(heights_above_67)
+```
+:::
+:::
 
 ```{r, echo = FALSE, purl = TRUE}
 ## ### Challenge

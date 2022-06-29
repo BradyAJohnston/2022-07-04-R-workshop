@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Workshop Setup</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Required Software</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,6 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
 <li><a href="#manipulating-and-analyzing-data-with-dplyr" id="toc-manipulating-and-analyzing-data-with-dplyr" class="nav-link active" data-scroll-target="#manipulating-and-analyzing-data-with-dplyr">Manipulating and analyzing data with dplyr</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li>
 <a href="#data-manipulation-using-dplyr-and-tidyr" id="toc-data-manipulation-using-dplyr-and-tidyr" class="nav-link" data-scroll-target="#data-manipulation-using-dplyr-and-tidyr">Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a>
   <ul class="collapse">
@@ -226,9 +227,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li>
 <a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a>
   <ul class="collapse">
-<li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
+<li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a></li>
   <li><a href="#split-apply-combine-data-analysis-and-the-summarize-function" id="toc-split-apply-combine-data-analysis-and-the-summarize-function" class="nav-link" data-scroll-target="#split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
-  <li><a href="#reshaping-with-gather-and-spread" id="toc-reshaping-with-gather-and-spread" class="nav-link" data-scroll-target="#reshaping-with-gather-and-spread">Reshaping with gather and spread</a></li>
+  <li><a href="#reshaping-with-pivot_longer-and-pivot_wider" id="toc-reshaping-with-pivot_longer-and-pivot_wider" class="nav-link" data-scroll-target="#reshaping-with-pivot_longer-and-pivot_wider">Reshaping with <code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
   </ul>
 </li>
   </ul>
@@ -260,9 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <section id="manipulating-and-analyzing-data-with-dplyr" class="level3"><h3 class="anchored" data-anchor-id="manipulating-and-analyzing-data-with-dplyr">Manipulating and analyzing data with dplyr</h3>
-<hr>
-<blockquote class="blockquote">
-<h3 id="learning-objectives" class="anchored">Learning Objectives</h3>
+<hr></section><section id="learning-objectives" class="level3 blockquote"><h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
 <ul>
 <li>Describe the purpose of the <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> packages.</li>
 <li>Select certain columns in a data frame with the <strong><code>dplyr</code></strong> function <code>select</code>.</li>
@@ -273,11 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>summarize</code>, <code>group_by</code>, and <code>count</code> to split a data frame into groups of observations, apply summary statistics for each group, and then combine the results.</li>
 <li>Describe the concept of a wide and a long table format and for which purpose those formats are useful.</li>
 <li>Describe what key-value pairs are.</li>
-<li>Reshape a data frame from long to wide format and back with the <code>spread</code> and <code>gather</code> commands from the <strong><code>tidyr</code></strong> package.</li>
+<li>Reshape a data frame from long to wide format and back with the <code>pivot_wider</code> and <code>pivot_longer</code> commands from the <strong><code>tidyr</code></strong> package.</li>
 <li>Export a data frame to a .csv file.</li>
-</ul>
-</blockquote>
-<hr></section><section id="data-manipulation-using-dplyr-and-tidyr" class="level1"><h1>Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>
+</ul></section><hr>
+<section id="data-manipulation-using-dplyr-and-tidyr" class="level1"><h1>Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>
 </h1>
 <p>Bracket subsetting is handy, but it can be cumbersome and difficult to read, especially for complicated operations. Enter <strong><code>dplyr</code></strong>. <strong><code>dplyr</code></strong> is a package for helping with tabular data manipulation. It pairs nicely with <strong><code>tidyr</code></strong> which enables you to swiftly convert between different data formats for plotting and analysis.</p>
 <p>The <strong><code>tidyverse</code></strong> package is an “umbrella-package” that installs <strong><code>tidyr</code></strong>, <strong><code>dplyr</code></strong>, and several other useful packages for data analysis, such as <strong><code>ggplot2</code></strong>, <strong><code>tibble</code></strong>, etc.</p>
@@ -373,23 +373,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="va">surveys_sml</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the final data frame is the leftmost part of this expression.</p>
-<blockquote class="blockquote">
-<h3 id="challenge" class="challenge anchored">Challenge</h3>
+<section id="challenge" class="level3 challenge blockquote"><h3 class="challenge anchored" data-anchor-id="challenge">Challenge</h3>
 <p>Using pipes, subset the <code>surveys</code> data to include animals collected before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&lt;</span> <span class="fl">1995</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span>, <span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-</blockquote>
-<div class="cell">
+</div>
+</section><div class="cell">
 
 </div>
 <section id="mutate" class="level3"><h3 class="anchored" data-anchor-id="mutate">Mutate</h3>
@@ -419,29 +425,33 @@ Answer
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> is a function that determines whether something is an <code>NA</code>. The <code>!</code> symbol negates the result, so we’re asking for every row where weight <em>is not</em> an <code>NA</code>.</p>
-<blockquote class="blockquote">
-<h3 id="challenge-1" class="challenge anchored">Challenge</h3>
+</section><section id="challenge-1" class="level3 challenge blockquote"><h3 class="challenge anchored" data-anchor-id="challenge-1">Challenge</h3>
 <p>Create a new data frame from the <code>surveys</code> data that meets the following criteria: contains only the <code>species_id</code> column and a new column called <code>hindfoot_cm</code> containing the <code>hindfoot_length</code> values (currently in mm) converted to centimeters. In this <code>hindfoot_cm</code> column, there are no <code>NA</code>s and all values are less than 3.</p>
 <p><strong>Hint</strong>: think about how the commands should be ordered to produce this data frame!</p>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_hindfoot_cm</span> <span class="op">&lt;-</span> <span class="va">surveys</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">hindfoot_length</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">mutate</span><span class="op">(</span>hindfoot_cm <span class="op">=</span> <span class="va">hindfoot_length</span> <span class="op">/</span> <span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">hindfoot_cm</span> <span class="op">&lt;</span> <span class="fl">3</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">select</span><span class="op">(</span><span class="va">species_id</span>, <span class="va">hindfoot_cm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre data-reval="FALSE," data-purl="FALSE"><code>surveys_hindfoot_cm &lt;- surveys %&gt;%
+    filter(!is.na(hindfoot_length)) %&gt;%
+    mutate(hindfoot_cm = hindfoot_length / 10) %&gt;%
+    filter(hindfoot_cm &lt; 3) %&gt;%
+    select(species_id, hindfoot_cm)</code></pre>
 </div>
 </div>
 </div>
-</blockquote>
-<div class="cell">
+</section><div class="cell">
 
 </div>
-</section><section id="split-apply-combine-data-analysis-and-the-summarize-function" class="level3"><h3 class="anchored" data-anchor-id="split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</h3>
+<section id="split-apply-combine-data-analysis-and-the-summarize-function" class="level3"><h3 class="anchored" data-anchor-id="split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</h3>
 <p>Many data analysis tasks can be approached using the <em>split-apply-combine</em> paradigm: split the data into groups, apply some analysis to each group, and then combine the results. Key functions of <strong><code>dplyr</code></strong> for this workflow are <code>group_by()</code> and <code>summarize()</code>.</p>
 <section id="the-group_by-and-summarize-functions" class="level4"><h4 class="anchored" data-anchor-id="the-group_by-and-summarize-functions">The <code>group_by()</code> and <code>summarize()</code> functions</h4>
 <p><code>group_by()</code> is often used together with <code>summarize()</code>, which collapses each group into a single-row summary of that group. <code>group_by()</code> takes as arguments the column names that contain the <strong>categorical</strong> variables for which you want to calculate the summary statistics. So to compute the mean <code>weight</code> by sex:</p>
@@ -611,7 +621,8 @@ Answer
 <div class="cell">
 
 </div>
-</section></section><section id="reshaping-with-gather-and-spread" class="level3"><h3 class="anchored" data-anchor-id="reshaping-with-gather-and-spread">Reshaping with gather and spread</h3>
+</section></section><section id="reshaping-with-pivot_longer-and-pivot_wider" class="level3"><h3 class="anchored" data-anchor-id="reshaping-with-pivot_longer-and-pivot_wider">Reshaping with <code>pivot_longer()</code> and <code>pivot_wider()</code>
+</h3>
 <p>In the <a href="https://datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/">spreadsheet lesson</a>, we discussed how to structure our data leading to the four rules defining a tidy dataset:</p>
 <ol type="1">
 <li>Each variable has its own column</li>
@@ -624,17 +635,31 @@ Answer
 <p>We’d need to create a new table where each row (the unit) is comprised of values of variables associated with each plot. In practical terms this means the values in <code>genus</code> would become the names of column variables and the cells would contain the values of the mean weight observed on each plot.</p>
 <p>Having created a new table, it is therefore straightforward to explore the relationship between the weight of different genera within, and between, the plots. The key point here is that we are still following a tidy data structure, but we have <strong>reshaped</strong> the data according to the observations of interest: average genus weight per plot instead of recordings per date.</p>
 <p>The opposite transformation would be to transform column names into values of a variable.</p>
-<p>We can do both these of transformations with two <code>tidyr</code> functions, <code>spread()</code> and <code>gather()</code>.</p>
-<section id="spreading" class="level4"><h4 class="anchored" data-anchor-id="spreading">Spreading</h4>
-<p><code>spread()</code> takes three principal arguments:</p>
+<p>We can do both these of transformations with two <code>tidyr</code> functions, <code>pivot_wider()</code> and <code>pivot_longer()</code>.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may find answers on stack-overflow and references to the <code>reshape</code> package and <code>reshaep::melt()</code> and the <code>spread()</code> and <code>gather()</code> functions that still exist inside of <code>tidyr()</code> but have now been superseded by <code>pivot_wider()</code> and <code>pivot_longer()</code> respectively.</p>
+<p>You should use <code>pivot_longer()</code> and <code>pivot_wider()</code> in your own work as the older functions will eventually be removed from the <code>tidyr</code> package and your code will no longer run.</p>
+</div>
+</div>
+<section id="pivoting-wider" class="level4"><h4 class="anchored" data-anchor-id="pivoting-wider">Pivoting Wider</h4>
+<p><code>pivot_wider()</code> takes three principal arguments:</p>
 <ol type="1">
 <li>the data</li>
-<li>the <em>key</em> column variable whose values will become new column names.<br>
+<li>the <em>names_from</em> column variable whose values will become new column names.<br>
 </li>
-<li>the <em>value</em> column variable whose values will fill the new column variables.</li>
+<li>the <em>values_from</em> column variable whose values will fill the new column variables.</li>
 </ol>
-<p>Further arguments include <code>fill</code> which, if set, fills in missing values with the value provided.</p>
-<p>Let’s use <code>spread()</code> to transform surveys to find the mean weight of each genus in each plot over the entire survey period. We use <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>group_by()</code> and <code>summarise()</code> to filter our observations and variables of interest, and create a new variable for the <code>mean_weight</code>.</p>
+<p>Further arguments include <code>values_fill</code> which, if set, fills in missing values with the value provided.</p>
+<p>Let’s use <code>pivot_wider()</code> to transform surveys to find the mean weight of each genus in each plot over the entire survey period. We use <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>group_by()</code> and <code>summarise()</code> to filter our observations and variables of interest, and create a new variable for the <code>mean_weight</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_gw</span> <span class="op">&lt;-</span> <span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -649,7 +674,7 @@ Answer
 <p>This yields <code>surveys_gw</code> where the observations for each plot are spread across multiple rows, 196 observations of 3 variables. Using <code>spread()</code> to key on <code>genus</code> with values from <code>mean_weight</code> this becomes 24 observations of 11 variables, one row for each plot.</p>
 <div class="cell">
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_spread</span> <span class="op">&lt;-</span> <span class="va">surveys_gw</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">spread</span><span class="op">(</span>key <span class="op">=</span> <span class="va">genus</span>, value <span class="op">=</span> <span class="va">mean_weight</span><span class="op">)</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">genus</span>, values_from <span class="op">=</span> <span class="va">mean_weight</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">surveys_spread</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -657,10 +682,10 @@ Answer
 <p>We could now plot comparisons between the weight of genera (one is called a genus, multiple are called genera) in different plots, although we may wish to fill in the missing values first.</p>
 <div class="cell">
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_gw</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">spread</span><span class="op">(</span><span class="va">genus</span>, <span class="va">mean_weight</span>, fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">genus</span>, values_from <span class="op">=</span> <span class="va">mean_weight</span>, values_fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="gathering" class="level4"><h4 class="anchored">Gathering</h4>
+</section><section id="pivoting-longer" class="level4"><h4 class="anchored">Pivoting Longer</h4>
 <p>The opposing situation could occur if we had been provided with data in the form of <code>surveys_spread</code>, where the genus names are column names, but we wish to treat them as values of a genus variable instead.</p>
 <p>In this situation we are gathering the column names and turning them into a pair of new variables. One variable represents the column names as values, and the other variable contains the values previously associated with the column names.</p>
 <p><code>gather()</code> takes four principal arguments:</p>
@@ -673,7 +698,7 @@ Answer
 <p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called <code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being <code>gather()</code>ed.</p>
 <div class="cell">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_gather</span> <span class="op">&lt;-</span> <span class="va">surveys_spread</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">gather</span><span class="op">(</span>key <span class="op">=</span> <span class="st">"genus"</span>, value <span class="op">=</span> <span class="st">"mean_weight"</span>, <span class="op">-</span><span class="va">plot_id</span><span class="op">)</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">plot_id</span>, values_to <span class="op">=</span> <span class="st">"mean_weight"</span>, names_to <span class="op">=</span> <span class="st">"genus"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">surveys_gather</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -682,11 +707,16 @@ Answer
 <p>We could also have used a specification for what columns to include. This can be useful if you have a large number of identifying columns, and it allows you to type less in order to specify what to gather than what to leave alone. And if the columns are directly adjacent, we don’t even need to list them all out - instead you can use the <code>:</code> operator!</p>
 <div class="cell">
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_spread</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">gather</span><span class="op">(</span>key <span class="op">=</span> <span class="st">"genus"</span>, value <span class="op">=</span> <span class="st">"mean_weight"</span>, <span class="va">Baiomys</span><span class="op">:</span><span class="va">Spermophilus</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span><span class="va">Baiomys</span><span class="op">:</span><span class="va">Spermophilus</span>, values_to <span class="op">=</span> <span class="st">"mean_weight"</span>, names_to <span class="op">=</span> <span class="st">"genus"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="co"># if you don't specify the column names, it will default to "names" and "values"</span></span>
+<span><span class="va">surveys_spread</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span><span class="va">Baiomys</span><span class="op">:</span><span class="va">Spermophilus</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h3 id="challenge-3" class="challenge anchored" data-anchor-id="gathering">Challenge</h3>
+<h3 id="challenge-3" class="challenge anchored" data-anchor-id="pivoting-longer">Challenge</h3>
 <ol type="1">
 <li>Spread the <code>surveys</code> data frame with <code>year</code> as columns, <code>plot_id</code> as rows, and the number of genera per plot as the values. You will need to summarize before reshaping, and use the function <code>n_distinct()</code> to get the number of unique genera within a particular chunk of data. It’s a powerful function! See <code>?n_distinct</code> for more.</li>
 </ol>
@@ -725,6 +755,18 @@ Answer
 <ol start="3" type="1">
 <li>The <code>surveys</code> data set has two measurement columns: <code>hindfoot_length</code> and <code>weight</code>. This makes it difficult to do things like look at the relationship between mean values of each measurement per year in different plot types. Let’s walk through a common solution for this type of problem. First, use <code>gather()</code> to create a dataset where we have a key column called <code>measurement</code> and a <code>value</code> column that takes on the value of either <code>hindfoot_length</code> or <code>weight</code>. <em>Hint</em>: You’ll need to specify which columns are being gathered.</li>
 </ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-answer="true">
 <div class="accordion">
 <h3 class="toc-ignore anchored">
@@ -733,6 +775,9 @@ Answer
 <div style="background: #fff;">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_long</span> <span class="op">&lt;-</span> <span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">gather</span><span class="op">(</span><span class="st">"measurement"</span>, <span class="st">"value"</span>, <span class="va">hindfoot_length</span>, <span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -795,7 +840,7 @@ Answer
 
 </div>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-28 ‒ 🕢 17:23:28
+Page built on: 📆 2022-06-29 ‒ 🕢 14:38:58
 </p>
 
 

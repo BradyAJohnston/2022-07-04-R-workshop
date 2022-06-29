@@ -1,5 +1,5 @@
 
-### Creating objects in R
+# Creating objects in R ------------------------------------------------
 
 
 
@@ -17,7 +17,7 @@
 
 
 
-### Challenge
+## Challenge -----------------------------------------------------------
 ##
 ## What are the values after each statement in the following?
 ##
@@ -41,7 +41,7 @@
 
 
 
-### Vectors and data types
+# Vectors and data types -----------------------------------------------
 
 
 
@@ -106,7 +106,7 @@
 
 
 
-### Challenge (optional)
+## Challenge (optional) ------------------------------------------------
 ##
 ## * Can you figure out why `"four" > "five"` returns `TRUE`?
 
@@ -130,7 +130,7 @@ median(heights, na.rm = TRUE)
 heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 
-## ### Challenge
+# ### Challenge --------------------------------------------------------
 ## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ##
 ##    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -138,7 +138,7 @@ length(heights_above_67)
 ## 2. Use the function `median()` to calculate the median of the `heights` vector.
 ##
 ## 3. Use R to figure out how many people in the set are taller than 67 inches.
-### Loading the survey data
+# Loading the survey data ----------------------------------------------
 
 ## download.file(url = "https://ndownloader.figshare.com/files/2292169",
 ##               destfile = "data_raw/portal_data_joined.csv")
@@ -174,7 +174,7 @@ length(heights_above_67)
 
 
 
-### Challenges:
+## Challenges: ---------------------------------------------------------
 ##
 ## 1. Create a `data.frame` (`surveys_200`) containing only the
 ##    data in row 200 of the `surveys` dataset.
@@ -196,7 +196,7 @@ length(heights_above_67)
 ##    dataset.
 
 
-### Factors
+# Factors --------------------------------------------------------------
 
 
 
@@ -210,7 +210,7 @@ sex <- factor(c("male", "female", "female", "male"))
 
 
 
-### Challenges:
+## Challenges: ---------------------------------------------------------
 ##
 ## 1. Change the columns `taxa` and `genus` in the `surveys` data frame into a 
 ##    factor.
@@ -237,7 +237,7 @@ plot(surveys$sex)
 
 
 
-### Challenges
+# More Challenges ----------------------------------------------------------
 ##
 ## * Rename "F" and "M" to "female" and "male" respectively.
 ## * Now that we have renamed the factor level to "undetermined", can you recreate the
@@ -245,7 +245,7 @@ plot(surveys$sex)
 
 
 
-## ### Challenge:
+# ### Challenge: -------------------------------------------------------
 ## ##  There are a few mistakes in this hand-crafted `data.frame`,
 ## ##  can you spot and fix them? Don't hesitate to experiment!
 ## animal_data <- data.frame(
@@ -256,7 +256,7 @@ plot(surveys$sex)
 
 
 
-## ### Challenge:
+# ### Challenge: -------------------------------------------------------
 ## ##   Can you predict the class for each of the columns in the following
 ## ##   example?
 ## ##   Check your guesses using `str(country_climate)`:
@@ -282,7 +282,7 @@ plot(surveys$sex)
 
 
 
-## ### Mutate Challenge:
+# ### Mutate Challenge: ------------------------------------------------
 ## ##  Create a new data frame from the `surveys` data that meets the following
 ## ##  criteria: contains only the `species_id` column and a new column called
 ## ##  `hindfoot_cm` containing the `hindfoot_length` values converted to centimeters.
@@ -321,7 +321,7 @@ plot(surveys$sex)
 
 
 
-## ### Count Challenges:
+# ### Count Challenges: ------------------------------------------------
 ## ##  1. How many animals were caught in each `plot_type` surveyed?
 ## 
 ## ##  2. Use `group_by()` and `summarize()` to find the mean, min, and max
@@ -349,7 +349,7 @@ plot(surveys$sex)
 
 
 
-## ### Reshaping challenges
+# ### Reshaping challenges ---------------------------------------------
 ## 
 ## ## 1. Spread the `surveys` data frame with `year` as columns, `plot_id` as rows, and the number of genera per plot as the values. You will need to summarize before reshaping, and use the function `n_distinct()` to get the number of unique genera within a particular chunk of data. It's a powerful function! See `?n_distinct` for more.
 ## 
@@ -363,7 +363,7 @@ plot(surveys$sex)
 
 
 
-## ### Create the dataset for exporting:
+ ### Create the dataset for exporting: ---------------------------------
 ## ##  Start by removing observations for which the `species_id`, `weight`,
 ## ##  `hindfoot_length`, or `sex` data are missing:
 ## surveys_complete <- surveys %>%
@@ -382,7 +382,7 @@ plot(surveys$sex)
 ## ##  Second, keep only those species:
 ## surveys_complete <- surveys_complete %>%
 ##     filter(species_id %in% species_counts$species_id)
-### Data Visualization with ggplot2
+# Data Visualization with ggplot2 --------------------------------------
 
 
 
@@ -406,7 +406,7 @@ plot(surveys$sex)
 ## surveys_plot +
 ##  geom_hex()
 
-## ### Challenge with hexbin
+# ### Challenge with hexbin --------------------------------------------
 ## ##
 ## ## To use the hexagonal binning with **`ggplot2`**, first install the `hexbin`
 ## ## package from CRAN:
@@ -432,7 +432,7 @@ plot(surveys$sex)
 
 
 
-## ### Challenge with scatter plot:
+# ### Challenge with scatter plot: -------------------------------------
 ## ##
 ## ##  Use what you just learned to create a scatter plot of `weight`
 ## ## over `species_id` with the plot types showing in different colors.
@@ -442,7 +442,7 @@ plot(surveys$sex)
 
 
 
-## ### Challenge with boxplots:
+# ### Challenge with boxplots: -----------------------------------------
 ## ##  Start with the boxplot we created:
 ## ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
 ##   geom_boxplot(alpha = 0) +
@@ -489,7 +489,7 @@ plot(surveys$sex)
 
 
 
-## ### Plotting time series challenge:
+# ### Plotting time series challenge: ----------------------------------
 ## ##
 ## ##  Use what you just learned to create a plot that depicts how the
 ## ##  average weight of each species changes through the years.
@@ -509,7 +509,7 @@ plot(surveys$sex)
 
 
 
-## ### Final plotting challenge:
+# ### Final plotting challenge: ----------------------------------------
 ## ##  With all of this information in hand, please take another five
 ## ##  minutes to either improve one of the plots generated in this
 ## ##  exercise or create a beautiful graph of your own. Use the RStudio
@@ -574,7 +574,7 @@ tbl(mammals, sql(query))
 
 
 
-### Challenge
+## Challenge -----------------------------------------------------------
 ## Write a query that returns the number of rodents observed in each
 ## plot in each year.
 
@@ -601,7 +601,7 @@ tbl(mammals, sql(query))
 ##   tally() %>%
 ##   collect()
 
-### Challenge
+## Challenge -----------------------------------------------------------
 
 ## Write a query that returns the total number of rodents in each
 ## genus caught in the different plot types.
@@ -630,7 +630,7 @@ my_db
 
 
 
-### Challenge
+## Challenge -----------------------------------------------------------
 
 ## Add the remaining species table to the my_db database and run some
 ## of your queries from earlier in the lesson to verify that you

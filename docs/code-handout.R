@@ -175,25 +175,25 @@ length(heights_above_67)
 
 
 ### Challenges:
-###
-### 1. Create a `data.frame` (`surveys_200`) containing only the
-###    data in row 200 of the `surveys` dataset.
-###
-### 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
-###
-###      * Use that number to pull out just that last row in the data frame
-###      * Compare that with what you see as the last row using `tail()` to make
-###        sure it's meeting expectations.
-###      * Pull out that last row using `nrow()` instead of the row number
-###      * Create a new data frame object (`surveys_last`) from that last row
-###
-### 3. Use `nrow()` to extract the row that is in the middle of the
-###    data frame. Store the content of this row in an object named
-###    `surveys_middle`.
-###
-### 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
-###    `head(surveys)`, keeping just the first through 6th rows of the surveys
-###    dataset.
+##
+## 1. Create a `data.frame` (`surveys_200`) containing only the
+##    data in row 200 of the `surveys` dataset.
+##
+## 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
+##
+##      * Use that number to pull out just that last row in the data frame
+##      * Compare that with what you see as the last row using `tail()` to make
+##        sure it's meeting expectations.
+##      * Pull out that last row using `nrow()` instead of the row number
+##      * Create a new data frame object (`surveys_last`) from that last row
+##
+## 3. Use `nrow()` to extract the row that is in the middle of the
+##    data frame. Store the content of this row in an object named
+##    `surveys_middle`.
+##
+## 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
+##    `head(surveys)`, keeping just the first through 6th rows of the surveys
+##    dataset.
 
 
 ### Factors
@@ -211,14 +211,14 @@ sex <- factor(c("male", "female", "female", "male"))
 
 
 ### Challenges:
-###
-### 1. Change the columns `taxa` and `genus` in the `surveys` data frame into a 
-###    factor.
-###
-### 2. Using the functions you learned before, can you find out...
-###
-###      * How many rabbits were observed?
-###      * How many different genera are in the `genus` column?
+##
+## 1. Change the columns `taxa` and `genus` in the `surveys` data frame into a 
+##    factor.
+##
+## 2. Using the functions you learned before, can you find out...
+##
+##      * How many rabbits were observed?
+##      * How many different genera are in the `genus` column?
 
 
 
@@ -237,7 +237,7 @@ plot(surveys$sex)
 
 
 
-## Challenges
+### Challenges
 ##
 ## * Rename "F" and "M" to "female" and "male" respectively.
 ## * Now that we have renamed the factor level to "undetermined", can you recreate the
@@ -245,7 +245,7 @@ plot(surveys$sex)
 
 
 
-## ## Challenge:
+## ### Challenge:
 ## ##  There are a few mistakes in this hand-crafted `data.frame`,
 ## ##  can you spot and fix them? Don't hesitate to experiment!
 ## animal_data <- data.frame(
@@ -256,7 +256,7 @@ plot(surveys$sex)
 
 
 
-## ## Challenge:
+## ### Challenge:
 ## ##   Can you predict the class for each of the columns in the following
 ## ##   example?
 ## ##   Check your guesses using `str(country_climate)`:
@@ -282,7 +282,7 @@ plot(surveys$sex)
 
 
 
-## ## Mutate Challenge:
+## ### Mutate Challenge:
 ## ##  Create a new data frame from the `surveys` data that meets the following
 ## ##  criteria: contains only the `species_id` column and a new column called
 ## ##  `hindfoot_cm` containing the `hindfoot_length` values converted to centimeters.
@@ -321,7 +321,7 @@ plot(surveys$sex)
 
 
 
-## ## Count Challenges:
+## ### Count Challenges:
 ## ##  1. How many animals were caught in each `plot_type` surveyed?
 ## 
 ## ##  2. Use `group_by()` and `summarize()` to find the mean, min, and max
@@ -349,7 +349,7 @@ plot(surveys$sex)
 
 
 
-## ## Reshaping challenges
+## ### Reshaping challenges
 ## 
 ## ## 1. Spread the `surveys` data frame with `year` as columns, `plot_id` as rows, and the number of genera per plot as the values. You will need to summarize before reshaping, and use the function `n_distinct()` to get the number of unique genera within a particular chunk of data. It's a powerful function! See `?n_distinct` for more.
 ## 
@@ -442,7 +442,7 @@ plot(surveys$sex)
 
 
 
-## ## Challenge with boxplots:
+## ### Challenge with boxplots:
 ## ##  Start with the boxplot we created:
 ## ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
 ##   geom_boxplot(alpha = 0) +
