@@ -85,6 +85,49 @@ before you install RStudio.
 -   Once it's installed, open RStudio to make sure it works and you
     don't get any error messages.
 
+::: callout-warning
+## UWA Laptop Users
+
+If you are using a UWA provided laptop, the 'Documents' folder (where R
+/ RStudio normally stores files) will be a network-mapped drive. This
+will cause the installation and use of R packages to be *VERY VERY
+SLOW*.
+
+#### Solution:
+
+You will need to create a folder for installing packages that will be
+kept only on your local machine, potentially just the desktop or another
+*non-network* folder.
+
+For example:
+
+``` bash
+C:\Users\bradyjohnston\Desktop\R\win-library
+```
+
+or
+
+``` bash
+C:\Users\bradyjohnston\R\win-library
+```
+
+Then create a file called `.Renviron` in your home directory, for me it
+would be:
+
+``` bash
+C:\Users\bradyjohnston\
+```
+
+Inside of this file, include a single line that specifies the folder you
+created where you wish to install your packages:
+
+``` bash
+R_LIBS_USER=C:\Users\bradyjohnston\Desktop\R\win-library
+```
+
+This should enable quick install of packages.
+:::
+
 ##### MacOS
 
 -   Download R from the [CRAN

@@ -294,6 +294,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Double click the file to install it</li>
 <li>Once it’s installed, open RStudio to make sure it works and you don’t get any error messages.</li>
 </ul>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+UWA Laptop Users
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are using a UWA provided laptop, the ‘Documents’ folder (where R / RStudio normally stores files) will be a network-mapped drive. This will cause the installation and use of R packages to be <em>VERY VERY SLOW</em>.</p>
+<section id="solution" class="level4"><h4 class="anchored" data-anchor-id="solution">Solution:</h4>
+<p>You will need to create a folder for installing packages that will be kept only on your local machine, potentially just the desktop or another <em>non-network</em> folder.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston\Desktop\R\win-library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston\R\win-library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then create a file called <code>.Renviron</code> in your home directory, for me it would be:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">C:\Users\bradyjohnston</span><span class="dt">\</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inside of this file, include a single line that specifies the folder you created where you wish to install your packages:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">R_LIBS_USER</span><span class="op">=</span>C:<span class="dt">\U</span>sers<span class="dt">\b</span>radyjohnston<span class="dt">\D</span>esktop<span class="dt">\R\w</span>in-library</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This should enable quick install of packages.</p>
+</section>
+</div>
+</div>
 <section id="macos" class="level5"><h5 class="anchored" data-anchor-id="macos">MacOS</h5>
 <ul>
 <li>Download R from the <a href="https://cran.r-project.org/bin/macosx/">CRAN website</a>.</li>
@@ -327,12 +352,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>During the course we will need a number of R packages. Packages contain useful R code written by other people. We will use the packages <code>tidyverse</code>, <code>hexbin</code>, <code>patchwork</code>, and <code>RSQLite</code>.</p>
 <p>To try to install these packages, open RStudio and copy and paste the following command into the console window (look for a blinking cursor on the bottom left), then press the <kbd>Enter</kbd> (Windows and Linux) or <kbd>Return</kbd> (MacOS) to execute the command.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"hexbin"</span>, <span class="st">"patchwork"</span>, <span class="st">"RSQLite"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"hexbin"</span>, <span class="st">"patchwork"</span>, <span class="st">"RSQLite"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Alternatively, you can install the packages using RStudio’s graphical user interface by going to <code>Tools &gt; Install Packages</code> and typing the names of the packages separated by a comma.</p>
 <p>R tries to download and install the packages on your machine. When the installation has finished, you can try to load the packages by pasting the following code into the console:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edzer/hexbin">hexbin</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsqlite.r-dbi.org">RSQLite</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -347,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section></section><section id="contributors" class="level2"><h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
 <p>The list of contributors to this lesson is available <a href="https://datacarpentry.org/R-ecology-lesson/CITATION">here</a>.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-29 ‒ 🕢 12:42:00
+Page built on: 📆 2022-06-29 ‒ 🕢 15:13:11
 </p>
 
 
