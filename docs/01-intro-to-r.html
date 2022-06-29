@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.626">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Data Carpentry contributors">
+<title>Centre for Applied Bioinformatics R Workshop - Introduction to R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="libs/quarto-nav/quarto-nav.js"></script>
+<script src="libs/quarto-nav/headroom.min.js"></script>
+<script src="libs/clipboard/clipboard.min.js"></script>
+<script src="libs/quarto-search/autocomplete.umd.js"></script>
+<script src="libs/quarto-search/fuse.min.js"></script>
+<script src="libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="libs/quarto-html/quarto.js"></script>
+<script src="libs/quarto-html/popper.min.js"></script>
+<script src="libs/quarto-html/tippy.umd.min.js"></script>
+<script src="libs/quarto-html/anchor.min.js"></script>
+<link href="libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="libs/bootstrap/bootstrap.min.js"></script>
+<link href="libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="styles.css">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Introduction to R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Centre for Applied Bioinformatics R Workshop</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://twitter.com/bradyajohnston" title="" class="sidebar-tool px-1"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/BradyAJohnston/2022-07-04-R-workshop/" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./code-handout.R" title="" class="sidebar-tool px-1"><i class="bi bi-file-earmark-arrow-down"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Workshop Details</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Workshop Setup</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./before-we-start.html" class="sidebar-item-text sidebar-link">Before we start</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">Instructor</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Starting with R</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro-to-r.html" class="sidebar-item-text sidebar-link active">Introduction to R</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-starting-with-data.html" class="sidebar-item-text sidebar-link">Starting with data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-dplyr.html" class="sidebar-item-text sidebar-link">Manipulating, analyzing and exporting data with tidyverse</a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Visualisation</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-visualization-ggplot2.html" class="sidebar-item-text sidebar-link">Data visualization with ggplot2</a>
+  </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#creating-objects-in-r" id="toc-creating-objects-in-r" class="nav-link active" data-scroll-target="#creating-objects-in-r">Creating objects in R</a>
+  <ul class="collapse">
+<li><a href="#saving-your-code" id="toc-saving-your-code" class="nav-link" data-scroll-target="#saving-your-code">Saving your code</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  <li><a href="#functions-and-their-arguments" id="toc-functions-and-their-arguments" class="nav-link" data-scroll-target="#functions-and-their-arguments">Functions and their arguments</a></li>
+  </ul>
+</li>
+  <li><a href="#vectors-and-data-types" id="toc-vectors-and-data-types" class="nav-link" data-scroll-target="#vectors-and-data-types">Vectors and data types</a></li>
+  <li>
+<a href="#subsetting-vectors" id="toc-subsetting-vectors" class="nav-link" data-scroll-target="#subsetting-vectors">Subsetting vectors</a>
+  <ul class="collapse">
+<li><a href="#conditional-subsetting" id="toc-conditional-subsetting" class="nav-link" data-scroll-target="#conditional-subsetting">Conditional subsetting</a></li>
+  </ul>
+</li>
+  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">Missing data</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">Introduction to R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Data Carpentry contributors </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header><div class="cell">
+
+</div>
+<hr>
+<blockquote class="blockquote">
+<h3 id="learning-objectives" class="anchored">Learning Objectives</h3>
+<ul>
+<li>Define the following terms as they relate to R: object, assign, call, function, arguments, options.</li>
+<li>Create objects and assign values to them in R.</li>
+<li>Learn how to <em>name</em> objects.</li>
+<li>Save a script file for later use.</li>
+<li>Use comments to inform script.</li>
+<li>Solve simple arithmetic operations in R.</li>
+<li>Call functions and use arguments to change their default options.</li>
+<li>Inspect the content of vectors and manipulate their content.</li>
+<li>Subset and extract values from vectors.</li>
+<li>Analyze vectors with missing data.</li>
+</ul>
+</blockquote>
+<hr>
+<section id="creating-objects-in-r" class="level2"><h2 class="anchored" data-anchor-id="creating-objects-in-r">Creating objects in R</h2>
+<div class="cell">
+
+</div>
+<p>You can get output from R simply by typing math in the console:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span></span>
+<span><span class="fl">12</span> <span class="op">/</span> <span class="fl">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>objects</em>. To create an object, we need to give it a name followed by the assignment operator <code>&lt;-</code>, and the value we want to give it:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">55</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>&lt;-</code> is the assignment operator. It assigns values on the right to objects on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is <code>3</code>. For historical reasons, you can also use <code>=</code> for assignments, but not in every context. Because of the <a href="https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">slight</a> <a href="https://renkun.me/2014/01/28/difference-between-assignment-operators-in-r/">differences</a> in syntax, it is good practice to always use <code>&lt;-</code> for assignments.</p>
+<p>In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a single keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the same in a Mac.</p>
+<p>Objects can be given almost any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. Here are some further guidelines on naming objects:</p>
+<ul>
+<li>You want your object names to be explicit and not too long.</li>
+<li>They cannot start with a number (<code>2x</code> is not valid, but <code>x2</code> is).</li>
+<li>R is case sensitive, so for example, <code>weight_kg</code> is different from <code>Weight_kg</code>.</li>
+<li>There are some names that cannot be used because they are the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). If in doubt, check the help to see if the name is already in use.</li>
+<li>It’s best to avoid dots (<code>.</code>) within names. Many function names in R itself have them and dots also have a special meaning (methods) in R and other programming languages. To avoid confusion, don’t include dots in names.</li>
+<li>It is recommended to use nouns for object names and verbs for function names.</li>
+<li>Be consistent in the styling of your code, such as where you put spaces, how you name objects, etc. Styles can include “lower_snake”, “UPPER_SNAKE”, “lowerCamelCase”, “UpperCamelCase”, etc. Using a consistent coding style makes your code clearer to read for your future self and your collaborators. In R, three popular style guides come from <a href="https://google.github.io/styleguide/Rguide.xml">Google</a>, <a href="https://jef.works/R-style-guide/">Jean Fan</a> and the <a href="https://style.tidyverse.org/">tidyverse</a>. The tidyverse style is very comprehensive and may seem overwhelming at first. You can install the <a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to automatically check for issues in the styling of your code.</li>
+</ul>
+<blockquote class="blockquote">
+<h3 id="objects-vs.-variables" class="anchored">Objects vs.&nbsp;variables</h3>
+<p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other programming languages. Depending on the context, <code>object</code> and <code>variable</code> can have drastically different meanings. However, in this lesson, the two words are used synonymously. For more information see: https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects</p>
+</blockquote>
+<p>When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">55</span>    <span class="co"># doesn't print anything</span></span>
+<span><span class="op">(</span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">55</span><span class="op">)</span>  <span class="co"># but putting parenthesis around the call prints the value of `weight_kg`</span></span>
+<span><span class="va">weight_kg</span>          <span class="co"># and so does typing the name of the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic with it. For instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2.2</span> <span class="op">*</span> <span class="va">weight_kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also change an object’s value by assigning it a new one:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">57.5</span></span>
+<span><span class="fl">2.2</span> <span class="op">*</span> <span class="va">weight_kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This means that assigning a value to one object does not change the values of other objects. For example, let’s store the animal’s weight in pounds in a new object, <code>weight_lb</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_lb</span> <span class="op">&lt;-</span> <span class="fl">2.2</span> <span class="op">*</span> <span class="va">weight_kg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and then change <code>weight_kg</code> to 100.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fl">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What do you think is the current content of the object <code>weight_lb</code>? 126.5 or 220?</p>
+<section id="saving-your-code" class="level3"><h3 class="anchored" data-anchor-id="saving-your-code">Saving your code</h3>
+<p>Up to now, your code has been in the console. This is useful for quick queries but not so helpful if you want to revisit your work for any reason. A script can be opened by pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>. It is wise to save your script file immediately. To do this press <kbd>Ctrl</kbd> + <kbd>S</kbd>. This will open a dialogue box where you can decide where to save your script file, and what to name it. The <code>.R</code> file extension is added automatically and ensures your file will open with RStudio.</p>
+<p>Don’t forget to save your work periodically by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
+</section><section id="comments" class="level3"><h3 class="anchored" data-anchor-id="comments">Comments</h3>
+<p>The comment character in R is <code>#</code>. Anything to the right of a <code>#</code> in a script will be ignored by R. It is useful to leave notes and explanations in your scripts. For convenience, RStudio provides a keyboard shortcut to comment or uncomment a paragraph: after selecting the lines you want to comment, press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment out one line, you can put the cursor at any location of that line (i.e.&nbsp;no need to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
+<blockquote class="blockquote">
+<h3 id="challenge" class="anchored">Challenge</h3>
+<p>What are the values after each statement in the following?</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mass</span> <span class="op">&lt;-</span> <span class="fl">47.5</span>            <span class="co"># mass?</span></span>
+<span><span class="va">age</span>  <span class="op">&lt;-</span> <span class="fl">122</span>             <span class="co"># age?</span></span>
+<span><span class="va">mass</span> <span class="op">&lt;-</span> <span class="va">mass</span> <span class="op">*</span> <span class="fl">2.0</span>      <span class="co"># mass?</span></span>
+<span><span class="va">age</span>  <span class="op">&lt;-</span> <span class="va">age</span> <span class="op">-</span> <span class="fl">20</span>        <span class="co"># age?</span></span>
+<span><span class="va">mass_index</span> <span class="op">&lt;-</span> <span class="va">mass</span><span class="op">/</span><span class="va">age</span>  <span class="co"># mass_index?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</blockquote>
+<div class="cell">
+
+</div>
+</section><section id="functions-and-their-arguments" class="level3"><h3 class="anchored" data-anchor-id="functions-and-their-arguments">Functions and their arguments</h3>
+<p>Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually takes one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>. A typical example would be the function <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code>. The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called <em>calling</em> the function. An example of a function call is:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_kg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, the value of 10 is given to the <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> function, the <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> function calculates the square root, and returns the value which is then assigned to the object <code>weight_kg</code>. This function takes one argument, other functions might take several.</p>
+<p>The return ‘value’ of a function need not be numerical (like that of <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code>), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.</p>
+<p>Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a <em>default</em> value: these are called <em>options</em>. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.</p>
+<p>Let’s try a function that can take multiple arguments: <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.14159</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 3</code></pre>
+</div>
+</div>
+<p>Here, we’ve called <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> with just one argument, <code>3.14159</code>, and it has returned the value <code>3</code>. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> to find what arguments it takes, or look at the help for this function using <code><a href="https://rdrr.io/r/base/Round.html">?round</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/args.html">args</a></span><span class="op">(</span><span class="va">round</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; function (x, digits = 0) 
+#&gt; NULL</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">round</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We see that if we want a different number of digits, we can type <code>digits = 2</code> or however many we want.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.14159</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 3.14</code></pre>
+</div>
+</div>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.14159</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 3.14</code></pre>
+</div>
+</div>
+<p>And if you do name the arguments, you can switch their order:</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span>, x <span class="op">=</span> <span class="fl">3.14159</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 3.14</code></pre>
+</div>
+</div>
+<p>It’s good practice to put the non-optional arguments (like the number you’re rounding) first in your function call, and to then specify the names of all optional arguments. If you don’t, someone reading your code might have to look up the definition of a function with unfamiliar arguments to understand what you’re doing.</p>
+</section></section><section id="vectors-and-data-types" class="level2"><h2 class="anchored" data-anchor-id="vectors-and-data-types">Vectors and data types</h2>
+<div class="cell">
+
+</div>
+<p>A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function. For example we can create a vector of animal weights and assign it to a new object <code>weight_g</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">60</span>, <span class="fl">65</span>, <span class="fl">82</span><span class="op">)</span></span>
+<span><span class="va">weight_g</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A vector can also contain characters:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span><span class="op">)</span></span>
+<span><span class="va">animals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The quotes around “mouse”, “rat”, etc. are essential here. Without the quotes R will assume objects have been created called <code>mouse</code>, <code>rat</code> and <code>dog</code>. As these objects don’t exist in R’s memory, there will be an error message.</p>
+<p>There are many functions that allow you to inspect the content of a vector. <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> tells you how many elements are in a particular vector:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">weight_g</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>An important feature of a vector, is that all of the elements are the same type of data. The function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> indicates what kind of object you are working with:</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">weight_g</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> provides an overview of the structure of an object and its elements. It is a useful function when working with large and complex objects:</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">weight_g</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function to add other elements to your vector:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">weight_g</span>, <span class="fl">90</span><span class="op">)</span> <span class="co"># add to the end of the vector</span></span>
+<span><span class="va">weight_g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="va">weight_g</span><span class="op">)</span> <span class="co"># add to the beginning of the vector</span></span>
+<span><span class="va">weight_g</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the first line, we take the original vector <code>weight_g</code>, add the value <code>90</code> to the end of it, and save the result back into <code>weight_g</code>. Then we add the value <code>30</code> to the beginning, again saving the result back into <code>weight_g</code>.</p>
+<p>We can do this over and over again to grow a vector, or assemble a dataset. As we program, this may be useful to add results that we are collecting or calculating.</p>
+<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear vector of a single type. Above, we saw 2 of the 6 main <strong>atomic vector</strong> types that R uses: <code>"character"</code> and <code>"numeric"</code> (or <code>"double"</code>). These are the basic building blocks that all R objects are built from. The other 4 <strong>atomic vector</strong> types are:</p>
+<ul>
+<li>
+<code>"logical"</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
+<li>
+<code>"integer"</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
+<li>
+<code>"complex"</code> to represent complex numbers with real and imaginary parts (e.g., <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
+<li>
+<code>"raw"</code> for bitstreams that we won’t discuss further</li>
+</ul>
+<p>You can check the type of your vector using the <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function and inputting your vector as the argument.</p>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
+<blockquote class="blockquote">
+<h3 id="challenge-1" class="anchored">Challenge</h3>
+<ul>
+<li>We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?</li>
+</ul>
+::: {.cell}
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<p>
+R implicitly converts them to all be the same type
+</p>
+</div>
+</div>
+
+<p>:::</p>
+<ul>
+<li>
+<p>What will happen in each of these examples? (hint: use <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> to check the data type of your objects):</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">num_char</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="st">"a"</span><span class="op">)</span></span>
+<span><span class="va">num_logical</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">char_logical</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">tricky</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="st">"4"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+<li><p>Why do you think it happens?</p></li>
+</ul>
+::: {.cell}
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<p>
+Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a “common denominator” that doesn’t lose any information.
+</p>
+</div>
+</div>
+
+<p>:::</p>
+<ul>
+<li>
+<p>How many values in <code>combined_logical</code> are <code>"TRUE"</code> (as a character) in the following example (reusing the 2 <code>..._logical</code>s from above):</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">combined_logical</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">num_logical</span>, <span class="va">char_logical</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+</ul>
+::: {.cell}
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<p>
+Only one. There is no memory of past data types, and the coercion happens the first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted into <code>"1"</code> in <code>combined_logical</code>.
+</p>
+</div>
+</div>
+
+<p>:::</p>
+<ul>
+<li>You’ve probably noticed that objects of different types get converted into a single, shared type within a vector. In R, we call converting objects from one class into another class <em>coercion</em>. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?</li>
+</ul>
+::: {.cell}
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<p>
+logical → numeric → character ← logical
+</p>
+</div>
+</div>
+
+<p>:::</p>
+</blockquote>
+<div class="cell">
+
+</div>
+</section><section id="subsetting-vectors" class="level2"><h2 class="anchored" data-anchor-id="subsetting-vectors">Subsetting vectors</h2>
+<p>If we want to extract one or several values from a vector, we must provide one or several indices in square brackets. For instance:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span><span class="op">)</span></span>
+<span><span class="va">animals</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "rat"</code></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "dog" "rat"</code></pre>
+</div>
+</div>
+<p>We can also repeat the indices to create an object with more elements than the original one:</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">more_animals</span> <span class="op">&lt;-</span> <span class="va">animals</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">more_animals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "mouse" "rat"   "dog"   "rat"   "mouse" "cat"</code></pre>
+</div>
+</div>
+<p>R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that’s what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that’s simpler for computers to do.</p>
+<section id="conditional-subsetting" class="level3"><h3 class="anchored" data-anchor-id="conditional-subsetting">Conditional subsetting</h3>
+<p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will select the element with the same index, while <code>FALSE</code> will not:</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">21</span>, <span class="fl">34</span>, <span class="fl">39</span>, <span class="fl">54</span>, <span class="fl">55</span><span class="op">)</span></span>
+<span><span class="va">weight_g</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 21 54 55</code></pre>
+</div>
+</div>
+<p>Typically, these logical vectors are not typed by hand, but are the output of other functions or logical tests. For instance, if you wanted to select only the values above 50:</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span> <span class="op">&gt;</span> <span class="fl">50</span>    <span class="co"># will return logicals with TRUE for the indices that meet the condition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] FALSE FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## so we can use this to select only the values above 50</span></span>
+<span><span class="va">weight_g</span><span class="op">[</span><span class="va">weight_g</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 54 55</code></pre>
+</div>
+</div>
+<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code> (at least one of the conditions is true, OR):</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span><span class="op">[</span><span class="va">weight_g</span> <span class="op">&gt;</span> <span class="fl">30</span> <span class="op">&amp;</span> <span class="va">weight_g</span> <span class="op">&lt;</span> <span class="fl">50</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 34 39</code></pre>
+</div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span><span class="op">[</span><span class="va">weight_g</span> <span class="op">&lt;=</span> <span class="fl">30</span> <span class="op">|</span> <span class="va">weight_g</span> <span class="op">==</span> <span class="fl">55</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 21 55</code></pre>
+</div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">weight_g</span><span class="op">[</span><span class="va">weight_g</span> <span class="op">&gt;=</span> <span class="fl">30</span> <span class="op">&amp;</span> <span class="va">weight_g</span> <span class="op">==</span> <span class="fl">21</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; numeric(0)</code></pre>
+</div>
+</div>
+<p>Here, <code>&gt;</code> for “greater than”, <code>&lt;</code> stands for “less than”, <code>&lt;=</code> for “less than or equal to”, and <code>==</code> for “equal to”. The double equal sign <code>==</code> is a test for numerical equality between the left and right hand sides, and should not be confused with the single <code>=</code> sign, which performs variable assignment (similar to <code>&lt;-</code>).</p>
+<p>A common task is to search for certain strings in a vector. One could use the “or” operator <code>|</code> to test for equality to multiple values, but this can quickly become tedious. The function <code>%in%</code> allows you to test if any of the elements of a search vector are found:</p>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mouse"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"cat"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># return both rat and cat</span></span>
+<span><span class="va">animals</span><span class="op">[</span><span class="va">animals</span> <span class="op">==</span> <span class="st">"cat"</span> <span class="op">|</span> <span class="va">animals</span> <span class="op">==</span> <span class="st">"rat"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "rat" "cat" "cat"</code></pre>
+</div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># return a logical vector that is TRUE for the elements within animals</span></span>
+<span><span class="co"># that are found in the character vector and FALSE for those that are not</span></span>
+<span><span class="va">animals</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"duck"</span>, <span class="st">"goat"</span>, <span class="st">"bird"</span>, <span class="st">"fish"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use the logical vector created by %in% to return elements from animals</span></span>
+<span><span class="co"># that are found in the character vector</span></span>
+<span><span class="va">animals</span><span class="op">[</span><span class="va">animals</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"duck"</span>, <span class="st">"goat"</span>, <span class="st">"bird"</span>, <span class="st">"fish"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "rat" "dog" "cat" "cat"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<h3 id="challenge-optional" class="challenge anchored">Challenge (optional)</h3>
+<ul>
+<li>Can you figure out why <code>"four" &gt; "five"</code> returns <code>TRUE</code>?</li>
+</ul>
+::: {.cell}
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<p>
+When using “&gt;” or “&lt;” on strings, R compares their alphabetical order. Here “four” comes after “five”, and therefore is “greater than” it.
+</p>
+</div>
+</div>
+
+<p>:::</p>
+</blockquote>
+<div class="cell">
+
+</div>
+</section></section><section id="missing-data" class="level2"><h2 class="anchored" data-anchor-id="missing-data">Missing data</h2>
+<p>As R was designed to analyze datasets, it includes the concept of missing data (which is uncommon in other programming languages). Missing data are represented in vectors as <code>NA</code>.</p>
+<p>When doing operations on numbers, most functions will return <code>NA</code> if the data you are working with include missing values. This feature makes it harder to overlook the cases where you are dealing with missing data. You can add the argument <code>na.rm = TRUE</code> to calculate the result as if the missing values were removed (<code>rm</code> stands for ReMoved) first.</p>
+<div class="cell">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">heights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">6</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">heights</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">heights</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If your data include missing values, you may want to become familiar with the functions <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>, <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code>, and <code><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases()</a></code>. See below for examples.</p>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Extract those elements which are not missing values.</span></span>
+<span><span class="va">heights</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co">## Returns the object with incomplete cases removed.</span></span>
+<span><span class="co">#The returned object is an atomic vector of type `"numeric"` (or #`"double"`).</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Extract those elements which are complete cases.</span></span>
+<span><span class="co">#The returned object is an atomic vector of type `"numeric"` (or #`"double"`).</span></span>
+<span><span class="va">heights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Recall that you can use the <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> function to find the type of your atomic vector.</p>
+<blockquote class="blockquote">
+<h3 id="challenge-2" class="anchored">Challenge</h3>
+<ol type="1">
+<li>
+<p>Using this vector of heights in inches, create a new vector, <code>heights_no_na</code>, with the NAs removed.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">heights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">63</span>, <span class="fl">69</span>, <span class="fl">60</span>, <span class="fl">65</span>, <span class="cn">NA</span>, <span class="fl">68</span>, <span class="fl">61</span>, <span class="fl">70</span>, <span class="fl">61</span>, <span class="fl">59</span>, <span class="fl">64</span>, <span class="fl">69</span>, <span class="fl">63</span>, <span class="fl">63</span>, <span class="cn">NA</span>, <span class="fl">72</span>, <span class="fl">65</span>, <span class="fl">64</span>, <span class="fl">70</span>, <span class="fl">63</span>, <span class="fl">65</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</li>
+<li><p>Use the function <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> to calculate the median of the <code>heights</code> vector.</p></li>
+<li><p>Use R to figure out how many people in the set are taller than 67 inches.</p></li>
+</ol>
+<div class="cell" data-answer="true">
+<div class="accordion">
+<h3 class="toc-ignore anchored">
+Answer
+</h3>
+<div style="background: #fff;">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">heights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">63</span>, <span class="fl">69</span>, <span class="fl">60</span>, <span class="fl">65</span>, <span class="cn">NA</span>, <span class="fl">68</span>, <span class="fl">61</span>, <span class="fl">70</span>, <span class="fl">61</span>, <span class="fl">59</span>, <span class="fl">64</span>, <span class="fl">69</span>, <span class="fl">63</span>, <span class="fl">63</span>, <span class="cn">NA</span>, <span class="fl">72</span>, <span class="fl">65</span>, <span class="fl">64</span>, <span class="fl">70</span>, <span class="fl">63</span>, <span class="fl">65</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 1.</span></span>
+<span><span class="va">heights_no_na</span> <span class="op">&lt;-</span> <span class="va">heights</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co"># or</span></span>
+<span><span class="va">heights_no_na</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span></span>
+<span><span class="co"># or</span></span>
+<span><span class="va">heights_no_na</span> <span class="op">&lt;-</span> <span class="va">heights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">heights</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># 2.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">heights</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3.</span></span>
+<span><span class="va">heights_above_67</span> <span class="op">&lt;-</span> <span class="va">heights_no_na</span><span class="op">[</span><span class="va">heights_no_na</span> <span class="op">&gt;</span> <span class="fl">67</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">heights_above_67</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</blockquote>
+<div class="cell">
+
+</div>
+<p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with the Portal dataset we have been using in the other lessons, and learn about data frames.</p>
+<p style="text-align: right; font-size: small;">
+Page built on: 📆 2022-06-28 ‒ 🕢 17:22:46
+</p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
