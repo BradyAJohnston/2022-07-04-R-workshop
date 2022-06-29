@@ -6,17 +6,14 @@ editor_options:
     wrap: 72
 ---
 
-<p>
-
-</p>
-
 ::: {style="text-align: center; margin-top: 30px; margin-bottom: 30px;"}
 ![](./img/DC-logo-vision.png)
 :::
 
-<p>
-
-</p>
+::: callout-note
+These materials have been adapted from the Data Carpentry lesson ['R For
+Ecologists'.](https://datacarpentry.org/R-ecology-lesson/)
+:::
 
 Data Carpentry's aim is to teach researchers basic concepts, skills, and
 tools for working with data so that they can get more done in less time,
