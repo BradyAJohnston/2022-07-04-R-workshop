@@ -8,22 +8,22 @@ minutes: 20
 source("setup.R")
 ```
 
-------------
 
-> ### Learning Objectives
->
-> * Load external data from a .csv file into a data frame.
-> * Install and load packages.
-> * Describe what a data frame is.
-> * Summarize the contents of a data frame.
-> * Use indexing to subset specific portions of data frames. 
-> * Describe what a factor is.
-> * Convert between strings and factors.
-> * Reorder and rename factors.
-> * Change how character strings are handled in a data frame.
-> * Format dates.
+:::{.callout-tip icon=false}
+### Learning Objectives
 
-------------
+* Load external data from a .csv file into a data frame.
+* Install and load packages.
+* Describe what a data frame is.
+* Summarize the contents of a data frame.
+* Use indexing to subset specific portions of data frames. 
+* Describe what a factor is.
+* Convert between strings and factors.
+* Reorder and rename factors.
+* Change how character strings are handled in a data frame.
+* Format dates.
+:::
+
 
 ## Loading the survey data
 
@@ -117,23 +117,26 @@ of each column and guesses its data type. For example, in this dataset,
 as `col_character`. You have the option to specify the data type for a column
 manually by using the `col_types` argument in `read_csv`.
 
-> ### Note
->
-> `read_csv()` assumes that fields are delineated by commas. However, in several
-> countries, the comma is used as a decimal separator and the semicolon (;) is
-> used as a field delineator. If you want to read in this type of files in R,
-> you can use the `read_csv2()` function. It behaves like `read_csv()` but
-> uses different parameters for the decimal and the field separators. 
+:::{.callout-note}
+### Note
+
+`read_csv()` assumes that fields are delineated by commas. However, in several
+countries, the comma is used as a decimal separator and the semicolon (;) is
+used as a field delineator. If you want to read in this type of files in R,
+you can use the `read_csv2()` function. It behaves like `read_csv()` but
+uses different parameters for the decimal and the field separators. 
 There is also the `read_tsv()` for tab separated data files and `read_delim()` 
-> for less common formats.
-> Check out the help for `read_csv()` by typing `?read_csv` to learn more. 
->
-> In addition to the above versions of the csv format, you should develop the habits
-> of looking at and recording some parameters of your csv files. For instance, 
-> the character encoding, control characters used for line ending, date format
-> (if the date is not split into three variables), and the presence of unexpected
-> [newlines](https://en.wikipedia.org/wiki/Newline) are important characteristics of your data files.
-> Those parameters will ease up the import step of your data in R.
+for less common formats.
+Check out the help for `read_csv()` by typing `?read_csv` to learn more. 
+
+In addition to the above versions of the csv format, you should develop the habits
+of looking at and recording some parameters of your csv files. For instance, 
+the character encoding, control characters used for line ending, date format
+(if the date is not split into three variables), and the presence of unexpected
+[newlines](https://en.wikipedia.org/wiki/Newline) are important characteristics of your data files.
+Those parameters will ease up the import step of your data in R.
+
+:::
 
 We can see the contents of the first few lines of the data by typing its 
 name: `surveys`. By default, this will show you as many rows and columns of
@@ -161,12 +164,13 @@ To open the dataset in RStudio's Data Viewer, use the `view()` function:
 view(surveys)
 ```
 
-> ### Note
-> 
->  There are two functions for viewing which are case-sensitive. Using `view()` with a 
->  lowercase 'v' is part of tidyverse, whereas using `View()` with an uppercase 'V' is 
->  loaded through base R in the `utils` package.
-
+:::{.callout-note}
+### Note
+ 
+There are two functions for viewing which are case-sensitive. Using `view()` with a 
+lowercase 'v' is part of tidyverse, whereas using `View()` with an uppercase 'V' is 
+loaded through base R in the `utils` package.
+:::
 
 
 ## What are data frames?
@@ -226,22 +230,28 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
+:::{.callout-warning icon=false}
+### Challenge
 
-> ### Challenge
->
-> Based on the output of `str(surveys)`, can you answer the following questions?
->
-> * What is the class of the object `surveys`?
-> * How many rows and how many columns are in this object?
->
-> ```{r, answer=TRUE, results="markup", purl=FALSE}
->
-> str(surveys)
->
-> ## * class: data frame
-> ## * how many rows: 34786,  how many columns: 13
->
-> ```
+Based on the output of `str(surveys)`, can you answer the following questions?
+
+* What is the class of the object `surveys`?
+* How many rows and how many columns are in this object?
+
+:::{.callout-tip collapse=true icon=false}
+
+### Answer
+
+```{r, results="markup", purl=FALSE}
+str(surveys)
+
+## * class: data frame
+## * how many rows: 34786,  how many columns: 13
+
+```
+
+:::
+:::
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -340,38 +350,46 @@ surveys$species_id
 
 In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.
 
-> ### Challenge
->
-> 1. Create a `data.frame` (`surveys_200`) containing only the data in
->    row 200 of the `surveys` dataset.
->
-> 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
->
->      * Use that number to pull out just that last row from the `surveys` dataset.
->      * Compare that with what you see as the last row using `tail()` to make
->        sure it's meeting expectations.
->      * Pull out that last row using `nrow()` instead of the row number.
->      * Create a new data frame (`surveys_last`) from that last row.
->
-> 3. Use `nrow()` to extract the row that is in the middle of the data
->    frame. Store the content of this row in an object named `surveys_middle`.
->
-> 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
->    `head(surveys)`, keeping just the first through 6th rows of the surveys
->    dataset.
->
-> ```{r, answer=TRUE, purl=FALSE}
-> ## 1.
-> surveys_200 <- surveys[200, ]
-> ## 2.
-> # Saving `n_rows` to improve readability and reduce duplication
-> n_rows <- nrow(surveys)
-> surveys_last <- surveys[n_rows, ]
-> ## 3.
-> surveys_middle <- surveys[n_rows / 2, ]
-> ## 4.
-> surveys_head <- surveys[-(7:n_rows), ]
-> ```
+:::{.callout-warning icon=false}
+
+### Challenge
+
+1. Create a `data.frame` (`surveys_200`) containing only the data in
+   row 200 of the `surveys` dataset.
+
+2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
+
+     * Use that number to pull out just that last row from the `surveys` dataset.
+     * Compare that with what you see as the last row using `tail()` to make
+       sure it's meeting expectations.
+     * Pull out that last row using `nrow()` instead of the row number.
+     * Create a new data frame (`surveys_last`) from that last row.
+
+3. Use `nrow()` to extract the row that is in the middle of the data
+   frame. Store the content of this row in an object named `surveys_middle`.
+
+4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
+   `head(surveys)`, keeping just the first through 6th rows of the surveys
+   dataset.
+   
+:::{.callout-tip collapse=true icon=false}
+
+### Answer
+
+```{r, purl=FALSE}
+## 1.
+surveys_200 <- surveys[200, ]
+## 2.
+# Saving `n_rows` to improve readability and reduce duplication
+n_rows <- nrow(surveys)
+surveys_last <- surveys[n_rows, ]
+## 3.
+surveys_middle <- surveys[n_rows / 2, ]
+## 4.
+surveys_head <- surveys[-(7:n_rows), ]
+```
+:::
+:::
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -468,26 +486,32 @@ be able to tell just from the integer data. Factors, on the other hand, have
 this information built in. It is particularly helpful when there are many levels
 (like the species names in our example dataset).
 
+:::{.callout-warning icon=false}
+### Challenge
 
-> ### Challenge
->
-> 1. Change the columns `taxa` and `genus` in the `surveys` data frame into a 
->    factor.
->
-> 2. Using the functions you learned before, can you find out...
->
->      * How many rabbits were observed?
->      * How many different genera are in the `genus` column?
->
-> ```{r, answer=TRUE, purl=FALSE}
-> surveys$taxa <- factor(surveys$taxa)
-> surveys$genus <- factor(surveys$genus)
-> summary(surveys)
-> nlevels(surveys$genus)
->
-> ## * how many genera: There are 26 unique genera in the `genus` column.
-> ## * how many rabbts: There are 75 rabbits in the `taxa` column.
-> ``` 
+1. Change the columns `taxa` and `genus` in the `surveys` data frame into a 
+   factor.
+
+2. Using the functions you learned before, can you find out...
+
+     * How many rabbits were observed?
+     * How many different genera are in the `genus` column?
+     
+:::{.callout-tip icon=false collapse=true}
+
+### Answer 
+
+```{r, purl=FALSE}
+surveys$taxa <- factor(surveys$taxa)
+surveys$genus <- factor(surveys$genus)
+summary(surveys)
+nlevels(surveys$genus)
+
+## * how many genera: There are 26 unique genera in the `genus` column.
+## * how many rabbts: There are 75 rabbits in the `taxa` column.
+``` 
+:::
+:::
 
 ```{r, echo=FALSE, purl=TRUE}
 ### Challenges:
@@ -575,17 +599,24 @@ Now we can plot the data again, using `plot(sex)`.
 plot(sex)
 ```
 
-> ### Challenge
->
-> * Rename "F" and "M" to "female" and "male" respectively.
-> * Now that we have renamed the factor level to "undetermined", can you recreate the barplot such that "undetermined" is first (before "female")?
->
-> ```{r, answer=TRUE, purl=FALSE}
-> levels(sex)[1:2] <- c("female", "male")
-> sex <- factor(sex, levels = c("undetermined", "female", "male"))
-> plot(sex)
-> ```
+:::{.callout-warning icon=false}
 
+### Challenge
+
+* Rename "F" and "M" to "female" and "male" respectively.
+* Now that we have renamed the factor level to "undetermined", can you recreate the barplot such that "undetermined" is first (before "female")?
+
+:::{.callout-tip icon=false collapse=true}
+
+### Answer
+
+```{r, purl=FALSE}
+levels(sex)[1:2] <- c("female", "male")
+sex <- factor(sex, levels = c("undetermined", "female", "male"))
+plot(sex)
+```
+:::
+:::
 
 ```{r wrong-order, results='show', echo=FALSE, purl=TRUE}
 ## Challenges
@@ -596,74 +627,80 @@ plot(sex)
 ```
 
 
-> ### Challenge
->
-> 1. We have seen how data frames are created when using `read_csv()`, but
->   they can also be created by hand with the `data.frame()` function.  There are
->   a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them?
->   Don't hesitate to experiment!
->
->     ```{r, eval=FALSE, purl=FALSE}
->     animal_data <- data.frame(
->               animal = c(dog, cat, sea cucumber, sea urchin),
->               feel = c("furry", "squishy", "spiny"),
->               weight = c(45, 8 1.1, 0.8)
->               )
->     ```
->
->     ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
->     ## Challenge:
->     ##  There are a few mistakes in this hand-crafted `data.frame`,
->     ##  can you spot and fix them? Don't hesitate to experiment!
->     animal_data <- data.frame(
->           animal = c(dog, cat, sea cucumber, sea urchin),
->           feel = c("furry", "squishy", "spiny"),
->           weight = c(45, 8 1.1, 0.8)
->           )
->     ```
->
-> 2. Can you predict the class for each of the columns in the following example?
->    Check your guesses using `str(country_climate)`:
->      * Are they what you expected?  Why? Why not?
->      * What would you need to change to ensure that each column had the accurate data type?
->
->     ```{r, eval=FALSE, purl=FALSE}
->     country_climate <- data.frame(
->            country = c("Canada", "Panama", "South Africa", "Australia"),
->            climate = c("cold", "hot", "temperate", "hot/temperate"),
->            temperature = c(10, 30, 18, "15"),
->            northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->            has_kangaroo = c(FALSE, FALSE, FALSE, 1)
->            )
->     ```
->
->    ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
->    ## Challenge:
->    ##   Can you predict the class for each of the columns in the following
->    ##   example?
->    ##   Check your guesses using `str(country_climate)`:
->    ##   * Are they what you expected? Why? why not?
->    ##   * What would you need to change to ensure that each column had the
->    ##     accurate data type?
->    country_climate <- data.frame(country = c("Canada", "Panama", "South Africa", "Australia"),
->                                   climate = c("cold", "hot", "temperate", "hot/temperate"),
->                                   temperature = c(10, 30, 18, "15"),
->                                   northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->                                   has_kangaroo = c(FALSE, FALSE, FALSE, 1))
->    ```
->
->    ```{text_answer, echo=FALSE, purl=FALSE}
->    * missing quotations around the names of the animals
->    * missing one entry in the `feel` column (probably for one of the furry animals)
->    * missing one comma in the `weight` column
->    * `country`, `climate`, `temperature`, and `northern_hemisphere` are
->       characters; `has_kangaroo` is numeric
->    * using `factor()` one could replace character columns with factors columns
->    * removing the quotes in `temperature` and `northern_hemisphere` and replacing 1
->      by TRUE in the `has_kangaroo` column would give what was probably 
->      intended
->    ```
->
+:::{.callout-warning icon=false}
+
+### Challenge
+
+1. We have seen how data frames are created when using `read_csv()`, but
+  they can also be created by hand with the `data.frame()` function.  There are
+  a few mistakes in this hand-crafted `data.frame`. Can you spot and fix them?
+  Don't hesitate to experiment!
+
+```{r, eval=FALSE, purl=FALSE}
+animal_data <- data.frame(
+    animal = c(dog, cat, sea cucumber, sea urchin),
+    feel = c("furry", "squishy", "spiny"),
+    weight = c(45, 8 1.1, 0.8)
+    )
+```
+
+```{r, eval=FALSE, purl=TRUE, echo=FALSE}
+## Challenge:
+##  There are a few mistakes in this hand-crafted `data.frame`,
+##  can you spot and fix them? Don't hesitate to experiment!
+animal_data <- data.frame(
+    animal = c(dog, cat, sea cucumber, sea urchin),
+    feel = c("furry", "squishy", "spiny"),
+    weight = c(45, 8 1.1, 0.8)
+    )
+```
+
+2. Can you predict the class for each of the columns in the following example?
+   Check your guesses using `str(country_climate)`:
+     * Are they what you expected?  Why? Why not?
+     * What would you need to change to ensure that each column had the accurate data type?
+
+```{r, eval=FALSE, purl=FALSE}
+country_climate <- data.frame(
+    country = c("Canada", "Panama", "South Africa", "Australia"),
+    climate = c("cold", "hot", "temperate", "hot/temperate"),
+    temperature = c(10, 30, 18, "15"),
+    northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+    has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+    )
+```
+
+```{r, eval=FALSE, purl=TRUE, echo=FALSE}
+## Challenge:
+##   Can you predict the class for each of the columns in the following
+##   example?
+##   Check your guesses using `str(country_climate)`:
+##   * Are they what you expected? Why? why not?
+##   * What would you need to change to ensure that each column had the
+##     accurate data type?
+country_climate <- data.frame(country = c("Canada", "Panama", "South Africa", "Australia"),
+   climate = c("cold", "hot", "temperate", "hot/temperate"),
+   temperature = c(10, 30, 18, "15"),
+   northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+   has_kangaroo = c(FALSE, FALSE, FALSE, 1))
+```
+
+:::{.callout-tip icon=false collapse=true}
+
+### Answer
+
+* missing quotations around the names of the animals
+* missing one entry in the `feel` column (probably for one of the furry animals)
+* missing one comma in the `weight` column
+* `country`, `climate`, `temperature`, and `northern_hemisphere` are
+   characters; `has_kangaroo` is numeric
+* using `factor()` one could replace character columns with factors columns
+* removing the quotes in `temperature` and `northern_hemisphere` and replacing 1
+   by TRUE in the `has_kangaroo` column would give what was probably 
+   intended
+:::
+:::
+
 
 The automatic conversion of data type is sometimes a blessing, sometimes an
 annoyance. Be aware that it exists, learn the rules, and double check that data

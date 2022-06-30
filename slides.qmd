@@ -1,0 +1,52 @@
+---
+title: "The Wild World of R"
+author: Brady Johnston
+date: today
+format: revealjs
+editor: visual
+---
+
+# What even is R?
+
+![](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_rollercoaster.png){fig-alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." fig-align="center"}
+
+# Am I 'using R'?
+
+![](images/paste-348C65C5.png){fig-align="center"}
+
+## Overview of Code Execution
+
+##### 'Normal' Code Execution
+
+```{mermaid}
+flowchart LR
+  A(Code) --> B(R Kernal)
+  B --> C[Computer Code]
+  C --> B
+  B --> D(Display)
+  
+  
+```
+
+##### Interactive Coding
+
+```{mermaid}
+flowchart LR
+  E(Your Code) --> A
+  A --> E
+  A(RStudio) --> B(R Kernal)
+  B --> A
+  
+  B --> C[Computer Code]
+  A --> D
+  C --> B
+  B --> D(Display)
+```
+
+## Exploratory Data Analysis
+
+-   We don't need to know what we are looking for
+
+-   Think of it as a conversation with your data
+
+    -   Listen to what it has to say

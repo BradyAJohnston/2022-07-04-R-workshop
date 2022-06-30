@@ -260,9 +260,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header><div class="cell">
 
 </div>
-<hr>
-<blockquote class="blockquote">
-<h3 id="learning-objectives" class="anchored">Learning Objectives</h3>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Load external data from a .csv file into a data frame.</li>
 <li>Install and load packages.</li>
@@ -275,8 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Change how character strings are handled in a data frame.</li>
 <li>Format dates.</li>
 </ul>
-</blockquote>
-<hr>
+</div>
+</div>
 <section id="loading-the-survey-data" class="level2"><h2 class="anchored" data-anchor-id="loading-the-survey-data">Loading the survey data</h2>
 <div class="cell">
 
@@ -373,11 +380,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>When you execute <code>read_csv</code> on a data file, it looks through the first 1000 rows of each column and guesses its data type. For example, in this dataset, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> reads <code>weight</code> as <code>col_double</code> (a numeric data type), and <code>species</code> as <code>col_character</code>. You have the option to specify the data type for a column manually by using the <code>col_types</code> argument in <code>read_csv</code>.</p>
-<blockquote class="blockquote">
-<h3 id="note" class="anchored">Note</h3>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> assumes that fields are delineated by commas. However, in several countries, the comma is used as a decimal separator and the semicolon (;) is used as a field delineator. If you want to read in this type of files in R, you can use the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2()</a></code> function. It behaves like <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> but uses different parameters for the decimal and the field separators. There is also the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> for tab separated data files and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> for less common formats. Check out the help for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> by typing <code><a href="https://readr.tidyverse.org/reference/read_delim.html">?read_csv</a></code> to learn more.</p>
 <p>In addition to the above versions of the csv format, you should develop the habits of looking at and recording some parameters of your csv files. For instance, the character encoding, control characters used for line ending, date format (if the date is not split into three variables), and the presence of unexpected <a href="https://en.wikipedia.org/wiki/Newline">newlines</a> are important characteristics of your data files. Those parameters will ease up the import step of your data in R.</p>
-</blockquote>
+</div>
+</div>
 <p>We can see the contents of the first few lines of the data by typing its name: <code>surveys</code>. By default, this will show you as many rows and columns of the data as fit on your screen. If you wanted the first 50 rows, you could type <code>print(surveys, n = 50)</code></p>
 <p>We can also extract the first few lines of this data using the function <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>:</p>
 <div class="cell">
@@ -401,10 +417,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/view.html">view</a></span><span class="op">(</span><span class="va">surveys</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote class="blockquote">
-<h3 id="note-1" class="anchored">Note</h3>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>There are two functions for viewing which are case-sensitive. Using <code><a href="https://tibble.tidyverse.org/reference/view.html">view()</a></code> with a lowercase ‘v’ is part of tidyverse, whereas using <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> with an uppercase ‘V’ is loaded through base R in the <code>utils</code> package.</p>
-</blockquote>
+</div>
+</div>
 </section></section><section id="what-are-data-frames" class="level2"><h2 class="anchored" data-anchor-id="what-are-data-frames">What are data frames?</h2>
 <p>When we loaded the data into R, it got stored as an object of class <code>tibble</code>, which is a special kind of data frame (the difference is not important for our purposes, but you can learn more about tibbles <a href="https://tibble.tidyverse.org/">here</a>). Data frames are the <em>de facto</em> data structure for most tabular data, and what we use for statistics and plotting. Data frames can be created by hand, but most commonly they are generated by functions like <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>; in other words, when importing spreadsheets from your hard drive or the web.</p>
 <p>A data frame is the representation of data in the format of a table where the columns are vectors that all have the same length. Because columns are vectors, each column must contain a single type of data (e.g., characters, integers, factors). For example, here is a figure depicting a data frame comprising a numeric, a character, and a logical vector.</p>
@@ -452,19 +477,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 </ul>
 <p>Note: most of these functions are “generic”, they can be used on other types of objects besides <code>data.frame</code>.</p>
-<blockquote class="blockquote">
-<h3 id="challenge" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Based on the output of <code>str(surveys)</code>, can you answer the following questions?</p>
 <ul>
 <li>What is the class of the object <code>surveys</code>?</li>
 <li>How many rows and how many columns are in this object?</li>
 </ul>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">surveys</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; spec_tbl_df [34,786 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
@@ -504,7 +544,9 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -575,8 +617,16 @@ Answer
 <span><span class="va">surveys</span><span class="op">$</span><span class="va">species_id</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.</p>
-<blockquote class="blockquote">
-<h3 id="challenge-1" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Create a <code>data.frame</code> (<code>surveys_200</code>) containing only the data in row 200 of the <code>surveys</code> dataset.</p></li>
 <li>
@@ -591,12 +641,19 @@ Answer
 <li><p>Use <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> to extract the row that is in the middle of the data frame. Store the content of this row in an object named <code>surveys_middle</code>.</p></li>
 <li><p>Combine <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> with the <code>-</code> notation above to reproduce the behavior of <code>head(surveys)</code>, keeping just the first through 6th rows of the surveys dataset.</p></li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## 1.</span></span>
 <span><span class="va">surveys_200</span> <span class="op">&lt;-</span> <span class="va">surveys</span><span class="op">[</span><span class="fl">200</span>, <span class="op">]</span></span>
 <span><span class="co">## 2.</span></span>
@@ -610,7 +667,9 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -653,8 +712,16 @@ Answer
 </div>
 </div>
 <p>In R’s memory, these factors are represented by integers (1, 2, 3), but are more informative than integers because factors are self describing: <code>"female"</code>, <code>"male"</code> is more descriptive than <code>1</code>, <code>2</code>. Which one is “male”? You wouldn’t be able to tell just from the integer data. Factors, on the other hand, have this information built in. It is particularly helpful when there are many levels (like the species names in our example dataset).</p>
-<blockquote class="blockquote">
-<h3 id="challenge-2" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Change the columns <code>taxa</code> and <code>genus</code> in the <code>surveys</code> data frame into a factor.</p></li>
 <li>
@@ -665,12 +732,19 @@ Answer
 </ul>
 </li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span><span class="op">$</span><span class="va">taxa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">surveys</span><span class="op">$</span><span class="va">taxa</span><span class="op">)</span></span>
 <span><span class="va">surveys</span><span class="op">$</span><span class="va">genus</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">surveys</span><span class="op">$</span><span class="va">genus</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">surveys</span><span class="op">)</span></span>
@@ -681,7 +755,9 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -749,18 +825,33 @@ Answer
 <p><img src="img/R-ecology-unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-3" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Rename “F” and “M” to “female” and “male” respectively.</li>
 <li>Now that we have renamed the factor level to “undetermined”, can you recreate the barplot such that “undetermined” is first (before “female”)?</li>
 </ul>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"female"</span>, <span class="st">"male"</span><span class="op">)</span></span>
 <span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sex</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"undetermined"</span>, <span class="st">"female"</span>, <span class="st">"male"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -770,52 +861,67 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-4" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>
-<p>We have seen how data frames are created when using <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, but they can also be created by hand with the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function. There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you spot and fix them? Don’t hesitate to experiment!</p>
-<p>::: {.cell}</p>
+<li>We have seen how data frames are created when using <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, but they can also be created by hand with the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function. There are a few mistakes in this hand-crafted <code>data.frame</code>. Can you spot and fix them? Don’t hesitate to experiment!</li>
+</ol>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>animal_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>)</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell}</p>
-<p>:::</p>
-</li>
-<li>
-<p>Can you predict the class for each of the columns in the following example? Check your guesses using <code>str(country_climate)</code>:</p>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
+<ol start="2" type="1">
+<li>Can you predict the class for each of the columns in the following example? Check your guesses using <code>str(country_climate)</code>:
 <ul>
 <li>Are they what you expected? Why? Why not?</li>
 <li>What would you need to change to ensure that each column had the accurate data type?</li>
 </ul>
-<p>::: {.cell}</p>
+</li>
+</ol>
+<div class="cell">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">country_climate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>       country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span><span class="op">)</span>,</span>
-<span>       climate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span><span class="op">)</span>,</span>
-<span>       temperature <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">30</span>, <span class="fl">18</span>, <span class="st">"15"</span><span class="op">)</span>,</span>
-<span>       northern_hemisphere <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="st">"FALSE"</span><span class="op">)</span>,</span>
-<span>       has_kangaroo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span>       <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+<span>    country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Canada"</span>, <span class="st">"Panama"</span>, <span class="st">"South Africa"</span>, <span class="st">"Australia"</span><span class="op">)</span>,</span>
+<span>    climate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cold"</span>, <span class="st">"hot"</span>, <span class="st">"temperate"</span>, <span class="st">"hot/temperate"</span><span class="op">)</span>,</span>
+<span>    temperature <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">30</span>, <span class="fl">18</span>, <span class="st">"15"</span><span class="op">)</span>,</span>
+<span>    northern_hemisphere <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="st">"FALSE"</span><span class="op">)</span>,</span>
+<span>    has_kangaroo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell">
 
 </div>
-<p>::: {.cell}</p>
-<div class="accordion">
-<h3 class="toc-ignore anchored">
-</h3>
-<p>Answer</p>
-
-<div style="background: #fff;">
-<p>
-</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
 <li>missing quotations around the names of the animals</li>
 <li>missing one entry in the <code>feel</code> column (probably for one of the furry animals)</li>
@@ -823,17 +929,13 @@ Answer
 <li>
 <code>country</code>, <code>climate</code>, <code>temperature</code>, and <code>northern_hemisphere</code> are characters; <code>has_kangaroo</code> is numeric</li>
 <li>using <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> one could replace character columns with factors columns</li>
-<li>removing the quotes in <code>temperature</code> and <code>northern_hemisphere</code> and replacing 1 by TRUE in the <code>has_kangaroo</code> column would give what was probably intended
-</li>
+<li>removing the quotes in <code>temperature</code> and <code>northern_hemisphere</code> and replacing 1 by TRUE in the <code>has_kangaroo</code> column would give what was probably intended</li>
 </ul>
 </div>
 </div>
-</li>
-
-
-<p>:::</p>
-</ol>
-</blockquote>
+</div>
+</div>
+</div>
 <p>The automatic conversion of data type is sometimes a blessing, sometimes an annoyance. Be aware that it exists, learn the rules, and double check that data you import in R are of the correct type within your data frame. If not, use it to your advantage to detect mistakes that might have been introduced during data entry (for instance, a letter in a column that should only contain numbers).</p>
 <p>Learn more in this <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio">RStudio tutorial</a></p>
 </section></section><section id="formatting-dates" class="level2"><h2 class="anchored" data-anchor-id="formatting-dates">Formatting dates</h2>
@@ -911,7 +1013,7 @@ Answer
 <p>There are several ways you could deal with situation: * If you have access to the raw data (e.g., field sheets) or supporting information (e.g., field trip reports/logs), check them and ensure the electronic database matches the information in the original data source. * If you are able to contact the person responsible for collecting the data, you could refer to them and ask for clarification. * You could also check the rest of the dataset for clues about the correct value for the erroneous dates. * If your project has guidelines on how to correct this sort of errors, refer to them and apply any recommendations. * If it is not possible to ascertain the correct value for these observations, you may want to leave them as missing data.</p>
 <p>Regardless of the option you choose, it is important that you document the error and the corrections (if any) that you apply to your data.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-28 ‒ 🕢 17:22:36
+Page built on: 📆 2022-06-30 ‒ 🕢 10:49:49
 </p>
 
 

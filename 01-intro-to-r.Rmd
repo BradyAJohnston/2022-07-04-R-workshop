@@ -2,6 +2,7 @@
 title: "Introduction to R"
 author: "Data Carpentry contributors"
 minutes: 45
+callout-icon: false
 ---
 
 
@@ -9,9 +10,8 @@ minutes: 45
 source("setup.R")
 ```
 
-------------
 
-:::{.blockquote}
+:::{.callout-tip icon=false}
 ### Learning Objectives
 
   * Define the following terms as they relate to R: object, assign, call,
@@ -27,7 +27,6 @@ source("setup.R")
   * Analyze vectors with missing data.
 
 :::
-------------
 
 ## Creating objects in R
 
@@ -77,7 +76,7 @@ doubt, check the help to see if the name is already in use.
 Fan](https://jef.works/R-style-guide/) and the
 [tidyverse](https://style.tidyverse.org/). The tidyverse style is very comprehensive and may seem overwhelming at first. You can install the [**`lintr`**](https://github.com/jimhester/lintr) package to automatically check for issues in the styling of your code.
 
-:::{.blockquote}
+:::{.callout-note}
 
 ### Objects vs. variables
 
@@ -155,7 +154,7 @@ out one line, you can put the cursor at any location of that line (i.e. no need
 to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <kbd>C</kbd>.
 
-:::{.blockquote}
+:::{.callout-warning icon=false}
 
 ### Challenge
 
@@ -349,7 +348,7 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`),
 factors (`factor`) and arrays (`array`).
 
-:::{.blockquote}
+:::{.callout-warning icon=false appearance="minimal"}
 
 ### Challenge
 
@@ -527,7 +526,7 @@ animals %in% c("rat", "cat", "dog", "duck", "goat", "bird", "fish")
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat", "bird", "fish")]
 ```
 
-:::{.blockquote}
+:::{.callout-warning}
 
 ### Challenge (optional){.challenge}
 
@@ -586,7 +585,7 @@ heights[complete.cases(heights)]
 ```
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
 
-:::{.blockquote}
+:::{.callout-warning}
 ### Challenge
 
 1. Using this vector of heights in inches, create a new vector, `heights_no_na`, with the NAs removed.
