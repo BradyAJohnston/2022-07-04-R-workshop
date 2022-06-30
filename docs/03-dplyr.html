@@ -241,7 +241,6 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
    
   <ul>
 <li><a href="#manipulating-and-analyzing-data-with-dplyr" id="toc-manipulating-and-analyzing-data-with-dplyr" class="nav-link active" data-scroll-target="#manipulating-and-analyzing-data-with-dplyr">Manipulating and analyzing data with dplyr</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li>
 <a href="#data-manipulation-using-dplyr-and-tidyr" id="toc-data-manipulation-using-dplyr-and-tidyr" class="nav-link" data-scroll-target="#data-manipulation-using-dplyr-and-tidyr">Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a>
   <ul class="collapse">
@@ -250,9 +249,7 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
   <li>
 <a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a>
   <ul class="collapse">
-<li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
-  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a></li>
+<li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
   <li><a href="#split-apply-combine-data-analysis-and-the-summarize-function" id="toc-split-apply-combine-data-analysis-and-the-summarize-function" class="nav-link" data-scroll-target="#split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</a></li>
   <li><a href="#reshaping-with-pivot_longer-and-pivot_wider" id="toc-reshaping-with-pivot_longer-and-pivot_wider" class="nav-link" data-scroll-target="#reshaping-with-pivot_longer-and-pivot_wider">Reshaping with <code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
   </ul>
@@ -286,7 +283,16 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 
 </div>
 <section id="manipulating-and-analyzing-data-with-dplyr" class="level3"><h3 class="anchored" data-anchor-id="manipulating-and-analyzing-data-with-dplyr">Manipulating and analyzing data with dplyr</h3>
-<hr></section><section id="learning-objectives" class="level3 blockquote"><h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Describe the purpose of the <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> packages.</li>
 <li>Select certain columns in a data frame with the <strong><code>dplyr</code></strong> function <code>select</code>.</li>
@@ -299,8 +305,10 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <li>Describe what key-value pairs are.</li>
 <li>Reshape a data frame from long to wide format and back with the <code>pivot_wider</code> and <code>pivot_longer</code> commands from the <strong><code>tidyr</code></strong> package.</li>
 <li>Export a data frame to a .csv file.</li>
-</ul></section><hr>
-<section id="data-manipulation-using-dplyr-and-tidyr" class="level1"><h1>Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>
+</ul>
+</div>
+</div>
+</section><section id="data-manipulation-using-dplyr-and-tidyr" class="level1"><h1>Data manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong>
 </h1>
 <p>Bracket subsetting is handy, but it can be cumbersome and difficult to read, especially for complicated operations. Enter <strong><code>dplyr</code></strong>. <strong><code>dplyr</code></strong> is a package for helping with tabular data manipulation. It pairs nicely with <strong><code>tidyr</code></strong> which enables you to swiftly convert between different data formats for plotting and analysis.</p>
 <p>The <strong><code>tidyverse</code></strong> package is an “umbrella-package” that installs <strong><code>tidyr</code></strong>, <strong><code>dplyr</code></strong>, and several other useful packages for data analysis, such as <strong><code>ggplot2</code></strong>, <strong><code>tibble</code></strong>, etc.</p>
@@ -396,19 +404,28 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <span><span class="va">surveys_sml</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the final data frame is the leftmost part of this expression.</p>
-<section id="challenge" class="level3 challenge blockquote"><h3 class="challenge anchored" data-anchor-id="challenge">Challenge</h3>
-<p>Using pipes, subset the <code>surveys</code> data to include animals collected before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using pipes, subset the <code>surveys</code> data to include animals collected before 1995 and retain only the columns <code>year</code>, <code>sex</code>, and <code>weight</code>.</p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
@@ -418,7 +435,9 @@ Answer
 </div>
 </div>
 </div>
-</section><div class="cell">
+</div>
+</div>
+<div class="cell">
 
 </div>
 <section id="mutate" class="level3"><h3 class="anchored" data-anchor-id="mutate">Mutate</h3>
@@ -448,20 +467,29 @@ Answer
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> is a function that determines whether something is an <code>NA</code>. The <code>!</code> symbol negates the result, so we’re asking for every row where weight <em>is not</em> an <code>NA</code>.</p>
-</section><section id="challenge-1" class="level3 challenge blockquote"><h3 class="challenge anchored" data-anchor-id="challenge-1">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Create a new data frame from the <code>surveys</code> data that meets the following criteria: contains only the <code>species_id</code> column and a new column called <code>hindfoot_cm</code> containing the <code>hindfoot_length</code> values (currently in mm) converted to centimeters. In this <code>hindfoot_cm</code> column, there are no <code>NA</code>s and all values are less than 3.</p>
 <p><strong>Hint</strong>: think about how the commands should be ordered to produce this data frame!</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre data-reval="FALSE," data-purl="FALSE"><code>surveys_hindfoot_cm &lt;- surveys %&gt;%
     filter(!is.na(hindfoot_length)) %&gt;%
@@ -471,10 +499,12 @@ Answer
 </div>
 </div>
 </div>
-</section><div class="cell">
+</div>
+</div>
+<div class="cell">
 
 </div>
-<section id="split-apply-combine-data-analysis-and-the-summarize-function" class="level3"><h3 class="anchored" data-anchor-id="split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</h3>
+</section><section id="split-apply-combine-data-analysis-and-the-summarize-function" class="level3"><h3 class="anchored" data-anchor-id="split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the <code>summarize()</code> function</h3>
 <p>Many data analysis tasks can be approached using the <em>split-apply-combine</em> paradigm: split the data into groups, apply some analysis to each group, and then combine the results. Key functions of <strong><code>dplyr</code></strong> for this workflow are <code>group_by()</code> and <code>summarize()</code>.</p>
 <section id="the-group_by-and-summarize-functions" class="level4"><h4 class="anchored" data-anchor-id="the-group_by-and-summarize-functions">The <code>group_by()</code> and <code>summarize()</code> functions</h4>
 <p><code>group_by()</code> is often used together with <code>summarize()</code>, which collapses each group into a single-row summary of that group. <code>group_by()</code> takes as arguments the column names that contain the <strong>categorical</strong> variables for which you want to calculate the summary statistics. So to compute the mean <code>weight</code> by sex:</p>
@@ -556,7 +586,7 @@ Answer
 #&gt; argument.</code></pre>
 </div>
 </div>
-</section><section id="counting" class="level4"><h4 class="anchored">Counting</h4>
+</section><section id="counting" class="level4"><h4 class="anchored" data-anchor-id="counting">Counting</h4>
 <p>When working with data, we often want to know the number of observations found for each factor or combination of factors. For this task, <strong><code>dplyr</code></strong> provides <code>count()</code>. For example, if we wanted to count the number of rows of data for each sex, we would do:</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
@@ -585,31 +615,54 @@ Answer
 <span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">species</span>, <span class="fu">desc</span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>From the table above, we may learn that, for instance, there are 75 observations of the <em>albigula</em> species that are not specified for its sex (i.e.&nbsp;<code>NA</code>).</p>
-<blockquote class="blockquote">
-<h3 id="challenge-2" class="challenge anchored" data-anchor-id="counting">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>How many animals were caught in each <code>plot_type</code> surveyed?</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">count</span><span class="op">(</span><span class="va">plot_type</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 <ol start="2" type="1">
 <li>Use <code>group_by()</code> and <code>summarize()</code> to find the mean, min, and max hindfoot length for each species (using <code>species_id</code>). Also add the number of observations (hint: see <code>?n</code>).</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">hindfoot_length</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">species_id</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -622,15 +675,23 @@ Answer
 </div>
 </div>
 </div>
+</div>
 <ol start="3" type="1">
 <li>What was the heaviest animal measured in each year? Return the columns <code>year</code>, <code>genus</code>, <code>species_id</code>, and <code>weight</code>.</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -640,12 +701,19 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
 </section></section><section id="reshaping-with-pivot_longer-and-pivot_wider" class="level3"><h3 class="anchored" data-anchor-id="reshaping-with-pivot_longer-and-pivot_wider">Reshaping with <code>pivot_longer()</code> and <code>pivot_wider()</code>
 </h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" class="img-fluid figure-img" alt="Stylized text providing an overview of Tidy Data. The top reads “Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.” On the left reads “In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.” There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">@allison_horst</figcaption><p></p>
+</figure>
+</div>
 <p>In the <a href="https://datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/">spreadsheet lesson</a>, we discussed how to structure our data leading to the four rules defining a tidy dataset:</p>
 <ol type="1">
 <li>Each variable has its own column</li>
@@ -708,17 +776,17 @@ Danger
 <span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">genus</span>, values_from <span class="op">=</span> <span class="va">mean_weight</span>, values_fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="pivoting-longer" class="level4"><h4 class="anchored">Pivoting Longer</h4>
+</section><section id="pivoting-longer" class="level4"><h4 class="anchored" data-anchor-id="pivoting-longer">Pivoting Longer</h4>
 <p>The opposing situation could occur if we had been provided with data in the form of <code>surveys_spread</code>, where the genus names are column names, but we wish to treat them as values of a genus variable instead.</p>
-<p>In this situation we are gathering the column names and turning them into a pair of new variables. One variable represents the column names as values, and the other variable contains the values previously associated with the column names.</p>
-<p><code>gather()</code> takes four principal arguments:</p>
+<p>In this situation we are gathering the column names and turning them into a pair of new variables, pivoting from a wide-format table to a long-format table (to ‘tidy’ data). One variable represents the column names as values, and the other variable contains the values previously associated with the column names.</p>
+<p><code>pivot_longer()</code> takes four principal arguments:</p>
 <ol type="1">
 <li>the data</li>
-<li>the <em>key</em> column variable we wish to create from column names.</li>
-<li>the <em>values</em> column variable we wish to create and fill with values associated with the key.</li>
-<li>the names of the columns we use to fill the key variable (or to drop).</li>
+<li>The <code>cols</code> which are the names of the columns which contain the values</li>
+<li>the <code>names_to</code> variable which will become the name of the column, that has the previous column names inside of it</li>
+<li>The <code>values_to</code> variable which will be come the name of the column that contains the values from the pivoted columns</li>
 </ol>
-<p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called <code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being <code>gather()</code>ed.</p>
+<p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called <code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being pivoted.</p>
 <div class="cell">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_gather</span> <span class="op">&lt;-</span> <span class="va">surveys_spread</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">plot_id</span>, values_to <span class="op">=</span> <span class="st">"mean_weight"</span>, names_to <span class="op">=</span> <span class="st">"genus"</span><span class="op">)</span></span>
@@ -738,21 +806,36 @@ Danger
 <span>  <span class="fu">pivot_longer</span><span class="op">(</span><span class="va">Baiomys</span><span class="op">:</span><span class="va">Spermophilus</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-3" class="challenge anchored" data-anchor-id="pivoting-longer">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Spread the <code>surveys</code> data frame with <code>year</code> as columns, <code>plot_id</code> as rows, and the number of genera per plot as the values. You will need to summarize before reshaping, and use the function <code>n_distinct()</code> to get the number of unique genera within a particular chunk of data. It’s a powerful function! See <code>?n_distinct</code> for more.</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_spread_genera</span> <span class="op">&lt;-</span> <span class="va">surveys</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">plot_id</span>, <span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">summarize</span><span class="op">(</span>n_genera <span class="op">=</span> <span class="fu">n_distinct</span><span class="op">(</span><span class="va">genus</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">spread</span><span class="op">(</span><span class="va">year</span>, <span class="va">n_genera</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">year</span>, values_from <span class="op">=</span> <span class="va">n_genera</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; `summarise()` has grouped output by 'plot_id'. You can override using the
 #&gt; `.groups` argument.</code></pre>
@@ -761,45 +844,51 @@ Answer
 </div>
 </div>
 </div>
+</div>
 <ol start="2" type="1">
 <li>Now take that data frame and <code>gather()</code> it again, so each row is a unique <code>plot_id</code> by <code>year</code> combination.</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
-Answer
-</h3>
-<div style="background: #fff;">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_spread_genera</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">gather</span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"n_genera"</span>, <span class="op">-</span><span class="va">plot_id</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<ol start="3" type="1">
-<li>The <code>surveys</code> data set has two measurement columns: <code>hindfoot_length</code> and <code>weight</code>. This makes it difficult to do things like look at the relationship between mean values of each measurement per year in different plot types. Let’s walk through a common solution for this type of problem. First, use <code>gather()</code> to create a dataset where we have a key column called <code>measurement</code> and a <code>value</code> column that takes on the value of either <code>hindfoot_length</code> or <code>weight</code>. <em>Hint</em>: You’ll need to specify which columns are being gathered.</li>
-</ol>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_spread_genera</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">plot_id</span>, names_to <span class="op">=</span> <span class="st">"year"</span>, values_to <span class="op">=</span> <span class="st">"n_genera"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>The <code>surveys</code> data set has two measurement columns: <code>hindfoot_length</code> and <code>weight</code>. This makes it difficult to do things like look at the relationship between mean values of each measurement per year in different plot types. Let’s walk through a common solution for this type of problem. First, use <code>gather()</code> to create a dataset where we have a key column called <code>measurement</code> and a <code>value</code> column that takes on the value of either <code>hindfoot_length</code> or <code>weight</code>. <em>Hint</em>: You’ll need to specify which columns are being gathered.</li>
+</ol>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_long</span> <span class="op">&lt;-</span> <span class="va">surveys</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">gather</span><span class="op">(</span><span class="st">"measurement"</span>, <span class="st">"value"</span>, <span class="va">hindfoot_length</span>, <span class="va">weight</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span></span>
+<span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hindfoot_length</span>, <span class="va">weight</span><span class="op">)</span>, </span>
+<span>    names_to <span class="op">=</span> <span class="st">"measurement"</span>, </span>
+<span>    values_to <span class="op">=</span> <span class="st">"value"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -807,16 +896,23 @@ Answer
 <ol start="4" type="1">
 <li>With this new data set, calculate the average of each <code>measurement</code> in each <code>year</code> for each different <code>plot_type</code>. Then <code>spread()</code> them into a data set with a column for <code>hindfoot_length</code> and <code>weight</code>. <em>Hint</em>: You only need to specify the key and value columns for <code>spread()</code>.</li>
 </ol>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">surveys_long</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">year</span>, <span class="va">measurement</span>, <span class="va">plot_type</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">summarize</span><span class="op">(</span>mean_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">spread</span><span class="op">(</span><span class="va">measurement</span>, <span class="va">mean_value</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">measurement</span>, values_from <span class="op">=</span> <span class="va">mean_value</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; `summarise()` has grouped output by 'year', 'measurement'. You can override
 #&gt; using the `.groups` argument.</code></pre>
@@ -824,7 +920,9 @@ Answer
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -863,7 +961,7 @@ Answer
 
 </div>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-29 ‒ 🕢 14:38:58
+Page built on: 📆 2022-06-30 ‒ 🕢 15:20:58
 </p>
 
 

@@ -278,9 +278,16 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <div class="cell">
 
 </div>
-<hr>
-<blockquote class="blockquote">
-<h3 id="learning-objectives" class="anchored">Learning Objectives</h3>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Produce scatter plots, boxplots, and time series plots using ggplot.</li>
 <li>Set universal plot settings.</li>
@@ -288,8 +295,8 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <li>Modify the aesthetics of an existing ggplot plot (including axis labels and color).</li>
 <li>Build complex and customized plots from data in a data frame.</li>
 </ul>
-</blockquote>
-<hr>
+</div>
+</div>
 <p>We start by loading the required packages. <strong><code>ggplot2</code></strong> is included in the <strong><code>tidyverse</code></strong> package.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -369,8 +376,16 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <span><span class="va">surveys_plot</span></span>
 <span>  <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-optional" class="anchored">Challenge (optional)</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge (optional)
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Scatter plots can be useful exploratory tools for small datasets. For data sets with large numbers of observations, such as the <code>surveys_complete</code> data set, overplotting of points can be a limitation of scatter plots. One strategy for handling such settings is to use hexagonal binning of observations. The plot space is tessellated into hexagons. Each hexagon is assigned a color based on the number of observations that fall within its boundaries. To use hexagonal binning with <strong><code>ggplot2</code></strong>, first install the R package <code>hexbin</code> from CRAN:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"hexbin"</span><span class="op">)</span></span>
@@ -384,7 +399,8 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <ul>
 <li>What are the relative strengths and weaknesses of a hexagonal bin plot compared to a scatter plot? Examine the above scatter plot and compare it with the hexagonal bin plot that you created.</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -421,25 +437,42 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 <p><img src="img/R-ecology-color-by-species-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Use what you just learned to create a scatter plot of <code>weight</code> over <code>species_id</code> with the plot types showing in different colors. Is this a good way to show this type of data?</p>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Answer
-</h3>
-<div style="background: #fff;">
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">surveys_complete</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">species_id</span>, y <span class="op">=</span> <span class="va">weight</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">plot_type</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="img/R-ecology-scatter-challenge-answer-1.png" class="img-fluid" width="672"></p>
+<p><img src="img/R-ecology-unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -462,8 +495,16 @@ Answer
 </div>
 </div>
 <p>Notice how the boxplot layer is behind the jitter layer? What do you need to change in the code to put the boxplot in front of the points such that it’s not hidden?</p>
-<blockquote class="blockquote">
-<h3 id="challenges" class="anchored">Challenges</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenges
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the distribution. For example, if there is a bimodal distribution, it would not be observed with a boxplot. An alternative to the boxplot is the violin plot (sometimes known as a beanplot), where the shape (of the density of points) is drawn.</p>
 <ul>
 <li>Replace the box plot with a violin plot; see <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>.</li>
@@ -475,12 +516,10 @@ Answer
 <p>So far, we’ve looked at the distribution of weight within species. Try making a new plot to explore the distribution of another variable within each species.</p>
 <ul>
 <li><p>Create boxplot for <code>hindfoot_length</code>. Overlay the boxplot layer on a jitter layer to show actual measurements.</p></li>
-<li><p>Add color to the data points on your boxplot according to the plot from which the sample was taken (<code>plot_id</code>).</p></li>
+<li><p>Add color to the data points on your boxplot according to the plot from which the sample was taken (<code>plot_id</code>). Hint: Check the class for <code>plot_id</code>. Consider changing the class of <code>plot_id</code> from integer to factor. Why does this change how R makes the graph?</p></li>
 </ul>
-</blockquote>
-<blockquote class="blockquote">
-<p>Hint: Check the class for <code>plot_id</code>. Consider changing the class of <code>plot_id</code> from integer to factor. Why does this change how R makes the graph?</p>
-</blockquote>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -608,15 +647,30 @@ Answer
 </div>
 <p>In addition to <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code>, which changes the plot background to white, <strong><code>ggplot2</code></strong> comes with several other themes which can be useful to quickly change the look of your visualization. The complete list of themes is available at <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="uri">https://ggplot2.tidyverse.org/reference/ggtheme.html</a>. <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light()</a></code> are popular, and <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void()</a></code> can be useful as a starting point to create a new hand-crafted theme.</p>
 <p>The <a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package provides a wide variety of options.</p>
-<blockquote class="blockquote">
-<h3 id="challenge-1" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Use what you just learned to create a plot that depicts how the average weight of each species changes through the years.</p>
-<div class="cell" data-answer="true">
-<div class="accordion">
-<h3 class="toc-ignore anchored">
-Answer
-</h3>
-<div style="background: #fff;">
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yearly_weight</span> <span class="op">&lt;-</span> <span class="va">surveys_complete</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>                <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">species_id</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>avg_weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -629,12 +683,14 @@ Answer
 <span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">species_id</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="img/R-ecology-average-weight-time-series-1.png" class="img-fluid" width="672"></p>
+<p><img src="img/R-ecology-unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 </div>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 
 </div>
@@ -700,8 +756,16 @@ Answer
 <p><img src="img/R-ecology-number-species-year-with-right-labels-xfont-orientation-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<blockquote class="blockquote">
-<h3 id="challenge-2" class="anchored">Challenge</h3>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a> for inspiration.</p>
 <p>Here are some ideas:</p>
 <ul>
@@ -709,7 +773,8 @@ Answer
 <li>Can you find a way to change the name of the legend? What about its labels?</li>
 <li>Try using a different color palette (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul>
-</blockquote>
+</div>
+</div>
 </section><section id="arranging-plots" class="level2"><h2 class="anchored" data-anchor-id="arranging-plots">Arranging plots</h2>
 <p>Faceting is a great tool for splitting one plot into multiple plots, but sometimes you may want to produce a single figure that contains multiple plots using different variables or even different data frames. The <strong><code>patchwork</code></strong> package allows us to combine separate ggplots into a single figure while keeping everything aligned properly. Like most R packages, we can install <code>patchwork</code> from CRAN, the R package repository:</p>
 <div class="cell">
@@ -762,7 +827,7 @@ Answer
 
 </div>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2022-06-28 ‒ 🕢 17:23:19
+Page built on: 📆 2022-06-30 ‒ 🕢 15:37:52
 </p>
 
 
