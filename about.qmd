@@ -10,6 +10,10 @@ title: "Instructor"
 
 -   Part-time data scientist with the Minderoo Foundation
 
+-   Very interested in all things data-viz
+
+-   Passionate proponent of teaching anyone who will listen about R & the benefits of coding
+
 I'm a self-taught coder, first learning R to do data analysis for my PhD and now regularly write Python & Julia code for various projects, and I get paid to write R code for the Minderoo foundation.
 
 I've written multiple R packages, and am currently developing a suite of tools for protein visualisation inside of the 3D animation package Blender. You can see more about my different software projects [on my github](https://github.com/bradyajohnston) and I post about my different data vis experiments on my [twitter](https://twitter.com/bradyajohnston).

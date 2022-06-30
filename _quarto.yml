@@ -22,6 +22,8 @@ website:
         - about.qmd
         - text: Code Cheat Sheet
           href: https://hackmd.io/-YLX9fHvQyK1Qj5GCMUUIw?view
+        - text: Code Q & A
+          href: https://hackmd.io/NAwVU2RUQWKNkC-ZzY-7RQ?view
         - text: Code Handout
           href: code-handout.R
         - text: Carpentries Code of Conduct
