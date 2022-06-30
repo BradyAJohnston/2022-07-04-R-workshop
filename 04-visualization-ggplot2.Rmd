@@ -644,11 +644,22 @@ plot_count <- ggplot(data = yearly_counts, aes(x = year, y = n, color = genus)) 
   geom_line() +
   labs(x = "Year", y = "Abundance")
 
-plot_weight / plot_count + plot_layout(heights = c(3, 2))
+patch <- plot_weight / plot_count + plot_layout(heights = c(3, 2))
+patch
 ```
 
 You can also use parentheses `()` to create more complex layouts. There are
 many useful examples on the [patchwork website](https://patchwork.data-imaginist.com/)
+
+#### Adding Tags
+
+Patchwork can also help you add relevant sub-panel tags.
+
+```{r}
+patch + plot_annotation(tag_levels = "A", tag_suffix = ")")
+patch + plot_annotation(tag_levels = 1, tag_suffix = ")", tag_prefix = "(")
+```
+
 
 ## Exporting plots
 

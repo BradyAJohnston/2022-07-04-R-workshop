@@ -39,6 +39,10 @@ website:
       - section: "Visualisation"
         contents:
         - 04-visualization-ggplot2.Rmd
+        - 05_ggplot2_extensions.qmd
+      - section: "Reproducible Reporting"
+        contents:
+        - rmarkdown.qmd
       # - 05-r-and-databases.Rmd
 execute: 
   freeze: auto
