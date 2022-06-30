@@ -13,8 +13,6 @@ website:
         href: https://twitter.com/bradyajohnston
       - icon: github
         href: https://github.com/BradyAJohnston/2022-07-04-R-workshop/
-      - icon: file-earmark-arrow-down
-        href: code-handout.R
     search: true
     contents:
       - section: "Workshop Details"
@@ -22,7 +20,11 @@ website:
         - index.Rmd
         - before-we-start.Rmd
         - about.qmd
-        - text: Code of Conduct
+        - text: Code Cheat Sheet
+          href: https://hackmd.io/-YLX9fHvQyK1Qj5GCMUUIw?view
+        - text: Code Handout
+          href: code-handout.R
+        - text: Carpentries Code of Conduct
           href: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
       - section: "Starting with R"
         contents:
