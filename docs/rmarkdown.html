@@ -318,23 +318,23 @@ Learning Objectives
 </figure>
 </div>
 <section id="r-markdown" class="level2"><h2 class="anchored" data-anchor-id="r-markdown">R Markdown</h2>
-<p>R Markdown is a flexible type of document that allows you to seamlessly combine executable R code, and its output, with text in a single document. These documents can be readily converted to multiple static and dynamic output formats, including PDF (.pdf), Word (.docx), and HTML (.html).</p>
+<p>R Markdown is a flexible type of document that allows you to seamlessly combine executable R code, and its output, with text in a single document. These documents can be readily converted to multiple static and dynamic output formats, including PDF (<code>.pdf</code>), Word (<code>.docx</code>), and HTML (<code>.html</code>).</p>
 <p>The benefit of a well-prepared R Markdown document is full reproducibility. This also means that, if you notice a data transcription error, or you are able to add more data to your analysis, you will be able to recompile the report without making any changes in the actual document.</p>
 <p>The <strong>rmarkdown</strong> package comes pre-installed with RStudio, so no action is necessary.</p>
 </section><section id="creating-an-r-markdown-file" class="level2"><h2 class="anchored" data-anchor-id="creating-an-r-markdown-file">Creating an R Markdown file</h2>
 <p>To create a new R Markdown document in RStudio, click File -&gt; New File -&gt; R Markdown:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../fig/new-rmd.png" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="images/CleanShot%202022-07-01%20at%2014.21.53.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of the New R Markdown file dialogue box in RStudio</figcaption><p></p>
 </figure>
 </div>
 <p>Then click on ‘Create Empty Document’. Normally you could enter the title of your document, your name (Author), and select the type of output, but we will be learning how to start from a blank document.</p>
 </section><section id="basic-components-of-r-markdown" class="level2"><h2 class="anchored" data-anchor-id="basic-components-of-r-markdown">Basic components of R Markdown</h2>
-<p>To control the output, a YAML (YAML Ain’t Markup Language) header is needed:</p>
+<p>To control the output, a YAML (‘YAML Ain’t Markup Language’, or, ‘Yet Another Markup Language’) header is needed:</p>
 <pre><code>---
 title: "My Awesome Report"
-author: "Emmet Brickowski"
-date: ""
+author: "Brady Johnston"
+date: 2022-07-01
 output: html_document
 ---</code></pre>
 <p>The header is defined by the three hyphens at the beginning (<code>---</code>) and the three hyphens at the end (<code>---</code>).</p>
@@ -402,13 +402,45 @@ which has columns that include:
 </div>
 </section><section id="writing-an-r-markdown-report" class="level2"><h2 class="anchored" data-anchor-id="writing-an-r-markdown-report">Writing an R Markdown report</h2>
 <p>Now we will add some R code from our previous data wrangling and visualisation, which means we need to make sure <strong>tidyverse</strong> is loaded. It is not enough to load <strong>tidyverse</strong> from the console, we will need to load it within our R Markdown document. The same applies to our data. To load these, we will need to create a ‘code chunk’ at the top of our document (below the YAML header).</p>
-<p>A code chunk can be inserted by clicking Code &gt; Insert Chunk, or by using the keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac.</p>
+<p>A code chunk can be inserted by clicking Code &gt; Insert Chunk, or by using the keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac. In the RStudio visual editor, you can use the ‘everything key’ of <kbd>Cmd</kbd> / <kbd>Ctrl</kbd> + <kbd>/</kbd> and choose ‘R Code Chunk’</p>
 <p>The syntax of a code chunk is:</p>
-<pre>```{r chunk-name}
-Here is where you place the R code that you want to run.
-```
-</pre>
-<p>An R Markdown document knows that this text is not part of the report from the <code>&amp;#96;&amp;#96;&amp;#96</code> that begins and ends the chunk. It also knows that the code inside of the chunk is R code from the <code>r</code> inside of the curly braces (<code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>). After the <code>r</code> you can add a name for the code chunk . Naming a chunk is optional, but recommended. Each chunk name must be unique, and only contain alphanumeric characters and <code>-</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is where your code goes</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">10</span> <span class="sc">*</span> <span class="dv">20</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200</code></pre>
+</div>
+</div>
+<p>The chunk is defined as a code chunk by the <code>```</code> at the beginning and the end, and the language of the code is defined in the <em>curly</em> brackets <code>{r}</code>. Rmarkdown can also support the running of Python, Julia and many other coding languages.</p>
+<p>You can add options to the code chunk with the special knitr comment <code>#|</code> . Below we label the code chunnk <code>example-figure-chunk</code> so that we can reference it inside of the report and add a caption that will show up in the rendered document. RStudio also supports auto-complete and tool-tips for code-chunks to help you find useful options.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/CleanShot%202022-07-01%20at%2014.35.47.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Example auto-completion options for code chunks.</figcaption><p></p>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: example-figure-chunk</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "A test figure."</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt, <span class="at">type =</span> <span class="st">"p"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="rmarkdown_files/figure-html/example-figure-chunk-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">A test figure.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="in-text-code." class="level4"><h4 class="anchored">In-text code.</h4>
+<p>Instead of just using code in separated code chunks, you can also use code in-line with your other writing, so you can reference the results of computations in the text, without having to copy-and-paste the values (which can be error prone).</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">our_result</span> <span class="op">&lt;-</span> <span class="fl">10</span> <span class="op">*</span> <span class="fl">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use the code chunks <code>``</code> and start it with <code>`r `</code> to tell <code>knitr</code> that we want it to be treated as code, <code>200</code> will be: 200.</p>
 <div class="cell">
 
 </div>
@@ -418,17 +450,17 @@ library(tidyverse)
 library(here)
 interviews 
 <blockquote class="blockquote">
-<h2 id="important-note" class="anchored">Important Note!</h2>
+<h2 id="important-note" class="anchored" data-anchor-id="in-text-code.">Important Note!</h2>
 <p>The file paths you give in a .Rmd document, e.g.&nbsp;to load a .csv file, are relative to the .Rmd document, <strong>not</strong> the project root.</p>
 <p>As suggested in the Starting with Data episode, we highly recommend the use of the <code>here()</code> function to keep the file paths consistent within your project. {: .callout}</p>
 </blockquote>
-</pre></section><section id="insert-table" class="level2"><h2 class="anchored" data-anchor-id="insert-table">Insert table</h2>
+</pre></section></section><section id="insert-table" class="level2"><h2 class="anchored" data-anchor-id="insert-table">Insert table</h2>
 <p>Next, we will re-create a table from the Data Wrangling episode which shows the average household size grouped by <code>village</code> and <code>memb_assoc</code>. We can do this by creating a new code chunk and calling it ‘interview-tbl’. Or, you can come up with something more creative (just remember to stick to the naming rules).</p>
 <p>It isn’t necessary to <strong>Knit</strong> your document every time you want to see the output. Instead you can run the code chunk with the green triangle in the top right corner of the the chunk, or with the keyboard shortcuts: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> on Windows and Linux, or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>C</kbd> on Mac.</p>
 <p>To make sure the table is formatted nicely in our output document, we will need to use the <code>kable()</code> function from the <strong>knitr</strong> package. The <code>kable()</code> function takes the output of your R code and knits it into a nice looking HTML table. You can also specify different aspects of the table, e.g.&nbsp;the column names, a caption, etc.</p>
 <p>Run the code chunk to make sure you get the desired output.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">memb_assoc</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span>, <span class="va">memb_assoc</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -512,10 +544,10 @@ interviews
 <div class="cell">
 
 </div>
-<p>For example, today’s date is 2022-06-30, will be rendered as: today’s date is 2022-06-30. The code will display today’s date in the output document (well, technically the date the document was last knitted).</p>
+<p>For example, today’s date is 2022-07-01, will be rendered as: today’s date is 2022-07-01. The code will display today’s date in the output document (well, technically the date the document was last knitted).</p>
 <p>The best way to use in-line R code, is to minimise the amount of code you need to produce the in-line output by preparing the output in code chunks. Let’s say we’re interested in presenting the average household size in a village.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a summary data frame with the mean household size by village</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a summary data frame with the mean household size by village</span></span>
 <span><span class="va">mean_household</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">summarize</span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span></span>
@@ -525,15 +557,15 @@ interviews
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can make an informative statement on the means of each village, and include the mean values as in-line R-code. For example:</p>
-<p>The average household size in the village of Chirodzo is <code>r round(mean_chirodzo$mean_no_membrs, 2)</code></p>
+<p>The average household size in the village of Chirodzo is <code>round(mean_chirodzo$mean_no_membrs, 2)</code></p>
 <p>becomes…</p>
-<p>The average household size in the village of Chirodzo is <code>r round(mean_chirodzo$mean_no_membrs, 2)</code>.</p>
+<p>The average household size in the village of Chirodzo is <code>round(mean_chirodzo$mean_no_membrs, 2)</code>.</p>
 <p>Because we are using in-line R code instead of the actual values, we have created a dynamic document that will automatically update if we make changes to the dataset and/or code chunks.</p>
 </section><section id="plots" class="level2"><h2 class="anchored" data-anchor-id="plots">Plots</h2>
 <p>Finally, we will also include a plot, so our document is a little more colourful and a little less boring. We will use the <code>interview_plotting</code> data from the previous episode.</p>
 <p>If you were unable to complete the previous lesson or did not save the data, then you can create it in a new code chunk.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Not run, but can be used to load in data from previous lesson!</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Not run, but can be used to load in data from previous lesson!</span></span>
 <span><span class="va">interviews_plotting</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="co">## pivot wider by items_owned</span></span>
 <span>  <span class="fu">separate_rows</span><span class="op">(</span><span class="va">items_owned</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -560,7 +592,7 @@ interviews
 <blockquote class="blockquote">
 <h2 id="solution-to-exercise" class="anchored">Solution to Exercise</h2>
 <div class="cell" data-answer="true">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -575,7 +607,7 @@ Code for plot
 </pre>
 <p>…or, ideally, something more informative.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Type of Wall in Home"</span>, y <span class="op">=</span> <span class="st">"Count"</span>, fill <span class="op">=</span> <span class="st">"Village Name"</span><span class="op">)</span> <span class="op">+</span></span>

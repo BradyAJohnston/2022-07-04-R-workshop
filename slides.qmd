@@ -1,8 +1,10 @@
 ---
 title: "The Wild World of R"
 author: Brady Johnston
-date: today
-format: revealjs
+date: "`r Sys.Date()`"
+format: 
+  revealjs:
+    theme: moon
 editor: visual
 ---
 
@@ -13,6 +15,8 @@ editor: visual
 # Am I 'using R'?
 
 ![](images/paste-348C65C5.png){fig-align="center"}
+
+:::{theme=light}
 
 ## Overview of Code Execution
 
@@ -42,6 +46,8 @@ flowchart LR
   C --> B
   B --> D(Display)
 ```
+
+:::
 
 ## Exploratory Data Analysis
 

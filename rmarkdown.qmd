@@ -23,7 +23,7 @@ author: Brady Johnston
 
 ## R Markdown
 
-R Markdown is a flexible type of document that allows you to seamlessly combine executable R code, and its output, with text in a single document. These documents can be readily converted to multiple static and dynamic output formats, including PDF (.pdf), Word (.docx), and HTML (.html).
+R Markdown is a flexible type of document that allows you to seamlessly combine executable R code, and its output, with text in a single document. These documents can be readily converted to multiple static and dynamic output formats, including PDF (`.pdf`), Word (`.docx`), and HTML (`.html`).
 
 The benefit of a well-prepared R Markdown document is full reproducibility. This also means that, if you notice a data transcription error, or you are able to add more data to your analysis, you will be able to recompile the report without making any changes in the actual document.
 
@@ -33,18 +33,18 @@ The **rmarkdown** package comes pre-installed with RStudio, so no action is nece
 
 To create a new R Markdown document in RStudio, click File -\> New File -\> R Markdown:
 
-![Screenshot of the New R Markdown file dialogue box in RStudio](../fig/new-rmd.png)
+![Screenshot of the New R Markdown file dialogue box in RStudio](images/CleanShot%202022-07-01%20at%2014.21.53.png)
 
 Then click on 'Create Empty Document'. Normally you could enter the title of your document, your name (Author), and select the type of output, but we will be learning how to start from a blank document.
 
 ## Basic components of R Markdown
 
-To control the output, a YAML (YAML Ain't Markup Language) header is needed:
+To control the output, a YAML ('YAML Ain't Markup Language', or, 'Yet Another Markup Language') header is needed:
 
     ---
     title: "My Awesome Report"
-    author: "Emmet Brickowski"
-    date: ""
+    author: "Brady Johnston"
+    date: `r Sys.Date()`
     output: html_document
     ---
 
@@ -136,18 +136,39 @@ Now we can render the document into HTML by clicking the **Knit** button in the 
 
 Now we will add some R code from our previous data wrangling and visualisation, which means we need to make sure **tidyverse** is loaded. It is not enough to load **tidyverse** from the console, we will need to load it within our R Markdown document. The same applies to our data. To load these, we will need to create a 'code chunk' at the top of our document (below the YAML header).
 
-A code chunk can be inserted by clicking Code \> Insert Chunk, or by using the keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac.
+A code chunk can be inserted by clicking Code \> Insert Chunk, or by using the keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac. In the RStudio visual editor, you can use the 'everything key' of <kbd>Cmd</kbd> / <kbd>Ctrl</kbd> + <kbd>/</kbd> and choose 'R Code Chunk'
 
 The syntax of a code chunk is:
 
-```{=html}
-<pre>
-&#96;&#96;&#96;{r chunk-name}
-Here is where you place the R code that you want to run.
-&#96;&#96;&#96;
-</pre>
+```{r}
+#| echo: fenced
+# this is where your code goes
+print(10 * 20)
 ```
-An R Markdown document knows that this text is not part of the report from the `&#96;&#96;&#96` that begins and ends the chunk. It also knows that the code inside of the chunk is R code from the `r` inside of the curly braces (`{}`). After the `r` you can add a name for the code chunk . Naming a chunk is optional, but recommended. Each chunk name must be unique, and only contain alphanumeric characters and `-`.
+
+The chunk is defined as a code chunk by the ```` ``` ```` at the beginning and the end, and the language of the code is defined in the *curly* brackets `{r}`. Rmarkdown can also support the running of Python, Julia and many other coding languages.
+
+You can add options to the code chunk with the special knitr comment `#|` . Below we label the code chunnk `example-figure-chunk` so that we can reference it inside of the report and add a caption that will show up in the rendered document. RStudio also supports auto-complete and tool-tips for code-chunks to help you find useful options.
+
+![Example auto-completion options for code chunks.](images/CleanShot%202022-07-01%20at%2014.35.47.png){fig-align="center"}
+
+```{r}
+#| label: example-figure-chunk
+#| fig-cap: "A test figure."
+#| echo: fenced
+
+plot(mtcars$mpg, mtcars$wt, type = "p")
+```
+
+#### In-text code.
+
+Instead of just using code in separated code chunks, you can also use code in-line with your other writing, so you can reference the results of computations in the text, without having to copy-and-paste the values (which can be error prone).
+
+```{r}
+our_result <- 10 * 20
+```
+
+We can use the code chunks ``` `` ``` and start it with `` `r ` `` to tell `knitr` that we want it to be treated as code, ``` `r our_result` ``` will be: `r our_result`.
 
 ```{r package-data, echo = FALSE, message = FALSE, purl = FALSE}
 #| eval: false
@@ -228,8 +249,7 @@ Now we will use some in-line R code to present some descriptive statistics. To u
 
 ```
 
-For example, today's date is `r Sys.Date()`, will be rendered as: today's date is `r Sys.Date()`.
-The code will display today's date in the output document (well, technically the date the document was last knitted).
+For example, today's date is `r Sys.Date()`, will be rendered as: today's date is `r Sys.Date()`. The code will display today's date in the output document (well, technically the date the document was last knitted).
 
 The best way to use in-line R code, is to minimise the amount of code you need to produce the in-line output by preparing the output in code chunks. Let's say we're interested in presenting the average household size in a village.
 
@@ -247,11 +267,11 @@ mean_chirodzo <- mean_household %>%
 
 Now we can make an informative statement on the means of each village, and include the mean values as in-line R-code. For example:
 
-The average household size in the village of Chirodzo is ` r round(mean_chirodzo$mean_no_membrs, 2)`
+The average household size in the village of Chirodzo is `round(mean_chirodzo$mean_no_membrs, 2)`
 
 becomes...
 
-The average household size in the village of Chirodzo is ` r round(mean_chirodzo$mean_no_membrs, 2)`.
+The average household size in the village of Chirodzo is `round(mean_chirodzo$mean_no_membrs, 2)`.
 
 Because we are using in-line R code instead of the actual values, we have created a dynamic document that will automatically update if we make changes to the dataset and/or code chunks.
 
