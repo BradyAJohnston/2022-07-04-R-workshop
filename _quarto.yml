@@ -44,6 +44,9 @@ website:
         contents:
         - rmarkdown.qmd
       # - 05-r-and-databases.Rmd
+      - section: "Stats in R"
+        contents:
+        - stats.qmd
 execute: 
   freeze: auto
 
