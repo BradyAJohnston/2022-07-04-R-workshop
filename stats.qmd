@@ -1,0 +1,5 @@
+---
+title: "Stats in R"
+author: "Brady Johnston"
+editor: visual
+---
