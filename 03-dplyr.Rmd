@@ -460,7 +460,7 @@ equivalent to:
 ```{r, purl = FALSE}
 surveys %>%
     group_by(sex) %>%
-    summarise(count = n())
+    summarize(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:
@@ -627,7 +627,7 @@ values with the value provided.
 
 Let's use `pivot_wider()` to transform surveys to find the mean weight
 of each genus in each plot over the entire survey period. We use
-`filter()`, `group_by()` and `summarise()` to filter our observations
+`filter()`, `group_by()` and `summarize()` to filter our observations
 and variables of interest, and create a new variable for the
 `mean_weight`.
 
