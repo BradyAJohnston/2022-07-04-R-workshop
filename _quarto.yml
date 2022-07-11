@@ -31,7 +31,7 @@ website:
           href: code-handout.R
         - text: Carpentries Code of Conduct
           href: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
-      - secion: "Download Data"
+      - section: "Download Data"
         contents:
         - text: Data Surveys 
           href: data_raw/surveys.csv
