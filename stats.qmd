@@ -2,6 +2,7 @@
 title: "Stats in R"
 author: "Brady Johnston"
 editor: visual
+callout-icon: false
 ---
 
 ::: callout-note
@@ -9,3 +10,95 @@ editor: visual
 
 -   Learn some stats!
 :::
+
+-   Numerical summaries of variables (incl. assigning/changing factor levels, setting thresholds, missing data, identifying outliers)
+
+-   Assumptions for specific tests (incl. normality)
+
+-   Tests: chi-squared, t-test, one-way ANOVA, two-way ANOVA, correlations/regressions, and corresponding non-parametric tests
+
+-   Effect size/Power\
+
+```{r}
+library(tidyverse)
+# chi-squared
+# t-test
+t.test(rnorm(100), mu = 0) |> summary()
+t.test(rnorm(100), mu = 10) |> summary()
+
+
+# one-way ANOVA
+# two-way ANOVA
+aov(iris$Petal.Width ~ iris$Species, )
+aov(Petal.Width ~ Species, data = iris)
+
+iris.aov <- aov(iris$Petal.Width ~ iris$Species)
+# Summarise the ANOVA results
+summary(iris.aov)
+
+# correlations/regressions
+cor.test(cars$speed, cars$dist)
+lm(speed ~ dist, data = cars) |> 
+  summary()
+# corresponding non-parametric tests
+
+
+```
+
+```{r}
+df <- palmerpenguins::penguins
+# library(tidyverse)
+df |> 
+  drop_na(bill_length_mm) |> 
+  group_by(species) |> 
+  nest() |> 
+  mutate(
+    test = map(data, ~t.test(.x$bill_length_mm, .x$bill_depth_mm)), 
+    values = map(test, broom::tidy)
+  ) |> 
+  unnest(values)
+```
+
+\
+
+```{r}
+library(tidyverse)
+
+df <- readxl::read_excel("data_raw/example_cell_data.xlsx")
+
+ReplicateAverages <-
+  df %>% 
+  group_by(Treatment, Replicate) %>% 
+  summarise(Speed = mean(Speed))
+
+  
+
+ggplot(df, aes(
+  x = Treatment,
+  y = Speed,
+  color = factor(Replicate)
+)) + 
+  ggbeeswarm::geom_beeswarm(cex = 1.5, alpha = 0.3) + 
+  scale_colour_brewer(palette = "Set1") + 
+  stat_summary(
+    geom  = "point", 
+    fun = mean, 
+    shape = 21, 
+    mapping = aes(fill = factor(Replicate)), 
+    colour = "black", 
+    alpha = 1, 
+    size = 8
+  ) + 
+  ggpubr::stat_compare_means(
+    data = ReplicateAverages,
+    comparisons = list(c("Control", "Drug")),
+    method = "t.test",
+    paired = TRUE, 
+    label = "p.value"
+  ) +
+  theme_classic(base_size = 20) + 
+  theme(legend.position = "none") + 
+  labs(
+    title = "Comparison of Cell Response"
+  )
+```

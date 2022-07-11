@@ -83,6 +83,28 @@ To create `code-type` font, surround the word with backticks, \`code-type\`.
 
 Now that we've learned a couple of things, it might be useful to implement them:
 
+```{r}
+library(tidyverse)
+
+df <- read_csv("TL_datavase.csv")
+df %>% 
+  head() %>% 
+  knitr::kable()
+
+df <- df %>% 
+  janitor::clean_names() %>% 
+  filter(age_na > 0)
+
+df %>% 
+  group_by(locality_of_house, education_highest_achieved) %>% 
+  count() %>% 
+  
+  ggplot(aes(locality_of_house, education_highest_achieved)) + 
+  geom_tile(aes(fill = n)) + 
+  theme_minimal() + 
+  scale_fill_viridis_c(option = "A")
+```
+
     ## Introduction
 
     This report uses the **tidyverse** package along with the *SAFI* dataset, 
@@ -168,7 +190,7 @@ Instead of just using code in separated code chunks, you can also use code in-li
 our_result <- 10 * 20
 ```
 
-We can use the code chunks ``` `` ``` and start it with `` `r ` `` to tell `knitr` that we want it to be treated as code, ``` `r our_result` ``` will be: `r our_result`.
+We can use the code chunks ``` `` ``` and start it with `` `r ` `` to tell `knitr` that we want it to be treated as code, `` `r our_result` `` will be: `r our_result`.
 
 ```{r package-data, echo = FALSE, message = FALSE, purl = FALSE}
 #| eval: false
@@ -219,7 +241,7 @@ interviews %>%
 We mentioned using `include = FALSE` in a code chunk to prevent the code and output from printing in the knitted document. There are additional options available to customise how the code-chunks are presented in the output document. The options are entered in the code chunk after `chunk-name`and separated by commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
 
 | Option      | Options                              | Output                                                                                                                                                |
-|-----------------------|--------------------------|-----------------------|
+|-------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `eval`      | `TRUE` or `FALSE`                    | Whether or not the code within the code chunk should be run.                                                                                          |
 | `echo`      | `TRUE` or `FALSE`                    | Choose if you want to show your code chunk in the output document. `echo = TRUE` will show the code chunk.                                            |
 | `include`   | `TRUE` or `FALSE`                    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document. |

@@ -254,6 +254,21 @@ gtag('config', 'G-T6VR3PMQ4R', { 'anonymize_ip': true});
 </li>
     </ul>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Stats in R</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stats.html" class="sidebar-item-text sidebar-link">Stats in R</a>
+  </div>
+</li>
+    </ul>
+</li>
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -334,7 +349,7 @@ Learning Objectives
 <pre><code>---
 title: "My Awesome Report"
 author: "Brady Johnston"
-date: 2022-07-01
+date: 2022-07-11
 output: html_document
 ---</code></pre>
 <p>The header is defined by the three hyphens at the beginning (<code>---</code>) and the three hyphens at the end (<code>---</code>).</p>
@@ -357,6 +372,164 @@ output: html_document
 <p>You can also combine <strong>bold</strong> and <em>italics</em> to write something <strong><em>really</em></strong> important with triple-asterisks, <code>***really***</code>, or underscores, <code>___really___</code>; and, if you’re feeling bold (pun intended), you can also use a combination of asterisks and underscores, <code>**_really_**</code>, <code>**_really_**</code>.</p>
 <p>To create <code>code-type</code> font, surround the word with backticks, `code-type`.</p>
 <p>Now that we’ve learned a couple of things, it might be useful to implement them:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.7     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"TL_datavase.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 122 Columns: 11</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Locality of house, Education Highest achieved, Electricity connecte...
+dbl (6): Respondent Female ID, Age NA, Status 1=oldest, Age at 1B Age at 1st...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 9%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: right;">Respondent Female ID</th>
+<th style="text-align: left;">Locality of house</th>
+<th style="text-align: right;">Age NA</th>
+<th style="text-align: right;">Status 1=oldest</th>
+<th style="text-align: left;">Education Highest achieved</th>
+<th style="text-align: right;">Age at 1B Age at 1st birth</th>
+<th style="text-align: right;">Pregnancies Number of</th>
+<th style="text-align: right;">Births Number of</th>
+<th style="text-align: left;">Electricity connected</th>
+<th style="text-align: left;">Adopted Children in household</th>
+<th style="text-align: left;">Wage male head of HH</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">None or some Elementary</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Present</td>
+<td style="text-align: left;">Wages</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">201</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">None or some Elementary</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Present</td>
+<td style="text-align: left;">Wages</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">301</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">None or some Elementary</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">No Wages</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">401</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Elementary</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">No Wages</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">502</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Senior High</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">602</td>
+<td style="text-align: left;">Ossu</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Senior High</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">Wages</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">age_na</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">locality_of_house</span>, <span class="va">education_highest_achieved</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">locality_of_house</span>, <span class="va">education_highest_achieved</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_c</a></span><span class="op">(</span>option <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="rmarkdown_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <pre><code>## Introduction
 
 This report uses the **tidyverse** package along with the *SAFI* dataset, 
@@ -405,10 +578,10 @@ which has columns that include:
 <p>A code chunk can be inserted by clicking Code &gt; Insert Chunk, or by using the keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac. In the RStudio visual editor, you can use the ‘everything key’ of <kbd>Cmd</kbd> / <kbd>Ctrl</kbd> + <kbd>/</kbd> and choose ‘R Code Chunk’</p>
 <p>The syntax of a code chunk is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is where your code goes</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">10</span> <span class="sc">*</span> <span class="dv">20</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is where your code goes</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">10</span> <span class="sc">*</span> <span class="dv">20</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 200</code></pre>
 </div>
@@ -421,12 +594,12 @@ which has columns that include:
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: example-figure-chunk</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "A test figure."</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt, <span class="at">type =</span> <span class="st">"p"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: example-figure-chunk</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "A test figure."</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>wt, <span class="at">type =</span> <span class="st">"p"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="rmarkdown_files/figure-html/example-figure-chunk-1.png" class="img-fluid figure-img" width="672"></p>
@@ -438,7 +611,7 @@ which has columns that include:
 <section id="in-text-code." class="level4"><h4 class="anchored">In-text code.</h4>
 <p>Instead of just using code in separated code chunks, you can also use code in-line with your other writing, so you can reference the results of computations in the text, without having to copy-and-paste the values (which can be error prone).</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">our_result</span> <span class="op">&lt;-</span> <span class="fl">10</span> <span class="op">*</span> <span class="fl">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">our_result</span> <span class="op">&lt;-</span> <span class="fl">10</span> <span class="op">*</span> <span class="fl">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use the code chunks <code>``</code> and start it with <code>`r `</code> to tell <code>knitr</code> that we want it to be treated as code, <code>200</code> will be: 200.</p>
 <div class="cell">
@@ -460,10 +633,10 @@ interviews
 <p>To make sure the table is formatted nicely in our output document, we will need to use the <code>kable()</code> function from the <strong>knitr</strong> package. The <code>kable()</code> function takes the output of your R code and knits it into a nice looking HTML table. You can also specify different aspects of the table, e.g.&nbsp;the column names, a caption, etc.</p>
 <p>Run the code chunk to make sure you get the desired output.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">memb_assoc</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span>, <span class="va">memb_assoc</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">summarize</span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">memb_assoc</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">village</span>, <span class="va">memb_assoc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"We can also add a caption."</span>, </span>
 <span>               col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Village"</span>, <span class="st">"Member Association"</span>, </span>
 <span>                             <span class="st">"Mean Number of Members"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -472,9 +645,9 @@ interviews
 <p>We mentioned using <code>include = FALSE</code> in a code chunk to prevent the code and output from printing in the knitted document. There are additional options available to customise how the code-chunks are presented in the output document. The options are entered in the code chunk after <code>chunk-name</code>and separated by commas, e.g.&nbsp;<code>{r chunk-name, eval = FALSE, echo = TRUE}</code>.</p>
 <table class="table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 36%">
-<col style="width: 31%">
+<col style="width: 6%">
+<col style="width: 18%">
+<col style="width: 74%">
 </colgroup>
 <thead><tr class="header">
 <th>Option</th>
@@ -544,17 +717,17 @@ interviews
 <div class="cell">
 
 </div>
-<p>For example, today’s date is 2022-07-01, will be rendered as: today’s date is 2022-07-01. The code will display today’s date in the output document (well, technically the date the document was last knitted).</p>
+<p>For example, today’s date is 2022-07-11, will be rendered as: today’s date is 2022-07-11. The code will display today’s date in the output document (well, technically the date the document was last knitted).</p>
 <p>The best way to use in-line R code, is to minimise the amount of code you need to produce the in-line output by preparing the output in code chunks. Let’s say we’re interested in presenting the average household size in a village.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a summary data frame with the mean household size by village</span></span>
-<span><span class="va">mean_household</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">summarize</span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create a summary data frame with the mean household size by village</span></span>
+<span><span class="va">mean_household</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_no_membrs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">no_membrs</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># and select the village we want to use</span></span>
-<span><span class="va">mean_chirodzo</span> <span class="op">&lt;-</span> <span class="va">mean_household</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">mean_chirodzo</span> <span class="op">&lt;-</span> <span class="va">mean_household</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can make an informative statement on the means of each village, and include the mean values as in-line R-code. For example:</p>
 <p>The average household size in the village of Chirodzo is <code>round(mean_chirodzo$mean_no_membrs, 2)</code></p>
@@ -565,25 +738,25 @@ interviews
 <p>Finally, we will also include a plot, so our document is a little more colourful and a little less boring. We will use the <code>interview_plotting</code> data from the previous episode.</p>
 <p>If you were unable to complete the previous lesson or did not save the data, then you can create it in a new code chunk.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Not run, but can be used to load in data from previous lesson!</span></span>
-<span><span class="va">interviews_plotting</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Not run, but can be used to load in data from previous lesson!</span></span>
+<span><span class="va">interviews_plotting</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co">## pivot wider by items_owned</span></span>
-<span>  <span class="fu">separate_rows</span><span class="op">(</span><span class="va">items_owned</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">items_owned</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co">## if there were no items listed, changing NA to no_listed_items</span></span>
-<span>  <span class="fu">replace_na</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>items_owned <span class="op">=</span> <span class="st">"no_listed_items"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">items_owned</span>, </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/replace_na.html">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>items_owned <span class="op">=</span> <span class="st">"no_listed_items"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">items_owned</span>, </span>
 <span>              values_from <span class="op">=</span> <span class="va">items_owned_logical</span>, </span>
-<span>              values_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>              values_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co">## pivot wider by months_lack_food</span></span>
-<span>  <span class="fu">separate_rows</span><span class="op">(</span><span class="va">months_lack_food</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">months_lack_food</span>, </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">months_lack_food</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">months_lack_food</span>, </span>
 <span>              values_from <span class="op">=</span> <span class="va">months_lack_food_logical</span>, </span>
-<span>              values_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>              values_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co">## add some summary columns</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>number_months_lack_food <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu">select</span><span class="op">(</span><span class="va">.</span>, <span class="va">Jan</span><span class="op">:</span><span class="va">May</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>number_items <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu">select</span><span class="op">(</span><span class="va">.</span>, <span class="va">bicycle</span><span class="op">:</span><span class="va">car</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>number_months_lack_food <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">Jan</span><span class="op">:</span><span class="va">May</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>number_items <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">.</span>, <span class="va">bicycle</span><span class="op">:</span><span class="va">car</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <h2 id="exercise-1" class="anchored">Exercise</h2>
@@ -592,9 +765,9 @@ interviews
 <blockquote class="blockquote">
 <h2 id="solution-to-exercise" class="anchored">Solution to Exercise</h2>
 <div class="cell" data-answer="true">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>{: .solution} {: .challenge}</p>
 </blockquote>
@@ -607,11 +780,11 @@ Code for plot
 </pre>
 <p>…or, ideally, something more informative.</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Type of Wall in Home"</span>, y <span class="op">=</span> <span class="st">"Count"</span>, fill <span class="op">=</span> <span class="st">"Village Name"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span> <span class="co"># add colour deficient friendly palette</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Type of Wall in Home"</span>, y <span class="op">=</span> <span class="st">"Count"</span>, fill <span class="op">=</span> <span class="st">"Village Name"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_fill_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># add colour deficient friendly palette</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="other-output-options" class="level2"><h2 class="anchored" data-anchor-id="other-output-options">Other output options</h2>
 <p>You can convert R Markdown to a PDF or a Word document (among others). Click the little triangle next to the <strong>Knit</strong> button to get a drop-down menu. Or you could put <code>pdf_document</code> or <code>word_document</code> in the initial header of the file.</p>

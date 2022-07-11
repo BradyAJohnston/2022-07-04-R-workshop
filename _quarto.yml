@@ -31,6 +31,14 @@ website:
           href: code-handout.R
         - text: Carpentries Code of Conduct
           href: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+      - secion: "Download Data"
+        contents:
+        - text: Data Surveys 
+          href: data_raw/surveys.csv
+        - text: Data TL Database
+          href: TL_database.xlsx
+        - text: Data Cell
+          href: data_raw/example_cell_data.xslx
       - section: "Starting with R"
         contents:
         - 01-intro-to-r.Rmd
