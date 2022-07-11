@@ -1,0 +1,124 @@
+Variable,Respondent,Locality,Age,Status,Education,Age at 1B,Pregnancies,Births,Electricity,Adopted Children,Wage
+Description,Female ID,of house,,1=oldest,Highest achieved,Age at 1st birth,Number of,Number of,connected,in household,male head of HH
+,101,Ossu,78,1,None or some Elementary,,15,15,Yes,Present,Wages
+,201,Ossu,69,1,None or some Elementary,28,8,5,Yes,Present,Wages
+,301,Ossu,35,1,None or some Elementary,20,6,4,Yes,None,No Wages
+,401,Ossu,42,1,Elementary,25,7,7,Yes,None,No Wages
+,502,Ossu,26,2,Senior High,17,6,6,Yes,None,
+,602,Ossu,30,2,Senior High,23,4,3,Yes,None,Wages
+,701,Ossu,70,1,None or some Elementary,28,5,5,Yes,None,Wages
+,702,Ossu,43,2,Elementary,26,7,5,Yes,None,Wages
+,703,Ossu,29,3,Senior High,24,1,1,Yes,None,Wages
+,801,Ossu,62,1,None or some Elementary,40,8,8,Yes,None,Wages
+,901,Ossu,62,1,None or some Elementary,20,5,5,Yes,None,No Wages
+,902,Ossu,22,2,Junior High,32,1,1,Yes,None,No Wages
+,1001,Ossu,73,1,None or some Elementary,26,2,2,Yes,None,Wages
+,1002,Ossu,39,1,None or some Elementary,26,4,4,Yes,None,Wages
+,1101,Ossu,49,1,None or some Elementary,27,7,7,Yes,None,Wages
+,1201,Ossu,72,1,None or some Elementary,,0,0,Yes,Present,Wages
+,1202,Ossu,41,2,None or some Elementary,31,9,9,Yes,Present,Wages
+,1301,Ossu,25,1,Junior High,20,3,4,Yes,None,No Wages
+,1401,Ossu,21,1,Junior High,20,1,1,Yes,None,No Wages
+,1501,Ossu,29,1,Junior High,16,4,4,Yes,None,Wages
+,1601,Ossu,56,1,None or some Elementary,18,12,11,Yes,None,Wages
+,1701,Ossu,24,1,Senior High,23,1,1,Yes,None,No Wages
+,1801,Ossu,42,1,Tertiary,38,3,3,Yes,None,No Wages
+,1901,Ossu,25,1,Senior High,23,1,1,Yes,Present,No Wages
+,2001,,82,1,None or some Elementary,,9,9,,,
+,2101,Ossu,48,1,None or some Elementary,29,7,6,Yes,None,Wages
+,2201,Ossu,24,1,Junior High,21,2,2,Yes,None,No Wages
+,2301,Ossu,40,1,Junior High,27,7,7,Yes,Present,No Wages
+,2401,Ossu,35,1,None or some Elementary,17,9,9,Yes,None,Wages
+,2501,Ossu,29,1,None or some Elementary,22,7,7,Yes,None,No Wages
+,2601,Ossu,31,1,Senior High,20,2,2,Yes,Present,Wages
+,2701,Ossu,29,1,Tertiary,21,4,4,Yes,None,No Wages
+,2801,Ossu,38,1,None or some Elementary,28,8,7,Yes,None,No Wages
+,2901,Ossu,21,1,Senior High,20,1,1,Yes,None,No Wages
+,3001,Ossu,24,1,Junior High,19,3,3,Yes,None,
+,3101,Ossu,70,1,None or some Elementary,,7,7,Yes,None,No Wages
+,3102,Ossu,41,2,Tertiary,,6,6,Yes,None,No Wages
+,3202,Ossu,28,1,Junior High,18,2,2,Yes,None,No Wages
+,3301,Ossu,28,1,Junior High,23,3,3,Yes,None,No Wages
+,3401,Liamidi,34,1,Elementary,,0,0,No,Present,No Wages
+,3501,Liamidi,57,1,None or some Elementary,45,6,3,No,None,Wages
+,3601,Liamidi,55,1,None or some Elementary,,11,11,No,Present,Wages
+,3701,Liamidi,61,1,None or some Elementary,,11,11,No,None,
+,3801,Liamidi,66,1,None or some Elementary,,6,6,No,None,
+,3901,Liamidi,46,1,None or some Elementary,20,8,7,Yes,None,Wages
+,4001,Liamidi,36,1,None or some Elementary,14,9,6,No,None,Wages
+,4101,Liamidi,44,1,None or some Elementary,22,2,2,No,None,Wages
+,4201,Liamidi,55,1,None or some Elementary,28,4,4,No,None,Wages
+,4202,Liamidi,27,2,None or some Elementary,19,5,5,No,None,Wages
+,4301,Liamidi,62,1,None or some Elementary,,0,0,No,Present,
+,4401,Kai uai hoo,34,1,Elementary,25,6,6,No,None,Wages
+,4501,Kai uai hoo,-99,,,-99,7,7,No,None,
+,4502,Kai uai hoo,25,,Junior High,19,4,4,No,None,
+,4601,Kai uai hoo,29,1,None or some Elementary,15,8,6,No,None,Wages
+,4701,Kai uai hoo,41,1,None or some Elementary,,0,0,Yes,Present,
+,4801,Kai uai hoo,50,1,None or some Elementary,,0,0,No,None,
+,4901,Kai uai hoo,60,1,None or some Elementary,,0,0,No,None,Wages
+,5002,Kai uai hoo,32,2,Junior High,,1,0,No,None,No Wages
+,5003,Kai uai hoo,29,3,None or some Elementary,24,3,3,No,None,No Wages
+,5101,Kai uai hoo,25,1,Elementary,18,2,2,No,None,No Wages
+,5201,Kai uai hoo,36,1,Elementary,20,10,9,No,None,No Wages
+,5301,Kai uai hoo,36,1,Junior High,19,6,4,No,None,No Wages
+,5401,Kai uai hoo,62,1,None or some Elementary,,0,0,No,Present,
+,5501,Kai uai hoo,35,1,None or some Elementary,26,1,0,No,Present,No Wages
+,5503,Kai uai hoo,27,1,Elementary,26,1,1,No,Present,No Wages
+,5601,Kai uai hoo,64,1,None or some Elementary,16,3,3,No,Present,Wages
+,5702,Kai uai hoo,34,1,None or some Elementary,,0,0,No,None,
+,5801,Kai uai hoo,65,1,None or some Elementary,,0,0,No,None,
+,5901,Kai uai hoo,40,1,None or some Elementary,10,1,1,No,Present,Wages
+,6001,Kai uai hoo,58,1,None or some Elementary,24,5,4,No,Present,Wages
+,6101,Kai uai hoo,60,1,None or some Elementary,26,11,10,No,None,
+,6201,Kai uai hoo,44,1,None or some Elementary,25,7,7,No,None,Wages
+,6301,Kai uai hoo,25,1,Junior High,16,6,6,No,None,Wages
+,6401,Kai uai hoo,32,1,Elementary,25,5,5,No,None,No Wages
+,6501,Kai uai hoo,47,1,None or some Elementary,22,12,10,No,None,Wages
+,6601,Kai uai hoo,39,1,None or some Elementary,21,8,7,No,None,Wages
+,6701,Kai uai hoo,33,1,Tertiary,25,5,4,No,None,Wages
+,6801,Kai uai hoo,73,1,None or some Elementary,36,7,5,No,Present,Wages
+,6802,Kai uai hoo,20,2,Junior High,20,1,1,No,Present,Wages
+,6901,Kai uai hoo,38,1,None or some Elementary,19,10,8,No,None,Wages
+,7001,,59,1,None or some Elementary,,3,3,,None,
+,7102,Kai uai hoo,36,2,Junior High,22,3,3,No,None,Wages
+,7201,Kai uai hoo,38,1,Senior High,22,9,8,No,None,No Wages
+,7301,Kai uai hoo,28,1,Junior High,20,4,3,No,None,Wages
+,7501,Kai uai hoo,38,1,Elementary,25,4,4,No,None,Wages
+,7601,Kai uai hoo,28,1,None or some Elementary,19,5,5,No,None,Wages
+,7701,Kai uai hoo,22,1,Senior High,21,1,1,No,None,No Wages
+,7801,Kai uai hoo,65,1,None or some Elementary,,2,2,No,None,
+,7901,Kai uai hoo,26,1,None or some Elementary,22,3,3,No,None,No Wages
+,8101,Kai uai hoo,80,1,None or some Elementary,,6,5,No,None,Wages
+,8102,Kai uai hoo,26,2,Elementary,20,3,3,No,None,Wages
+,8201,Ossu,36,1,Elementary,16,10,10,No,None,Wages
+,8301,Ossu,67,1,None or some Elementary,,10,10,No,Present,Wages
+,8402,Ossu,34,1,None or some Elementary,22,7,7,No,None,Wages
+,8502,Ossu,39,1,Elementary,24,8,8,No,None,No Wages
+,8601,Ossu,58,1,None or some Elementary,29,10,8,Yes,None,
+,8701,Ossu,37,1,None or some Elementary,25,5,5,No,None,Wages
+,8801,Ossu,30,1,Senior High,21,4,4,Yes,None,No Wages
+,8901,Ossu,45,1,Elementary,28,11,11,Yes,None,No Wages
+,9001,Ossu,24,1,None or some Elementary,19,2,2,Yes,Present,Wages
+,9101,Ossu,35,1,Junior High,17,4,4,Yes,Present,No Wages
+,9102,Ossu,30,2,Tertiary,27,3,2,Yes,Present,No Wages
+,9201,Ossu,30,1,Senior High,22,3,3,Yes,Present,No Wages
+,9301,Ossu,44,1,None or some Elementary,25,8,7,Yes,None,Wages
+,9401,Ossu,65,1,None or some Elementary,20,9,9,Yes,None,
+,9501,Ossu,31,1,Junior High,17,6,6,Yes,Present,No Wages
+,9601,Ossu,35,1,Junior High,20,9,8,Yes,Present,No Wages
+,9701,Ossu,55,1,None or some Elementary,22,10,8,Yes,None,
+,9801,Ossu,30,1,Junior High,19,7,7,Yes,None,Wages
+,9901,Liamidi,34,1,Elementary,29,3,2,No,None,No Wages
+,10101,Liamidi,83,1,None or some Elementary,34,4,4,No,None,
+,10102,Liamidi,41,2,None or some Elementary,31,1,1,No,None,
+,10201,Liamidi,61,1,None or some Elementary,,0,0,No,Present,
+,10202,Liamidi,23,2,Junior High,21,2,2,No,Present,
+,10301,Liamidi,26,1,None or some Elementary,17,4,4,No,None,No Wages
+,10401,Liamidi,40,1,None or some Elementary,20,8,7,No,None,Wages
+,10501,Liamidi,31,1,None or some Elementary,21,6,6,No,None,No Wages
+,10601,Liamidi,36,1,Elementary,21,4,3,No,None,Wages
+,10701,Liamidi,60,1,None or some Elementary,16,9,5,No,Present,No Wages
+,10801,Liamidi,25,1,Elementary,17,5,5,No,None,Wages
+,10901,Liamidi,45,1,None or some Elementary,25,7,7,No,None,Wages
+,11001,Liamidi,63,1,None or some Elementary,10,1,1,No,Present,Wages
