@@ -1,0 +1,184 @@
+---
+title: "Scratch Document"
+output: html_document
+date: '2022-07-11'
+---
+
+Anything you write, will be treated as text.
+
+Unless it's inside backticks.
+
+```{r}
+some_variable <- 10 * 20 * 3 * 10
+some_variable
+```
+
+The result of our previous work is `r some_variable`
+
+Another example is: `r round(2.1213122738, 3)`
+
+
+## Download Data File
+
+Below I am downloading the data file to work on.
+
+```{r}
+# download.file(
+# "https://bradyajohnston.github.io/2022-07-04-R-workshop/TL_database.xlsx", "TL_database.xlsx")
+
+```
+
+## Read Data File
+
+```{r}
+library(tidyverse)
+# library(readxl)
+df_tl <- readxl::read_excel("TL_database.xlsx")
+
+df_tl_clean <- df_tl %>% 
+  slice(-1, -2) %>% 
+  select(-1)
+
+```
+
+Additional setup chunk.
+
+```{r}
+
+# install.packages("janitor")
+```
+
+```{r}
+df <- df_tl_clean %>% 
+  janitor::clean_names()
+
+head(df)
+```
+
+# Data Cleaning
+
+We are going to change them back to numbers, the way they should be.
+
+```{r}
+df %>% 
+  str()
+
+df %>% 
+  mutate(
+    respondent_female_id = as.numeric(respondent_female_id)
+  ) %>% 
+  str()
+
+df <- df %>%
+  mutate(across(
+    .cols = c(
+      respondent_female_id,
+      age_na,
+      status_1_oldest,
+      age_at_1b_age_at_1st_birth,
+      pregnancies_number_of,
+      births_number_of
+    ),
+    .fns = as.numeric
+  ))
+str(df)
+```
+
+# First look at the data
+
+```{r}
+summary(df)
+```
+
+# Let's Plot Some Data
+
+Lets have a look at our data, to see if it's relevant to do some stats on.
+
+```{r}
+df %>% 
+  
+  filter(
+    age_na > 0, 
+    !is.na(locality_of_house)
+    ) %>% 
+  
+  ggplot(aes(
+    x = locality_of_house, 
+    y = age_na
+    )) + 
+  geom_jitter(width = 0.1, alpha = 0.3) + 
+  geom_boxplot(
+    mapping = aes(colour = locality_of_house), 
+    fill = "transparent", 
+    #colour = "tomato"
+    ) + 
+  theme_classic()
+
+
+plot_1 <- df %>% 
+  
+  filter(
+    age_na > 0, 
+    !is.na(locality_of_house)
+    ) %>% 
+  
+  ggplot(aes(
+    x = locality_of_house, 
+    y = age_na, 
+    colour = locality_of_house
+    )) + 
+  geom_jitter(width = 0.1, alpha = 0.3) + 
+  geom_boxplot(
+    fill = "transparent", 
+    #colour = "tomato"
+    ) + 
+  theme_classic() + 
+  
+  guides(colour = "none") + 
+  
+  labs(
+    x = "Housing Region", 
+    y = "Age", 
+    title = "A Plot About Houses"
+  ) 
+  
+plot_1
+```
+
+## A second plot.
+
+```{r}
+df %>% 
+  filter(age_at_1b_age_at_1st_birth > 0) %>% 
+  
+  ggplot(aes(
+    age_at_1b_age_at_1st_birth, 
+    pregnancies_number_of, 
+    colour = locality_of_house
+  )) + 
+  geom_point() + 
+  geom_smooth(mapping = aes(group = locality_of_house), 
+              method = "lm", 
+              colour = "black") + 
+  facet_wrap(~locality_of_house) + 
+  theme_classic() -> plot_2
+
+
+patchwork::wrap_plots(plot_1, patchwork::plot_spacer(), plot_2)
+
+# + 
+#   geom_smooth(method = "lm") +
+#   facet_wrap(~locality_of_house) + 
+#   theme_classic() + 
+#   guides(colour = "none") -> plot_2
+# 
+# patchwork::wrap_plots(plot_1, plot_2) + 
+#   patchwork::plot_annotation(tag_levels = "A")
+
+# save the plots to disk
+ggsave("my_plot.pdf", width = 20, height = 10, units = "cm")
+ggsave("my_plot.png", width = 20, height = 10, units = "cm", dpi = 600)
+
+# open up the file using 'browseURL()`
+# browseURL("my_plot.pdf")
+```

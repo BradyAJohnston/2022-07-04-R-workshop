@@ -51,6 +51,7 @@ website:
       - section: "Reproducible Reporting"
         contents:
         - rmarkdown.qmd
+        - scratch.Rmd
       # - 05-r-and-databases.Rmd
       - section: "Stats in R"
         contents:
