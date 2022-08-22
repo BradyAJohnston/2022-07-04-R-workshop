@@ -1,0 +1,28 @@
+---
+title: "Useful Links"
+editor: visual
+---
+
+Thanks to everyone for showing up, and for making it a very enjoyable workshop to teach!
+
+-   The Data Carpentries: <https://datacarpentry.org/>
+
+-   The original R for Ecologists lesson that this course material was based on: <https://datacarpentry.org/R-ecology-lesson/>
+
+-   The GitHub repo that contains all the code for these materials: <https://github.com/BradyAJohnston/2022-07-04-R-workshop/>
+
+-   Semester-long curriculum for teaching R stats for biology: <https://datacarpentry.org/semester-biology/>
+
+-   Applied Statistics for Biologists (in R): <https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/ask1-intro.html>
+
+-   Cheat sheets from RStudio: <https://www.rstudio.com/resources/cheatsheets/>
+
+-   R for Data Science (Definitely read this one!): <https://r4ds.hadley.nz>
+
+-   Webinar on getting started with Tidy Statistics in R: <https://www.rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/>
+
+-   RStudio Cloud for using R & RStudio in the browser: <https://rstudio.cloud/>
+
+-   `{ggpubr}` for 'Publication Ready Plots': <https://rpkgs.datanovia.com/ggpubr/index.html>
+
+-   Experimental Data Viz protocols: <https://joachimgoedhart.github.io/DataViz-protocols/index.html>
