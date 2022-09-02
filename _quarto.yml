@@ -56,6 +56,9 @@ website:
       - section: "Stats in R"
         contents:
         - stats.qmd
+      - section: "Useful Links"
+        contents:
+        - links.qmd
 execute: 
   freeze: auto
 
